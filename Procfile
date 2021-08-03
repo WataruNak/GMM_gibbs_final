@@ -1,2 +1,2 @@
-web otree devserver naminggame_one_feature:app
-worker otree devserver naminggame_one_feature:app
+web otree prodserver1of2 naminggame_one_feature:app
+worker otree prodserver2of2 naminggame_one_feature:app

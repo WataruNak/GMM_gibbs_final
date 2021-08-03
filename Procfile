@@ -1,0 +1,2 @@
+web gunicorn naminggame_one_feature:app
+worker gunicorn naminggame_one_feature:app

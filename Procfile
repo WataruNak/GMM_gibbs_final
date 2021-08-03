@@ -1,2 +1,4 @@
-web gunicorn naminggame_one_feature:app
-worker gunicorn naminggame_one_feature:app
+web gunicorn categorization:app
+web gunicorn create_symbol:app
+worker gunicorn categorization:app
+worker gunicorn create_symbol:app

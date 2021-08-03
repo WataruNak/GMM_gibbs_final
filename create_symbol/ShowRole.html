@@ -1,0 +1,16 @@
+{{ block title }}
+    あなたの役
+{{ endblock }}
+{{ block content }}
+<p>このラウンドでのあなたの役は、
+{{ if role == 'speaker' }}
+「話し手」
+{{ else }}
+「聞き手」
+{{ endif }}
+です。
+</p>
+<p>「次へ」ボタンを押して下さい。</p>
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,2 +1,2 @@
-web: gunicorn naminggame:app
-worker: gunicorn naminggame:app
+web: gunicorn naminggame.wsgi
+worker: gunicorn naminggame.wsgi

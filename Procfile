@@ -1,2 +1,2 @@
-web otree prodserver1of2 naminggame_one_feature.wsgi
-worker otree prodserver2of2 naminggame_one_feature.wsgi
+web otree prodserver1of2
+worker otree prodserver2of2

@@ -31,7 +31,13 @@ class Player(BasePlayer):
 
 
 def custom_export(players):
-    yield ["session", "participant_code", "round_number", "id_in_group", "payoff"]
+    yield [
+        "session",
+        "participant_code",
+        "round_number",
+        "id_in_group",
+        "stimuli_id",
+        "selected_category"]
     for p in players:
         participant = p.participant
         session = p.session
@@ -40,6 +46,7 @@ def custom_export(players):
             participant.code,
             p.round_number,
             p.id_in_group,
+            p.stimuli_id,
             p.selected_category,
             ]
 

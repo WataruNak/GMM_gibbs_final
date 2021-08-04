@@ -77,16 +77,25 @@ def rename_choice_error_message(player, value):
 
 
 def custom_export(players):
-    yield ["session", "participant_code", "round_number", "id_in_group", "payoff"]
+    yield [
+        "session",
+        "participant_code",
+        "round_number",
+        "id_in_group",
+        "img_id",
+        "send_choice",
+        "accept",
+        "rename_choice",
+        ]
     for p in players:
         participant = p.participant
         session = p.session
         yield [
             session.code,
             participant.code,
-            session.test_id_list,
             p.round_number,
             p.id_in_group,
+            session.test_id_list,
             p.send_choice,
             p.accept,
             p.rename_choice

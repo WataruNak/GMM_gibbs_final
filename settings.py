@@ -30,7 +30,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 
 PARTICIPANT_FIELDS = ["img2category", "img2name", "stimuli_id_list", "stimuli_img_order"]
-SESSION_FIELDS = ["test_id_list", "test_img_order"]
+SESSION_FIELDS = ["test_id_list"]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

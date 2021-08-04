@@ -95,7 +95,7 @@ def custom_export(players):
             participant.code,
             p.round_number,
             p.id_in_group,
-            session.test_id_list,
+            p.test_id,
             p.send_choice,
             p.accept,
             p.rename_choice
@@ -136,6 +136,7 @@ class Speaker(Page):
                 player.session.test_id_list.append(n+1)
             random.shuffle(player.session.test_id_list)
         showed_img = "stimuli/cv2img{}.jpg".format(player.session.test_id_list[player.round_number - 1])
+        player.test_id = player.session.test_id_list[player.round_number - 1]
         return {
             "showed_img" : showed_img,
             "dict1" : player.participant.img2category,

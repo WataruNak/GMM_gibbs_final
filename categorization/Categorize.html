@@ -4,11 +4,34 @@
  
 {{ block content }}
 <img src = "{{ static showed_img }}" width=150px/>
-    {{ formfields }}
     {{ next_button }}
 <br>
 <br>
 <p>これまでに出てきた画像とそのカテゴリーの一覧</p>
+<div>
+<ul id="tytles" class="list-group" style="cursor: move">
+    {{ for tytle in Constants.category_tytles }}
+    <li data-id="{{ tytle }}" class="list-group-item">{{ tytle }}</li>
+    {{ endfor }}
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script>
+    let el = document.getElementById('tytles');
+    let sortable = Sortable.create(el, {
+        onChange: function (evt) {
+            document.getElementById('category_order').value = sortable.toArray().join(',');
+        }
+    });
+</script>
+
+<input type="hidden" name="categeory_order" id="category_order">
+</div>
+
+<div>
+
+</div>
+
 <p class="category_title">カテゴリー1</p>
 <div class = "imgs">
 {{ for k,v in dict.items() }}

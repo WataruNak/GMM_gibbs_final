@@ -14,6 +14,7 @@ class Constants(BaseConstants):
     name_in_url = 'categorization'
     players_per_group = 2
     num_rounds = 40
+    category_tytles = ["カテゴリー1", "カテゴリー2", "カテゴリー3", "カテゴリー4", "カテゴリー5", "カテゴリー6"]
 
 
 class Subsession(BaseSubsession):
@@ -31,6 +32,7 @@ class Player(BasePlayer):
         widget = widgets.RadioSelectHorizontal
     )
     stimuli_id = models.IntegerField()
+    category_order = models.StringField()
 
 
 

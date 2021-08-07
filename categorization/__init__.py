@@ -2,7 +2,11 @@ from otree.api import *
 import random
 
 doc = """
-Your app description
+https://qiita.com/naoki-funawatari/items/c78630b85f5f7fe21d19 drag_and_drop
+https://www.otreehub.com/projects/otree-snippets/ otree sortable_example
+https://qiita.com/AVELWP/items/536c797a63c081cf7bc0 sortable document ja
+https://github.com/SortableJS/Sortable sortable git
+https://qiita.com/t-iguchi/items/20dc31d5e004d7145634 js in django
 """
 
 

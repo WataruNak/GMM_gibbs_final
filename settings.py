@@ -50,7 +50,7 @@ SECRET_KEY = '3953047406988'
 
 ROOMS = [
     dict(
-        name='naming_game_test1',
-        display_name='Naming-Game TestRoom1'
+        name='naming_game_revise',
+        display_name='Naming-Game Revise1'
     ),
 ]

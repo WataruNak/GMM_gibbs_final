@@ -1,20 +1,17 @@
 // アイテムのリストを取得
 const items = [...document.querySelectorAll(".item")];
+const imgorder = js_vars.id_order;
 
 // ドラッグ開始イベントを定義
 const handleDragStart = (e) => {
-  e.target.classList.add("dragging");
-
-  // ドロップ効果の設定
+  e.currentTarget.classList.add("dragging");
   e.dataTransfer.effectAllowed = "move";
-
-  // 転送するデータの設定
-  const { id } = e.target;
+  let { id } = e.currentTarget;
   e.dataTransfer.setData("application/json", JSON.stringify({ id }));
 };
 
 // ドラッグ終了イベントを定義
-const handleDragEnd = (e) => e.target.classList.remove("dragging");
+const handleDragEnd = (e) => e.currentTarget.classList.remove("dragging");
 
 // アイテムにイベントを登録
 for (const item of items) {
@@ -25,15 +22,17 @@ for (const item of items) {
 // 要素が重なった際のイベントを定義
 const handleDragEnter = (e) => {
   // 子要素へのドラッグを制限
-  if ([...e.target.classList].includes("item")) {
+  if (
+    [...e.currentTarget.classList].includes("item")    
+    ) {
+      e.dataTransfer.dropEffect = "none";
     return;
-  }
-
-  e.target.classList.add("over");
+  };
+  e.currentTarget.classList.add("over");
 };
 
 // 要素が離れた際のイベントを定義
-const handleDragLeave = (e) => e.target.classList.remove("over");
+const handleDragLeave = (e) => e.currentTarget.classList.remove("over");
 
 // 要素が重なっている最中のイベントを定義
 const handleDragOver = (e) => {
@@ -41,12 +40,12 @@ const handleDragOver = (e) => {
   e.preventDefault();
 
   // 子要素へのドラッグを制限
-  if ([...e.target.classList].includes("item")) {
-    // ドラッグ不可のドロップ効果を設定
+  if (
+    [...e.currentTarget.classList].includes("item") 
+    ) {
     e.dataTransfer.dropEffect = "none";
     return;
-  }
-
+  };
   // ドロップ効果の設定
   e.dataTransfer.dropEffect = "move";
 };
@@ -55,19 +54,22 @@ const handleDragOver = (e) => {
 const handleDrop = (e) => {
   // 要素がドロップされた際のブラウザ既定の処理を変更
   e.preventDefault();
-  e.target.classList.remove("over");
-
+  e.currentTarget.classList.remove("over");
   // ブラウザ外からのファイルドロップを制限
   if (e.dataTransfer.files.length > 0) {
     return;
-  }
-
+  };
   // 転送データの取得
-  const { id } = JSON.parse(e.dataTransfer.getData("application/json"));
-
+  let { id } = JSON.parse(e.dataTransfer.getData("application/json"));
   // ドロップ先に要素を追加する
-  e.target.appendChild(document.getElementById(id));
+  e.currentTarget.appendChild(document.getElementById(id));
+  let imgid4cat = parseInt(document.getElementById(id).id, 10);
+  let true_imgpath = "\"" + "img" + imgorder[imgid4cat] + "_cat" + "\"";
+  let catpath = "\"" + "category" + parseInt(e.currentTarget.id, 10) + "\"";
+  let catofimg = parseInt(document.getElementById(catpath).children[0].id, 10);
+  document.getElementById(true_imgpath).value = catofimg;
 };
+
 
 // ドロップ先のリストを取得
 const boxes = [...document.querySelectorAll(".box")];

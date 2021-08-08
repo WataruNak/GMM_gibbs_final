@@ -29,7 +29,13 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = ["img2category", "img2name", "stimuli_id_list", "stimuli_img_order"]
+PARTICIPANT_FIELDS = [
+    "img2category",
+    "img2name",
+    "stimuli_id_list",
+    "stimuli_img_order",
+    "imgPathSeries",
+    ]
 SESSION_FIELDS = ["test_id_list"]
 
 # ISO-639 code

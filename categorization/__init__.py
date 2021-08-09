@@ -24,47 +24,47 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    name_order = models.StringField(default="1,2,3,4,5,6")
-    img0_cat = models.IntegerField(default=0)
-    img1_cat = models.IntegerField(default=0)
-    img2_cat = models.IntegerField(default=0)
-    img3_cat = models.IntegerField(default=0)
-    img4_cat = models.IntegerField(default=0)
-    img5_cat = models.IntegerField(default=0)
-    img6_cat = models.IntegerField(default=0)
-    img7_cat = models.IntegerField(default=0)
-    img8_cat = models.IntegerField(default=0)
-    img9_cat = models.IntegerField(default=0)
-    img10_cat = models.IntegerField(default=0)
-    img11_cat = models.IntegerField(default=0)
-    img12_cat = models.IntegerField(default=0)
-    img13_cat = models.IntegerField(default=0)
-    img14_cat = models.IntegerField(default=0)
-    img15_cat = models.IntegerField(default=0)
-    img16_cat = models.IntegerField(default=0)
-    img17_cat = models.IntegerField(default=0)
-    img18_cat = models.IntegerField(default=0)
-    img19_cat = models.IntegerField(default=0)
-    img20_cat = models.IntegerField(default=0)
-    img21_cat = models.IntegerField(default=0)
-    img22_cat = models.IntegerField(default=0)
-    img23_cat = models.IntegerField(default=0)
-    img24_cat = models.IntegerField(default=0)
-    img25_cat = models.IntegerField(default=0)
-    img26_cat = models.IntegerField(default=0)
-    img27_cat = models.IntegerField(default=0)
-    img28_cat = models.IntegerField(default=0)
-    img29_cat = models.IntegerField(default=0)
-    img30_cat = models.IntegerField(default=0)
-    img31_cat = models.IntegerField(default=0)
-    img32_cat = models.IntegerField(default=0)
-    img33_cat = models.IntegerField(default=0)
-    img34_cat = models.IntegerField(default=0)
-    img35_cat = models.IntegerField(default=0)
-    img36_cat = models.IntegerField(default=0)
-    img37_cat = models.IntegerField(default=0)
-    img38_cat = models.IntegerField(default=0)
-    img39_cat = models.IntegerField(default=0)
+    name_order = models.StringField(initial="sym1,sym2,sym3,sym4,sym5,sym6")
+    img0_cat = models.StringField(initial="0")
+    img1_cat = models.StringField(initial="0")
+    img2_cat = models.StringField(initial="0")
+    img3_cat = models.StringField(initial="0")
+    img4_cat = models.StringField(initial="0")
+    img5_cat = models.StringField(initial="0")
+    img6_cat = models.StringField(initial="0")
+    img7_cat = models.StringField(initial="0")
+    img8_cat = models.StringField(initial="0")
+    img9_cat = models.StringField(initial="0")
+    img10_cat = models.StringField(initial="0")
+    img11_cat = models.StringField(initial="0")
+    img12_cat = models.StringField(initial="0")
+    img13_cat = models.StringField(initial="0")
+    img14_cat = models.StringField(initial="0")
+    img15_cat = models.StringField(initial="0")
+    img16_cat = models.StringField(initial="0")
+    img17_cat = models.StringField(initial="0")
+    img18_cat = models.StringField(initial="0")
+    img19_cat = models.StringField(initial="0")
+    img20_cat = models.StringField(initial="0")
+    img21_cat = models.StringField(initial="0")
+    img22_cat = models.StringField(initial="0")
+    img23_cat = models.StringField(initial="0")
+    img24_cat = models.StringField(initial="0")
+    img25_cat = models.StringField(initial="0")
+    img26_cat = models.StringField(initial="0")
+    img27_cat = models.StringField(initial="0")
+    img28_cat = models.StringField(initial="0")
+    img29_cat = models.StringField(initial="0")
+    img30_cat = models.StringField(initial="0")
+    img31_cat = models.StringField(initial="0")
+    img32_cat = models.StringField(initial="0")
+    img33_cat = models.StringField(initial="0")
+    img34_cat = models.StringField(initial="0")
+    img35_cat = models.StringField(initial="0")
+    img36_cat = models.StringField(initial="0")
+    img37_cat = models.StringField(initial="0")
+    img38_cat = models.StringField(initial="0")
+    img39_cat = models.StringField(initial="0")
 
     img_1st = models.IntegerField()
     img_2nd = models.IntegerField()
@@ -147,28 +147,18 @@ class Categorize(Page):
         "img25_cat", "img26_cat", "img27_cat", "img28_cat", "img29_cat",
         "img30_cat", "img31_cat", "img32_cat", "img33_cat", "img34_cat",
         "img35_cat", "img36_cat", "img37_cat", "img38_cat", "img39_cat",
-        "img_1st", "img_2nd", "img_3rd", "img_4th", "img_5th",
-        "img_6th", "img_7th", "img_8th", "img_9th", "img_10th",
-        "img_11th", "img_12th", "img_13th", "img_14th", "img_15th",
-        "img_16th", "img_17th", "img_18th", "img_19th", "img_20th",
-        "img_21st", "img_22nd", "img_23rd", "img_24th", "img_25th",
-        "img_26th", "img_27th", "img_28th", "img_29th", "img_30th",
-        "img_31st", "img_32nd", "img_33rd", "img_34th", "img_35th",
-        "img_36th", "img_37th", "img_38th", "img_39th", "img_40th",
     ]
 
     @staticmethod
     def vars_for_template(player: Player):
         player.participant.img2category = {}
         player.participant.stimuli_id_list = []
-        player.participant.imgPathSeries = []
         for n in range(40):
-            player.participant.stimuli_id_list.append(n+1)
+            player.participant.stimuli_id_list.append(n)
         random.shuffle(player.participant.stimuli_id_list)
         for i in range(40):
-            player.participant.img2category["stimuli/cv2img{}.jpg".format(player.participant.stimuli_id_list[i])] = 0
-        for j in range(40):
-            player.participant.imgPathSeries.append(list(player.participant.img2category.keys())[j])
+            player.participant.img2category["stimuli/cv2img{}.jpg".format(player.participant.stimuli_id_list[i]+1)] = 0
+        player.participant.imgPathSeries = list(player.participant.img2category.keys())
         player.img_1st = player.participant.stimuli_id_list[0]
         player.img_2nd = player.participant.stimuli_id_list[1]
         player.img_3rd = player.participant.stimuli_id_list[2]
@@ -212,6 +202,7 @@ class Categorize(Page):
         return {
             "name_order" : player.name_order,
             "dict" : player.participant.img2category,
+            "keylist" : player.participant.imgPathSeries,
             "img0" : player.participant.imgPathSeries[0],
             "img1" : player.participant.imgPathSeries[1],
             "img2" : player.participant.imgPathSeries[2],
@@ -252,32 +243,13 @@ class Categorize(Page):
             "img37" : player.participant.imgPathSeries[37],
             "img38" : player.participant.imgPathSeries[38],
             "img39" : player.participant.imgPathSeries[39],
-            "img0_cat" : player.img0_cat, "img1_cat" : player.img1_cat, 
-            "img2_cat" : player.img2_cat, "img3_cat" : player.img3_cat,
-            "img4_cat" : player.img4_cat, "img5_cat" : player.img5_cat,
-            "img6_cat" : player.img6_cat, "img7_cat" : player.img7_cat,
-            "img8_cat" : player.img8_cat, "img9_cat" : player.img9_cat,
-            "img10_cat" : player.img10_cat, "img11_cat" : player.img11_cat, 
-            "img12_cat" : player.img12_cat, "img13_cat" : player.img13_cat,
-            "img14_cat" : player.img14_cat, "img15_cat" : player.img15_cat,
-            "img16_cat" : player.img16_cat, "img17_cat" : player.img17_cat,
-            "img18_cat" : player.img18_cat, "img19_cat" : player.img19_cat,
-            "img20_cat" : player.img20_cat, "img21_cat" : player.img21_cat,
-            "img22_cat" : player.img22_cat, "img23_cat" : player.img23_cat,
-            "img24_cat" : player.img24_cat, "img25_cat" : player.img25_cat,
-            "img26_cat" : player.img26_cat, "img27_cat" : player.img27_cat,
-            "img28_cat" : player.img28_cat, "img29_cat" : player.img29_cat,
-            "img30_cat" : player.img30_cat, "img31_cat" : player.img31_cat,
-            "img32_cat" : player.img32_cat, "img33_cat" : player.img33_cat,
-            "img34_cat" : player.img34_cat, "img35_cat" : player.img35_cat,
-            "img36_cat" : player.img36_cat, "img37_cat" : player.img37_cat,
-            "img38_cat" : player.img38_cat, "img39_cat" : player.img39_cat,
         }
     
     @staticmethod
     def js_vars(player):
         return dict(
             id_order=player.participant.stimuli_id_list,
+            name_order=player.name_order,
         )
 
     @staticmethod
@@ -338,7 +310,27 @@ class Results(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return {
-            "dict" : player.participant.img2category
+            "dict" : player.participant.img2category,
+            "img0_cat" : player.img0_cat, "img1_cat" : player.img1_cat, 
+            "img2_cat" : player.img2_cat, "img3_cat" : player.img3_cat,
+            "img4_cat" : player.img4_cat, "img5_cat" : player.img5_cat,
+            "img6_cat" : player.img6_cat, "img7_cat" : player.img7_cat,
+            "img8_cat" : player.img8_cat, "img9_cat" : player.img9_cat,
+            "img10_cat" : player.img10_cat, "img11_cat" : player.img11_cat, 
+            "img12_cat" : player.img12_cat, "img13_cat" : player.img13_cat,
+            "img14_cat" : player.img14_cat, "img15_cat" : player.img15_cat,
+            "img16_cat" : player.img16_cat, "img17_cat" : player.img17_cat,
+            "img18_cat" : player.img18_cat, "img19_cat" : player.img19_cat,
+            "img20_cat" : player.img20_cat, "img21_cat" : player.img21_cat,
+            "img22_cat" : player.img22_cat, "img23_cat" : player.img23_cat,
+            "img24_cat" : player.img24_cat, "img25_cat" : player.img25_cat,
+            "img26_cat" : player.img26_cat, "img27_cat" : player.img27_cat,
+            "img28_cat" : player.img28_cat, "img29_cat" : player.img29_cat,
+            "img30_cat" : player.img30_cat, "img31_cat" : player.img31_cat,
+            "img32_cat" : player.img32_cat, "img33_cat" : player.img33_cat,
+            "img34_cat" : player.img34_cat, "img35_cat" : player.img35_cat,
+            "img36_cat" : player.img36_cat, "img37_cat" : player.img37_cat,
+            "img38_cat" : player.img38_cat, "img39_cat" : player.img39_cat,
         }
 
 

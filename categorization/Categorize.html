@@ -125,42 +125,32 @@
     <img src = "{{ static img39 }}" height="50px" width="50px"/>
 </div>
 </div>
-<div class="invisible" id="button_to_se">
+<div id="button_to_se" style="visibility: hidden">
     {{ next_button }}
 </div>
 <br>
 <br>
 <div class="area">
     <ul id="names" class="name-list">
-        <li draggable="true" id="name1">
+        <li draggable="true" id="name1" data-id="sym1">
         <img src="{{ static "labels/1.png" }}" height="100px" width="100px">
         </li>
-        <li draggable="true" id="name2">
+        <li draggable="true" id="name2"  data-id="sym2">
         <img src="{{ static "labels/2.png" }}" height="100px" width="100px">
         </li>
-        <li draggable="true" id="name3">
+        <li draggable="true" id="name3"  data-id="sym3">
         <img src="{{ static "labels/3.png" }}" height="100px" width="100px">
         </li>
-        <li draggable="true" id="name4">
+        <li draggable="true" id="name4"  data-id="sym4">
         <img src="{{ static "labels/4.png" }}" height="100px" width="100px">
         </li>
-        <li draggable="true" id="name5">
+        <li draggable="true" id="name5"  data-id="sym5">
         <img src="{{ static "labels/5.png" }}" height="100px" width="100px">
         </li>
-        <li draggable="true" id="name6">
+        <li draggable="true" id="name6"  data-id="sym6">
         <img src="{{ static "labels/6.png" }}" height="100px" width="100px">
         </li>
     </ul>
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-<script>
-    let el = document.getElementById('names');
-    let sortable = Sortable.create(el, {
-        onChange: function (evt) {
-            document.getElementById('name_order').value = sortable.toArray().join(',');
-        }
-    });
-</script>
-{{ formfield_errors 'name_order' }}
 
 <div class="grid">
     <div class="box box1" id="box1">
@@ -178,96 +168,51 @@
 </div>
 </div>
 
-<input type="hidden" name="name_order" id="name_order">
+<input type="hidden" name="name_order" id="name_order" value="sym1,sym2,sym3,sym4,sym5,sym6"/>
+{{ formfield_errors 'name_order' }}
+<input type="hidden" name="img0_cat" id="img0_cat" value="0"/>
+<input type="hidden" name="img1_cat" id="img1_cat" value="0"/>
+<input type="hidden" name="img2_cat" id="img2_cat" value="0"/>
+<input type="hidden" name="img3_cat" id="img3_cat" value="0"/>
+<input type="hidden" name="img4_cat" id="img4_cat" value="0"/>
+<input type="hidden" name="img5_cat" id="img5_cat" value="0"/>
+<input type="hidden" name="img6_cat" id="img6_cat" value="0"/>
+<input type="hidden" name="img7_cat" id="img7_cat" value="0"/>
+<input type="hidden" name="img8_cat" id="img8_cat" value="0"/>
+<input type="hidden" name="img9_cat" id="img9_cat" value="0"/>
+<input type="hidden" name="img10_cat" id="img10_cat" value="0"/>
+<input type="hidden" name="img11_cat" id="img11_cat" value="0"/>
+<input type="hidden" name="img12_cat" id="img12_cat" value="0"/>
+<input type="hidden" name="img13_cat" id="img13_cat" value="0"/>
+<input type="hidden" name="img14_cat" id="img14_cat" value="0"/>
+<input type="hidden" name="img15_cat" id="img15_cat" value="0"/>
+<input type="hidden" name="img16_cat" id="img16_cat" value="0"/>
+<input type="hidden" name="img17_cat" id="img17_cat" value="0"/>
+<input type="hidden" name="img18_cat" id="img18_cat" value="0"/>
+<input type="hidden" name="img19_cat" id="img19_cat" value="0"/>
+<input type="hidden" name="img20_cat" id="img20_cat" value="0"/>
+<input type="hidden" name="img21_cat" id="img21_cat" value="0"/>
+<input type="hidden" name="img22_cat" id="img22_cat" value="0"/>
+<input type="hidden" name="img23_cat" id="img23_cat" value="0"/>
+<input type="hidden" name="img24_cat" id="img24_cat" value="0"/>
+<input type="hidden" name="img25_cat" id="img25_cat" value="0"/>
+<input type="hidden" name="img26_cat" id="img26_cat" value="0"/>
+<input type="hidden" name="img27_cat" id="img27_cat" value="0"/>
+<input type="hidden" name="img28_cat" id="img28_cat" value="0"/>
+<input type="hidden" name="img29_cat" id="img29_cat" value="0"/>
+<input type="hidden" name="img30_cat" id="img30_cat" value="0"/>
+<input type="hidden" name="img31_cat" id="img31_cat" value="0"/>
+<input type="hidden" name="img32_cat" id="img32_cat" value="0"/>
+<input type="hidden" name="img33_cat" id="img33_cat" value="0"/>
+<input type="hidden" name="img34_cat" id="img34_cat" value="0"/>
+<input type="hidden" name="img35_cat" id="img35_cat" value="0"/>
+<input type="hidden" name="img36_cat" id="img36_cat" value="0"/>
+<input type="hidden" name="img37_cat" id="img37_cat" value="0"/>
+<input type="hidden" name="img38_cat" id="img38_cat" value="0"/>
+<input type="hidden" name="img39_cat" id="img39_cat" value="0"/>
 
-<input type="hidden" name="img0_cat" id="img0_cat">
-<input type="hidden" name="img1_cat" id="img1_cat">
-<input type="hidden" name="img2_cat" id="img2_cat">
-<input type="hidden" name="img3_cat" id="img3_cat">
-<input type="hidden" name="img4_cat" id="img4_cat">
-<input type="hidden" name="img5_cat" id="img5_cat">
-<input type="hidden" name="img6_cat" id="img6_cat">
-<input type="hidden" name="img7_cat" id="img7_cat">
-<input type="hidden" name="img8_cat" id="img8_cat">
-<input type="hidden" name="img9_cat" id="img9_cat">
-<input type="hidden" name="img10_cat" id="img10_cat">
-<input type="hidden" name="img11_cat" id="img11_cat">
-<input type="hidden" name="img12_cat" id="img12_cat">
-<input type="hidden" name="img13_cat" id="img13_cat">
-<input type="hidden" name="img14_cat" id="img14_cat">
-<input type="hidden" name="img15_cat" id="img15_cat">
-<input type="hidden" name="img16_cat" id="img16_cat">
-<input type="hidden" name="img17_cat" id="img17_cat">
-<input type="hidden" name="img18_cat" id="img18_cat">
-<input type="hidden" name="img19_cat" id="img19_cat">
-<input type="hidden" name="img20_cat" id="img20_cat">
-<input type="hidden" name="img21_cat" id="img21_cat">
-<input type="hidden" name="img22_cat" id="img22_cat">
-<input type="hidden" name="img23_cat" id="img23_cat">
-<input type="hidden" name="img24_cat" id="img24_cat">
-<input type="hidden" name="img25_cat" id="img25_cat">
-<input type="hidden" name="img26_cat" id="img26_cat">
-<input type="hidden" name="img27_cat" id="img27_cat">
-<input type="hidden" name="img28_cat" id="img28_cat">
-<input type="hidden" name="img29_cat" id="img29_cat">
-<input type="hidden" name="img30_cat" id="img30_cat">
-<input type="hidden" name="img31_cat" id="img31_cat">
-<input type="hidden" name="img32_cat" id="img32_cat">
-<input type="hidden" name="img33_cat" id="img33_cat">
-<input type="hidden" name="img34_cat" id="img34_cat">
-<input type="hidden" name="img35_cat" id="img35_cat">
-<input type="hidden" name="img36_cat" id="img36_cat">
-<input type="hidden" name="img37_cat" id="img37_cat">
-<input type="hidden" name="img38_cat" id="img38_cat">
-<input type="hidden" name="img39_cat" id="img39_cat">
-
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script type="text/javascript" src="{% static "js/img_grid.js" %}"></script>
-<script>
-    if (
-        document.getElementById('img0_cat').value != 0 &&
-        document.getElementById('img1_cat').value != 0 &&
-        document.getElementById('img2_cat').value != 0 &&
-        document.getElementById('img3_cat').value != 0 &&
-        document.getElementById('img4_cat').value != 0 &&
-        document.getElementById('img5_cat').value != 0 &&
-        document.getElementById('img6_cat').value != 0 &&
-        document.getElementById('img7_cat').value != 0 &&
-        document.getElementById('img8_cat').value != 0 &&
-        document.getElementById('img9_cat').value != 0 &&
-        document.getElementById('img10_cat').value != 0 &&
-        document.getElementById('img11_cat').value != 0 &&
-        document.getElementById('img12_cat').value != 0 &&
-        document.getElementById('img13_cat').value != 0 &&
-        document.getElementById('img14_cat').value != 0 &&
-        document.getElementById('img15_cat').value != 0 &&
-        document.getElementById('img16_cat').value != 0 &&
-        document.getElementById('img17_cat').value != 0 &&
-        document.getElementById('img18_cat').value != 0 &&
-        document.getElementById('img19_cat').value != 0 &&
-        document.getElementById('img20_cat').value != 0 &&
-        document.getElementById('img21_cat').value != 0 &&
-        document.getElementById('img22_cat').value != 0 &&
-        document.getElementById('img23_cat').value != 0 &&
-        document.getElementById('img24_cat').value != 0 &&
-        document.getElementById('img25_cat').value != 0 &&
-        document.getElementById('img26_cat').value != 0 &&
-        document.getElementById('img27_cat').value != 0 &&
-        document.getElementById('img28_cat').value != 0 &&
-        document.getElementById('img29_cat').value != 0 &&
-        document.getElementById('img30_cat').value != 0 &&
-        document.getElementById('img31_cat').value != 0 &&
-        document.getElementById('img32_cat').value != 0 &&
-        document.getElementById('img33_cat').value != 0 &&
-        document.getElementById('img34_cat').value != 0 &&
-        document.getElementById('img35_cat').value != 0 &&
-        document.getElementById('img36_cat').value != 0 &&
-        document.getElementById('img37_cat').value != 0 &&
-        document.getElementById('img38_cat').value != 0 &&
-        document.getElementById('img39_cat').value != 0 &&
-    ) {
-        document.getElementById("button_to_se").classList.remove("invisible")
-    };
-</script>
 
 {{ endblock }}
 
@@ -277,10 +222,14 @@
             display: flex;
         }
 
+        .name-list {
+            list-style: none;
+        }
+
         .grid {
           display: grid;
           border: 1px solid black;
-          grid-template-columns: 800px;
+          grid-template-columns: 900px;
           grid-template-rows: 100px 100px 100px 100px 100px 100px;
         }
 
@@ -332,8 +281,5 @@
           background-color: rgba(255, 255, 0, 0.3);
         }
 
-        .invisible {
-            visibility: hidden;
-        }
     </style>
 {% endblock %}

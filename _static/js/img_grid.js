@@ -15,20 +15,17 @@ let img_cat_list = new Array(40);
 
 let box_list = new Array(6);
   for (let m=0; m<6; m++) {
-    let boxpath = "box" + (m+1);
+    let boxpath = "box" + m;
     box_list[m] = document.getElementById(boxpath)
   };
 
-console.log(document.getElementById("img0_cat"));
-for (const jjj in document.getElementById("names").children) {
-  console.log(jjj);
-};
-console.log(img_cat_list[0].value);
+let boxchildren_list = new Array(6);
+  for (let mc=0; mc<6; mc++) {
+    let boxchildrenpath = "box" + mc + "_children";
+    boxchildren_list[mc] = document.getElementById(boxchildrenpath);
+  };
+
 console.log("hello");
-console.log(document.getElementById("1"));
-console.log(document.getElementById("1").id);
-console.log(parseInt(document.getElementById("1").id, 10));
-console.log(img_cat_list[parseInt(document.getElementById("1").id, 10)].value);  
 
 
 let el = document.getElementById('names');
@@ -37,18 +34,18 @@ let sortablename = Sortable.create(el, {
     let sorted_order = sortablename.toArray()
     document.getElementById('name_order').value = sortablename.toArray().join(',');
     for (let j=0; j<6; j++) {
-      if (box_list[j].hasChildNodes) {
+      if (box_list[j].childElementCount>0) {
+        let childidlist = [];
         for (let jj=0; jj< box_list[j].childElementCount; jj++) {
           let stimid = Number(box_list[j].children[jj].id);
-          console.log(box_list[j].children[jj]);
-          console.log(stimid);
           let catofimg_namechange = Number(sorted_order[j].substr(-1));
-          console.log(catofimg_namechange);
           img_cat_list[stimid].value = catofimg_namechange;
-          console.log(img_cat_list[stimid]);
-          console.log(img_cat_list[stimid].value);
-        }
-      }
+          childidlist.push(String(stimid));
+        };
+        boxchildren_list[j].value = childidlist.join(",");
+      } else {
+        boxchildren_list[j].value = "999"
+      };
     };
   }
 });
@@ -117,57 +114,62 @@ const handleDrop = (e) => {
   e.currentTarget.appendChild(document.getElementById(id));
   let imgid4cat = Number(document.getElementById(id).id);
   let categoryorder = document.getElementById("name_order").value.split(',');
-  console.log(document.getElementById(id));
-  console.log(categoryorder);
-  console.log(e.currentTarget.id);
-  console.log(categoryorder[Number(e.currentTarget.id.substr(-1))-1]);
-  let catofimg = Number(categoryorder[Number(e.currentTarget.id.substr(-1))-1].substr(-1));
-  console.log(catofimg);
-  console.log(imgid4cat);
-  console.log(img_cat_list[imgid4cat]);
+  let catofimg = Number(categoryorder[Number(e.currentTarget.id.substr(-1))].substr(-1));
   img_cat_list[imgid4cat].value = String(catofimg);
-  console.log(img_cat_list[imgid4cat].value);
+  for (let k=0; k<6; k++) {
+    if (box_list[k].childElementCount>0) {
+      let childidlist2 = [];
+      for (let kk=0; kk<box_list[k].childElementCount; kk++) {
+        let stimid2 = Number(box_list[k].children[kk].id);
+        childidlist2.push(String(stimid2));
+      };
+      boxchildren_list[k].value = childidlist2.join(",");
+    } else {
+      boxchildren_list[k].value = "999"
+    };
+  };
+
   if (
-    document.getElementById('img0_cat').value != "0" &&
-    document.getElementById('img1_cat').value != "0" &&
-    document.getElementById('img2_cat').value != "0" &&
-    document.getElementById('img3_cat').value != "0" &&
-    document.getElementById('img4_cat').value != "0" &&
-    document.getElementById('img5_cat').value != "0" &&
-    document.getElementById('img6_cat').value != "0" &&
-    document.getElementById('img7_cat').value != "0" &&
-    document.getElementById('img8_cat').value != "0" &&
-    document.getElementById('img9_cat').value != "0" &&
-    document.getElementById('img10_cat').value != "0" &&
-    document.getElementById('img11_cat').value != "0" &&
-    document.getElementById('img12_cat').value != "0" &&
-    document.getElementById('img13_cat').value != "0" &&
-    document.getElementById('img14_cat').value != "0" &&
-    document.getElementById('img15_cat').value != "0" &&
-    document.getElementById('img16_cat').value != "0" &&
-    document.getElementById('img17_cat').value != "0" &&
-    document.getElementById('img18_cat').value != "0" &&
-    document.getElementById('img19_cat').value != "0" &&
-    document.getElementById('img20_cat').value != "0" &&
-    document.getElementById('img21_cat').value != "0" &&
-    document.getElementById('img22_cat').value != "0" &&
-    document.getElementById('img23_cat').value != "0" &&
-    document.getElementById('img24_cat').value != "0" &&
-    document.getElementById('img25_cat').value != "0" &&
-    document.getElementById('img26_cat').value != "0" &&
-    document.getElementById('img27_cat').value != "0" &&
-    document.getElementById('img28_cat').value != "0" &&
-    document.getElementById('img29_cat').value != "0" &&
-    document.getElementById('img30_cat').value != "0" &&
-    document.getElementById('img31_cat').value != "0" &&
-    document.getElementById('img32_cat').value != "0" &&
-    document.getElementById('img33_cat').value != "0" &&
-    document.getElementById('img34_cat').value != "0" &&
-    document.getElementById('img35_cat').value != "0" &&
-    document.getElementById('img36_cat').value != "0" &&
-    document.getElementById('img37_cat').value != "0" &&
-    document.getElementById('img38_cat').value != "0" &&
-    document.getElementById('img39_cat').value != "0"
+    document.getElementById('img0_cat').value != "99" &&
+    document.getElementById('img1_cat').value != "99" &&
+    document.getElementById('img2_cat').value != "99" &&
+    document.getElementById('img3_cat').value != "99" &&
+    document.getElementById('img4_cat').value != "99" &&
+    document.getElementById('img5_cat').value != "99" &&
+    document.getElementById('img6_cat').value != "99" &&
+    document.getElementById('img7_cat').value != "99" &&
+    document.getElementById('img8_cat').value != "99" &&
+    document.getElementById('img9_cat').value != "99" &&
+    document.getElementById('img10_cat').value != "99" &&
+    document.getElementById('img11_cat').value != "99" &&
+    document.getElementById('img12_cat').value != "99" &&
+    document.getElementById('img13_cat').value != "99" &&
+    document.getElementById('img14_cat').value != "99" &&
+    document.getElementById('img15_cat').value != "99" &&
+    document.getElementById('img16_cat').value != "99" &&
+    document.getElementById('img17_cat').value != "99" &&
+    document.getElementById('img18_cat').value != "99" &&
+    document.getElementById('img19_cat').value != "99" &&
+    document.getElementById('img20_cat').value != "99" &&
+    document.getElementById('img21_cat').value != "99" &&
+    document.getElementById('img22_cat').value != "99" &&
+    document.getElementById('img23_cat').value != "99" &&
+    document.getElementById('img24_cat').value != "99" &&
+    document.getElementById('img25_cat').value != "99" &&
+    document.getElementById('img26_cat').value != "99" &&
+    document.getElementById('img27_cat').value != "99" &&
+    document.getElementById('img28_cat').value != "99" &&
+    document.getElementById('img29_cat').value != "99" &&
+    document.getElementById('img30_cat').value != "99" &&
+    document.getElementById('img31_cat').value != "99" &&
+    document.getElementById('img32_cat').value != "99" &&
+    document.getElementById('img33_cat').value != "99" &&
+    document.getElementById('img34_cat').value != "99" &&
+    document.getElementById('img35_cat').value != "99" &&
+    document.getElementById('img36_cat').value != "99" &&
+    document.getElementById('img37_cat').value != "99" &&
+    document.getElementById('img38_cat').value != "99" &&
+    document.getElementById('img39_cat').value != "99"
     ) {
     document.getElementById("button_to_se").style.visibility = "visible";
   };

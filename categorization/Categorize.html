@@ -4,126 +4,9 @@
  
 {{ block content }}
 <div style="display: flex; flex-wrap: wrap;">
-<div class="item" draggable="true" id="0">
-    <img src = "{{ static img0 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="1">
-    <img src = "{{ static img1 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="2">
-    <img src = "{{ static img2 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="3">
-    <img src = "{{ static img3 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="4">
-    <img src = "{{ static img4 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="5">
-    <img src = "{{ static img5 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="6">
-    <img src = "{{ static img6 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="7">
-    <img src = "{{ static img7 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="8">
-    <img src = "{{ static img8 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="9">
-    <img src = "{{ static img9 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="10">
-    <img src = "{{ static img10 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="11">
-    <img src = "{{ static img11 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="12">
-    <img src = "{{ static img12 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="13">
-    <img src = "{{ static img13 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="14">
-    <img src = "{{ static img14 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="15">
-    <img src = "{{ static img15 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="16">
-    <img src = "{{ static img16 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="17">
-    <img src = "{{ static img17 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="18">
-    <img src = "{{ static img18 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="19">
-    <img src = "{{ static img19 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="20">
-    <img src = "{{ static img20 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="21">
-    <img src = "{{ static img21 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="22">
-    <img src = "{{ static img22 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="23">
-    <img src = "{{ static img23 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="24">
-    <img src = "{{ static img24 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="25">
-    <img src = "{{ static img25 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="26">
-    <img src = "{{ static img26 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="27">
-    <img src = "{{ static img27 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="28">
-    <img src = "{{ static img28 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="29">
-    <img src = "{{ static img29 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="30">
-    <img src = "{{ static img30 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="31">
-    <img src = "{{ static img31 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="32">
-    <img src = "{{ static img32 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="33">
-    <img src = "{{ static img33 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="34">
-    <img src = "{{ static img34 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="35">
-    <img src = "{{ static img35 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="36">
-    <img src = "{{ static img36 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="37">
-    <img src = "{{ static img37 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="38">
-    <img src = "{{ static img38 }}" height="50px" width="50px"/>
-</div>
-<div class="item" draggable="true" id="39">
-    <img src = "{{ static img39 }}" height="50px" width="50px"/>
-</div>
+{{ for imghtml in imghtml_order }}
+{{ imghtml }}
+{{ endfor }}
 </div>
 <div id="button_to_se" style="visibility: hidden">
     {{ next_button }}
@@ -132,27 +15,14 @@
 <br>
 <div class="area">
     <ul id="names" class="name-list">
-        <li draggable="true" id="name1" data-id="sym1">
-        <img src="{{ static "labels/1.png" }}" height="100px" width="100px">
-        </li>
-        <li draggable="true" id="name2"  data-id="sym2">
-        <img src="{{ static "labels/2.png" }}" height="100px" width="100px">
-        </li>
-        <li draggable="true" id="name3"  data-id="sym3">
-        <img src="{{ static "labels/3.png" }}" height="100px" width="100px">
-        </li>
-        <li draggable="true" id="name4"  data-id="sym4">
-        <img src="{{ static "labels/4.png" }}" height="100px" width="100px">
-        </li>
-        <li draggable="true" id="name5"  data-id="sym5">
-        <img src="{{ static "labels/5.png" }}" height="100px" width="100px">
-        </li>
-        <li draggable="true" id="name6"  data-id="sym6">
-        <img src="{{ static "labels/6.png" }}" height="100px" width="100px">
-        </li>
+        {{ for namehtml in namehtml_list }}
+        {{ namehtml }}
+        {{ endfor }}
     </ul>
 
 <div class="grid">
+    <div class="box box0" id="box0">
+    </div>
     <div class="box box1" id="box1">
     </div>
     <div class="box box2" id="box2">
@@ -163,53 +33,58 @@
     </div>
     <div class="box box5" id="box5">
     </div>
-    <div class="box box6" id="box6">
-    </div>
 </div>
 </div>
 
-<input type="hidden" name="name_order" id="name_order" value="sym1,sym2,sym3,sym4,sym5,sym6"/>
+<input type="hidden" name="name_order" id="name_order" value="sym0,sym1,sym2,sym3,sym4,sym5"/>
 {{ formfield_errors 'name_order' }}
-<input type="hidden" name="img0_cat" id="img0_cat" value="0"/>
-<input type="hidden" name="img1_cat" id="img1_cat" value="0"/>
-<input type="hidden" name="img2_cat" id="img2_cat" value="0"/>
-<input type="hidden" name="img3_cat" id="img3_cat" value="0"/>
-<input type="hidden" name="img4_cat" id="img4_cat" value="0"/>
-<input type="hidden" name="img5_cat" id="img5_cat" value="0"/>
-<input type="hidden" name="img6_cat" id="img6_cat" value="0"/>
-<input type="hidden" name="img7_cat" id="img7_cat" value="0"/>
-<input type="hidden" name="img8_cat" id="img8_cat" value="0"/>
-<input type="hidden" name="img9_cat" id="img9_cat" value="0"/>
-<input type="hidden" name="img10_cat" id="img10_cat" value="0"/>
-<input type="hidden" name="img11_cat" id="img11_cat" value="0"/>
-<input type="hidden" name="img12_cat" id="img12_cat" value="0"/>
-<input type="hidden" name="img13_cat" id="img13_cat" value="0"/>
-<input type="hidden" name="img14_cat" id="img14_cat" value="0"/>
-<input type="hidden" name="img15_cat" id="img15_cat" value="0"/>
-<input type="hidden" name="img16_cat" id="img16_cat" value="0"/>
-<input type="hidden" name="img17_cat" id="img17_cat" value="0"/>
-<input type="hidden" name="img18_cat" id="img18_cat" value="0"/>
-<input type="hidden" name="img19_cat" id="img19_cat" value="0"/>
-<input type="hidden" name="img20_cat" id="img20_cat" value="0"/>
-<input type="hidden" name="img21_cat" id="img21_cat" value="0"/>
-<input type="hidden" name="img22_cat" id="img22_cat" value="0"/>
-<input type="hidden" name="img23_cat" id="img23_cat" value="0"/>
-<input type="hidden" name="img24_cat" id="img24_cat" value="0"/>
-<input type="hidden" name="img25_cat" id="img25_cat" value="0"/>
-<input type="hidden" name="img26_cat" id="img26_cat" value="0"/>
-<input type="hidden" name="img27_cat" id="img27_cat" value="0"/>
-<input type="hidden" name="img28_cat" id="img28_cat" value="0"/>
-<input type="hidden" name="img29_cat" id="img29_cat" value="0"/>
-<input type="hidden" name="img30_cat" id="img30_cat" value="0"/>
-<input type="hidden" name="img31_cat" id="img31_cat" value="0"/>
-<input type="hidden" name="img32_cat" id="img32_cat" value="0"/>
-<input type="hidden" name="img33_cat" id="img33_cat" value="0"/>
-<input type="hidden" name="img34_cat" id="img34_cat" value="0"/>
-<input type="hidden" name="img35_cat" id="img35_cat" value="0"/>
-<input type="hidden" name="img36_cat" id="img36_cat" value="0"/>
-<input type="hidden" name="img37_cat" id="img37_cat" value="0"/>
-<input type="hidden" name="img38_cat" id="img38_cat" value="0"/>
-<input type="hidden" name="img39_cat" id="img39_cat" value="0"/>
+<input type="hidden" name="img0_cat" id="img0_cat" value="99"/>
+<input type="hidden" name="img1_cat" id="img1_cat" value="99"/>
+<input type="hidden" name="img2_cat" id="img2_cat" value="99"/>
+<input type="hidden" name="img3_cat" id="img3_cat" value="99"/>
+<input type="hidden" name="img4_cat" id="img4_cat" value="99"/>
+<input type="hidden" name="img5_cat" id="img5_cat" value="99"/>
+<input type="hidden" name="img6_cat" id="img6_cat" value="99"/>
+<input type="hidden" name="img7_cat" id="img7_cat" value="99"/>
+<input type="hidden" name="img8_cat" id="img8_cat" value="99"/>
+<input type="hidden" name="img9_cat" id="img9_cat" value="99"/>
+<input type="hidden" name="img10_cat" id="img10_cat" value="99"/>
+<input type="hidden" name="img11_cat" id="img11_cat" value="99"/>
+<input type="hidden" name="img12_cat" id="img12_cat" value="99"/>
+<input type="hidden" name="img13_cat" id="img13_cat" value="99"/>
+<input type="hidden" name="img14_cat" id="img14_cat" value="99"/>
+<input type="hidden" name="img15_cat" id="img15_cat" value="99"/>
+<input type="hidden" name="img16_cat" id="img16_cat" value="99"/>
+<input type="hidden" name="img17_cat" id="img17_cat" value="99"/>
+<input type="hidden" name="img18_cat" id="img18_cat" value="99"/>
+<input type="hidden" name="img19_cat" id="img19_cat" value="99"/>
+<input type="hidden" name="img20_cat" id="img20_cat" value="99"/>
+<input type="hidden" name="img21_cat" id="img21_cat" value="99"/>
+<input type="hidden" name="img22_cat" id="img22_cat" value="99"/>
+<input type="hidden" name="img23_cat" id="img23_cat" value="99"/>
+<input type="hidden" name="img24_cat" id="img24_cat" value="99"/>
+<input type="hidden" name="img25_cat" id="img25_cat" value="99"/>
+<input type="hidden" name="img26_cat" id="img26_cat" value="99"/>
+<input type="hidden" name="img27_cat" id="img27_cat" value="99"/>
+<input type="hidden" name="img28_cat" id="img28_cat" value="99"/>
+<input type="hidden" name="img29_cat" id="img29_cat" value="99"/>
+<input type="hidden" name="img30_cat" id="img30_cat" value="99"/>
+<input type="hidden" name="img31_cat" id="img31_cat" value="99"/>
+<input type="hidden" name="img32_cat" id="img32_cat" value="99"/>
+<input type="hidden" name="img33_cat" id="img33_cat" value="99"/>
+<input type="hidden" name="img34_cat" id="img34_cat" value="99"/>
+<input type="hidden" name="img35_cat" id="img35_cat" value="99"/>
+<input type="hidden" name="img36_cat" id="img36_cat" value="99"/>
+<input type="hidden" name="img37_cat" id="img37_cat" value="99"/>
+<input type="hidden" name="img38_cat" id="img38_cat" value="99"/>
+<input type="hidden" name="img39_cat" id="img39_cat" value="99"/>
+
+<input type="hidden" name="box0_children" id="box0_children"/>
+<input type="hidden" name="box1_children" id="box1_children"/>
+<input type="hidden" name="box2_children" id="box2_children"/>
+<input type="hidden" name="box3_children" id="box3_children"/>
+<input type="hidden" name="box4_children" id="box4_children"/>
+<input type="hidden" name="box5_children" id="box5_children"/>
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script type="text/javascript" src="{% static "js/img_grid.js" %}"></script>
@@ -238,32 +113,32 @@
           flex-flow: row wrap;
         }
 
-        .box1 {
+        .box0 {
             border: 1px solid black;
             grid-row: 1/2;
         }
 
-        .box2 {
+        .box1 {
             border: 1px solid black;
             grid-row: 2/3;
         }
 
-        .box3 {
+        .box2 {
             border: 1px solid black;
             grid-row: 3/4;
            }
 
-        .box4 {
+        .box3 {
             border: 1px solid black;
             grid-row: 4/5;
         }
 
-        .box5 {
+        .box4 {
             border: 1px solid black;
             grid-row: 5/6;
         }
 
-        .box6 {
+        .box5 {
             border: 1px solid black;
             grid-row: 6/7;
         }

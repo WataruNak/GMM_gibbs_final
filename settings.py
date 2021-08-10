@@ -30,11 +30,9 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 
 PARTICIPANT_FIELDS = [
-    "img2category",
-    "img2name",
-    "stimuli_id_list",
-    "stimuli_img_order",
-    "imgPathSeries",
+    "img2category", "stimuli_id_list", "first_nameorder", "imghtml_order",
+    "box0_items", "box1_items", "box2_items", "box3_items", "box4_items", "box5_items",
+    "img2name", "stimuli_img_order",
     ]
 SESSION_FIELDS = ["test_id_list"]
 

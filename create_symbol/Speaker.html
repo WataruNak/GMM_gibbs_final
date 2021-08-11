@@ -3,202 +3,208 @@
 {{ endblock }}
  
 {{ block content }}
-<img src = "{{ static showed_img }}" width=150px/>
-<div class="form">
-    {{ formfields }}
+<div style="display: flex;">
+    <div style="width: 70px">1番目の画像</div>
+    <div style="width: 70px">2番目の画像</div>
+    <div style="width: 70px">3番目の画像</div>
+    <div style="width: 70px">4番目の画像</div>
+    <div style="width: 70px">5番目の画像</div>
 </div>
-<div class="labelallign">
-    <div class="labels">
-        <img src="{{ static 'labels/1.png' }}" width=85px height=85px/>
-    </div>
-    <div class="labels">
-        <img src="{{ static 'labels/2.png' }}" width=85px height=85px/>
-    </div>
-    <div class="labels">
-        <img src="{{ static 'labels/3.png' }}" width=85px height=85px/>
-    </div>
-    <div class="labels">
-        <img src="{{ static 'labels/4.png' }}" width=85px height=85px/>
-    </div>
-    <div class="labels">
-        <img src="{{ static 'labels/5.png' }}" width=85px height=85px/>
-    </div>
-    <div class="labels">
-        <img src="{{ static 'labels/6.png' }}" width=85px height=85px/>
-    </div>
+<div style="display: flex;">
+{{ for showed_img in showed_imgs }}
+{{ showed_img }}
+{{ endfor }}
 </div>
-<br>
-<br>
+{% formfield player.s_choice0 %}
+{% formfield player.s_choice1 %}
+{% formfield player.s_choice2 %}
+{% formfield player.s_choice3 %}
+{% formfield player.s_choice4 %}
+
     {{ next_button }}
 <br>
-<div class = "box">
-<p>前の実験でのカテゴリー分類の一覧</p>
-<p class="category_title">カテゴリー1</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "1" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
 <br>
-<br>
-<br>
+<div class="area">
+    <ul id="names" class="name-list">
+        {{ for namehtml in namehtml_list }}
+        {{ namehtml }}
+        {{ endfor }}
+    </ul>
 
-<p class="category_title">カテゴリー2</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "2" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー3</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "3" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー4</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "4" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー5</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "5" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー6</p>
-<div class = "imgs">
-{{ for k,v in dict1.items() }}
-    {{ if v == "6" }}
-        <img src = "{{ static k }}" width=30px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-</div>
-
-<div class = "box">
-<p>今回の実験で画像につけた記号の一覧</p>
-<div class = "imgs">
-    <img src="{{ static 'labels/1.png' }}" width=30px/>
-    {{ for k,v in dict2.items() }}
-        {{ if v == "1" }}
-            <img src = "{{ static k }}" width=30px/>
-        {{ endif }}
+<div class="grid">
+    <div class="box box0" id="box0">
+    {{ if box0_defaultimgs[0] != "999" }}
+    {{ for b0i in box0_defaultimgs }}
+    {{ b0i }}
     {{ endfor }}
-</div>
-<br>
-<br>
-<br>
-<div class = "imgs">
-    <img src="{{ static 'labels/2.png' }}" width=30px/>
-    {{ for k,v in dict2.items() }}
-        {{ if v == "2" }}
-            <img src = "{{ static k }}" width=30px/>
-        {{ endif }}
-    {{ endfor }}
-</div>
-<br>
-<br>
-<br>
-<div class = "imgs">
-    <img src="{{ static 'labels/3.png' }}" width=30px/>
-    {{ for k,v in dict2.items() }}
-        {{ if v == "3" }}
-            <img src = "{{ static k }}" width=30px/>
-        {{ endif }}
-    {{ endfor }}
-</div>
-<br>
-<br>
-<br>
-<div class = "imgs">
-<img src="{{ static 'labels/4.png' }}" width=30px/>
-{{ for k,v in dict2.items() }}
-    {{ if v == "4" }}
-        <img src = "{{ static k }}" width=30px/>
     {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-<div class = "imgs">
-    <img src="{{ static 'labels/5.png' }}" width=30px/>
-    {{ for k,v in dict2.items() }}
-        {{ if v == "5" }}
-            <img src = "{{ static k }}" width=30px/>
-        {{ endif }}
+    </div>
+    <div class="box box1" id="box1">
+    {{ if box1_defaultimgs[0] != "999" }}
+    {{ for b1i in box1_defaultimgs }}
+    {{ b1i }}
     {{ endfor }}
-</div>
-<br>
-<br>
-<br>
-<div class = "imgs">
-    <img src="{{ static 'labels/6.png' }}" width=30px/>
-    {{ for k,v in dict2.items() }}
-        {{ if v == "6" }}
-            <img src = "{{ static k }}" width=30px/>
-        {{ endif }}
+    {{ endif }}
+    </div>
+    <div class="box box2" id="box2">
+    {{ if box2_defaultimgs[0] != "999" }}
+    {{ for b2i in box2_defaultimgs }}
+    {{ b2i }}
     {{ endfor }}
+    {{ endif }}
+    </div>
+    <div class="box box3" id="box3">
+    {{ if box3_defaultimgs[0] != "999" }}
+    {{ for b3i in box3_defaultimgs }}
+    {{ b3i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
+    <div class="box box4" id="box4">
+    {{ if box4_defaultimgs[0] != "999" }}
+    {{ for b4i in box4_defaultimgs }}
+    {{ b4i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
+    <div class="box box5" id="box5">
+    {{ if box5_defaultimgs[0] != "999" }}
+    {{ for b5i in box5_defaultimgs }}
+    {{ b5i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
 </div>
 </div>
+<br>
+<br>
+<div class="log">
+</div>
+
+<input type="hidden" name="name_order" id="name_order"/>
+<input type="hidden" name="img0_cat" id="img0_cat"/>
+<input type="hidden" name="img1_cat" id="img1_cat"/>
+<input type="hidden" name="img2_cat" id="img2_cat"/>
+<input type="hidden" name="img3_cat" id="img3_cat"/>
+<input type="hidden" name="img4_cat" id="img4_cat"/>
+<input type="hidden" name="img5_cat" id="img5_cat"/>
+<input type="hidden" name="img6_cat" id="img6_cat"/>
+<input type="hidden" name="img7_cat" id="img7_cat"/>
+<input type="hidden" name="img8_cat" id="img8_cat"/>
+<input type="hidden" name="img9_cat" id="img9_cat"/>
+<input type="hidden" name="img10_cat" id="img10_cat"/>
+<input type="hidden" name="img11_cat" id="img11_cat"/>
+<input type="hidden" name="img12_cat" id="img12_cat"/>
+<input type="hidden" name="img13_cat" id="img13_cat"/>
+<input type="hidden" name="img14_cat" id="img14_cat"/>
+<input type="hidden" name="img15_cat" id="img15_cat"/>
+<input type="hidden" name="img16_cat" id="img16_cat"/>
+<input type="hidden" name="img17_cat" id="img17_cat"/>
+<input type="hidden" name="img18_cat" id="img18_cat"/>
+<input type="hidden" name="img19_cat" id="img19_cat"/>
+<input type="hidden" name="img20_cat" id="img20_cat"/>
+<input type="hidden" name="img21_cat" id="img21_cat"/>
+<input type="hidden" name="img22_cat" id="img22_cat"/>
+<input type="hidden" name="img23_cat" id="img23_cat"/>
+<input type="hidden" name="img24_cat" id="img24_cat"/>
+<input type="hidden" name="img25_cat" id="img25_cat"/>
+<input type="hidden" name="img26_cat" id="img26_cat"/>
+<input type="hidden" name="img27_cat" id="img27_cat"/>
+<input type="hidden" name="img28_cat" id="img28_cat"/>
+<input type="hidden" name="img29_cat" id="img29_cat"/>
+<input type="hidden" name="img30_cat" id="img30_cat"/>
+<input type="hidden" name="img31_cat" id="img31_cat"/>
+<input type="hidden" name="img32_cat" id="img32_cat"/>
+<input type="hidden" name="img33_cat" id="img33_cat"/>
+<input type="hidden" name="img34_cat" id="img34_cat"/>
+<input type="hidden" name="img35_cat" id="img35_cat"/>
+<input type="hidden" name="img36_cat" id="img36_cat"/>
+<input type="hidden" name="img37_cat" id="img37_cat"/>
+<input type="hidden" name="img38_cat" id="img38_cat"/>
+<input type="hidden" name="img39_cat" id="img39_cat"/>
+
+<input type="hidden" name="box0_children" id="box0_children"/>
+<input type="hidden" name="box1_children" id="box1_children"/>
+<input type="hidden" name="box2_children" id="box2_children"/>
+<input type="hidden" name="box3_children" id="box3_children"/>
+<input type="hidden" name="box4_children" id="box4_children"/>
+<input type="hidden" name="box5_children" id="box5_children"/>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script type="text/javascript" src="{% static "js/se_grid.js" %}"></script>
 
 {{ endblock }}
 
 {% block app_styles %}
     <style>
-        div.imgs {
-            float: left;
-        }
-        p.category_tytle {
-            margin: 0.3em;
-        }
-        div.box {
-            float: left;
-            border: solid 2px black;
-            box-sizing: border-box;
-            width: 50%;
-        }
-        div.labels {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            display: inline-block;
-        }
-        div.form {
-            line-height: 1;
-            display: block;
-        }
-        div.labelallign {
-            letter-spacing: 1.1em;
+        .area {
+            display: flex;
         }
 
+        .name-list {
+            list-style: none;
+        }
+
+        .grid {
+          display: grid;
+          border: 1px solid black;
+          grid-template-columns: 900px;
+          grid-template-rows: 100px 100px 100px 100px 100px 100px;
+        }
+
+        .box {
+          display: flex;
+          flex-flow: row wrap;
+        }
+
+        .box0 {
+            border: 1px solid black;
+            grid-row: 1/2;
+        }
+
+        .box1 {
+            border: 1px solid black;
+            grid-row: 2/3;
+        }
+
+        .box2 {
+            border: 1px solid black;
+            grid-row: 3/4;
+           }
+
+        .box3 {
+            border: 1px solid black;
+            grid-row: 4/5;
+        }
+
+        .box4 {
+            border: 1px solid black;
+            grid-row: 5/6;
+        }
+
+        .box5 {
+            border: 1px solid black;
+            grid-row: 6/7;
+        }
+
+        .item {
+          width: 50px;
+          height: 50px;
+        }
+        
+        .dragging {
+          opacity: 0.5;
+        }
+
+        .over {
+          background-color: rgba(255, 255, 0, 0.3);
+        }
+
+        .box {
+          width: 1000px;
+          height: 600px;
+          border: 1px solid black;
+          overflow-y: scroll;
+        }
     </style>
 {% endblock %}

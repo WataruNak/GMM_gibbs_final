@@ -169,19 +169,15 @@ class Categorize(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        player.participant.img2category = {}
         player.participant.stimuli_id_list = []
         player.participant.imghtml_order = []
         for n in range(40):
             player.participant.stimuli_id_list.append(n)
         random.shuffle(player.participant.stimuli_id_list)
-        for i in range(40):
-            player.participant.img2category["img{}".format(i)] = "0"
         for j in range(40):
             player.participant.imghtml_order.append(Constants.imghtml_list[player.participant.stimuli_id_list[j]])
         return {
             "name_order" : player.name_order,
-            "dict" : player.participant.img2category,
             "imghtml_order" : player.participant.imghtml_order,
             "namehtml_list" : Constants.namehtml_list,
         }
@@ -195,51 +191,53 @@ class Categorize(Page):
 
     @staticmethod
     def before_next_page(player, timeout_happened):
-        player.participant.img2category["img0"] = player.img0_cat
-        player.participant.img2category["img1"] = player.img1_cat
-        player.participant.img2category["img2"] = player.img2_cat
-        player.participant.img2category["img3"] = player.img3_cat
-        player.participant.img2category["img4"] = player.img4_cat
-        player.participant.img2category["img5"] = player.img5_cat
-        player.participant.img2category["img6"] = player.img6_cat
-        player.participant.img2category["img7"] = player.img7_cat
-        player.participant.img2category["img8"] = player.img8_cat
-        player.participant.img2category["img9"] = player.img9_cat
-        player.participant.img2category["img10"] = player.img10_cat
-        player.participant.img2category["img11"] = player.img11_cat
-        player.participant.img2category["img12"] = player.img12_cat
-        player.participant.img2category["img13"] = player.img13_cat
-        player.participant.img2category["img14"] = player.img14_cat
-        player.participant.img2category["img15"] = player.img15_cat
-        player.participant.img2category["img16"] = player.img16_cat
-        player.participant.img2category["img17"] = player.img17_cat
-        player.participant.img2category["img18"] = player.img18_cat
-        player.participant.img2category["img19"] = player.img19_cat
-        player.participant.img2category["img20"] = player.img20_cat
-        player.participant.img2category["img21"] = player.img21_cat
-        player.participant.img2category["img22"] = player.img22_cat
-        player.participant.img2category["img23"] = player.img23_cat
-        player.participant.img2category["img24"] = player.img24_cat
-        player.participant.img2category["img25"] = player.img25_cat
-        player.participant.img2category["img26"] = player.img26_cat
-        player.participant.img2category["img27"] = player.img27_cat
-        player.participant.img2category["img28"] = player.img28_cat
-        player.participant.img2category["img29"] = player.img29_cat
-        player.participant.img2category["img30"] = player.img30_cat
-        player.participant.img2category["img31"] = player.img31_cat
-        player.participant.img2category["img32"] = player.img32_cat
-        player.participant.img2category["img33"] = player.img33_cat
-        player.participant.img2category["img34"] = player.img34_cat
-        player.participant.img2category["img35"] = player.img35_cat
-        player.participant.img2category["img36"] = player.img36_cat
-        player.participant.img2category["img37"] = player.img37_cat
-        player.participant.img2category["img38"] = player.img38_cat
-        player.participant.img2category["img39"] = player.img39_cat
-        player.participant.first_nameorder = []
+        player.participant.img_category_list = []
+        player.participant.img_category_list.append(player.img0_cat)
+        player.participant.img_category_list.append(player.img1_cat)
+        player.participant.img_category_list.append(player.img2_cat)
+        player.participant.img_category_list.append(player.img3_cat)
+        player.participant.img_category_list.append(player.img4_cat)
+        player.participant.img_category_list.append(player.img5_cat)
+        player.participant.img_category_list.append(player.img6_cat)
+        player.participant.img_category_list.append(player.img7_cat)
+        player.participant.img_category_list.append(player.img8_cat)
+        player.participant.img_category_list.append(player.img9_cat)
+        player.participant.img_category_list.append(player.img10_cat)
+        player.participant.img_category_list.append(player.img11_cat)
+        player.participant.img_category_list.append(player.img12_cat)
+        player.participant.img_category_list.append(player.img13_cat)
+        player.participant.img_category_list.append(player.img14_cat)
+        player.participant.img_category_list.append(player.img15_cat)
+        player.participant.img_category_list.append(player.img16_cat)
+        player.participant.img_category_list.append(player.img17_cat)
+        player.participant.img_category_list.append(player.img18_cat)
+        player.participant.img_category_list.append(player.img19_cat)
+        player.participant.img_category_list.append(player.img20_cat)
+        player.participant.img_category_list.append(player.img21_cat)
+        player.participant.img_category_list.append(player.img22_cat)
+        player.participant.img_category_list.append(player.img23_cat)
+        player.participant.img_category_list.append(player.img24_cat)
+        player.participant.img_category_list.append(player.img25_cat)
+        player.participant.img_category_list.append(player.img26_cat)
+        player.participant.img_category_list.append(player.img27_cat)
+        player.participant.img_category_list.append(player.img28_cat)
+        player.participant.img_category_list.append(player.img29_cat)
+        player.participant.img_category_list.append(player.img30_cat)
+        player.participant.img_category_list.append(player.img31_cat)
+        player.participant.img_category_list.append(player.img32_cat)
+        player.participant.img_category_list.append(player.img33_cat)
+        player.participant.img_category_list.append(player.img34_cat)
+        player.participant.img_category_list.append(player.img35_cat)
+        player.participant.img_category_list.append(player.img36_cat)
+        player.participant.img_category_list.append(player.img37_cat)
+        player.participant.img_category_list.append(player.img38_cat)
+        player.participant.img_category_list.append(player.img39_cat)
+
+        player.participant.default_nameorder = []
 
         n_list = player.name_order.split(",")
         for name in n_list:
-            player.participant.first_nameorder.append(int(name[-1]))
+            player.participant.default_nameorder.append(int(name[-1]))
         
         if player.box0_children == "999":
             player.participant.box0_items = [999,]

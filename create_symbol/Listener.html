@@ -3,6 +3,7 @@
 {{ endblock }}
 
 {{ block content }}
+<p>今回表示された画像は以下の5つです。</p>
 <div style="display: flex;">
     <div style="width: 70px">1番目の画像</div>
     <div style="width: 70px">2番目の画像</div>
@@ -15,6 +16,14 @@
 {{ showed_img }}
 {{ endfor }}
 </div>
+<p>「話し手」がこれらの画像に付けた記号は、</p>
+<p>1番目の画像：{{ others_choice0 + 1 }}番の記号</p>
+<p>2番目の画像：{{ others_choice1 + 1 }}番の記号</p>
+<p>3番目の画像：{{ others_choice2 + 1 }}番の記号</p>
+<p>4番目の画像：{{ others_choice3 + 1 }}番の記号</p>
+<p>5番目の画像：{{ others_choice4 + 1 }}番の記号</p>
+<p>でした。それぞれの組み合わせについて、受け入れるか受け入れないかを選び、
+「次へ」ボタンを押して下さい。</p>
 {% formfield player.accept0 %}
 {% formfield player.accept1 %}
 {% formfield player.accept2 %}
@@ -79,6 +88,10 @@
 <br>
 <br>
 <div class="log">
+<p>ここに実験で行ったやり取りの履歴が表示されます。</p>
+{{ for loghtml in loghtml_list }
+{{ loghtml }}
+{{ endfor }}
 </div>
 
 <input type="hidden" name="name_order" id="name_order"/>

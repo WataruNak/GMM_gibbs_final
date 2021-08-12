@@ -79,6 +79,10 @@
 <br>
 <br>
 <div class="log">
+<p>ここに実験で行ったやり取りの履歴が表示されます。</p>
+{{ for loghtml in loghtml_list }
+{{ loghtml }}
+{{ endfor }}
 </div>
 
 <input type="hidden" name="name_order" id="name_order"/>

@@ -3,88 +3,29 @@
 {{ endblock }}
 
 {{ block content }}
-    <p>あなたの行ったカテゴリー分類の結果は以下の通りです。</p><br>
-    <p>「次へ」のボタンを押すと、次の実験の説明に移ります。</p><br>
+<p>今の時点で、あなたと相手プレイヤーの分類の仕方は</p>
+{{ if ari <= 0.4 }}
+<p style="color: red;">ほとんど一致していません。</p>
+{{ elif ari <= 0.6 }}
+<p style="color: yellow;">あまり一致していません。</p>
+{{ elif ari <= 0.8 }}
+<p style="color: blue;">それなりに一致しています。</p>
+{{ else }}
+<p style="color: green;">かなり一致しています。</p>
+{{ endif }}
+<br>
+<p>また、あなたのカテゴリー分類は</p>
+{{ if kappa <= 0.4 }}
+<p style="color: red;">正解のものとはほとんど一致していません。</p>
+{{ elif ari <= 0.6 }}
+<p style="color: yellow;">正解のものとはあまり一致していません。</p>
+{{ elif ari <= 0.8 }}
+<p style="color: blue;">正解のものとそれなりに一致しています。</p>
+{{ else }}
+<p style="color: green;">正解のものとかなり一致しています。</p>
+{{ endif }}
+<br>
+<p>これで1つ目のパートは終了です。</p>
+<p>「次へ」ボタンを押して、2つ目のパートに進んで下さい。</p>
     {{ next_button }}
-<br>
-<br>
-<p class="category_title">カテゴリー1</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "1" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー2</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "2" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー3</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "3" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー4</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "4" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー5</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "5" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<br>
-
-<p class="category_title">カテゴリー6</p>
-<div class = "imgs">
-{{ for k,v in dict.items() }}
-    {{ if v == "6" }}
-        <img src = "{{ static k }}" width=40px/>
-    {{ endif }}
-{{ endfor }}
-</div>
 {{ endblock }}
-
-{% block app_styles %}
-    <style>
-        div.imgs {
-            float: left;
-        }
-        p.category_tytle {
-            margin: 0.3em;
-        }
-    </style>
-{% endblock %}

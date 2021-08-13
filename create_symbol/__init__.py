@@ -314,6 +314,7 @@ class Player(BasePlayer):
     box5_children = models.StringField()
 
     kappa = models.FloatField()
+    ari = models.FloatField()
 
 
     def role(self):

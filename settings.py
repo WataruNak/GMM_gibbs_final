@@ -10,7 +10,7 @@ SESSION_CONFIGS = [
     dict(
         name='naminggame_one_feature',
         display_name="Naming-game One feature",
-        app_sequence=['categorization', 'create_symbol'],
+        app_sequence=['categorization', 'create_symbol', 'final_result'],
         num_demo_participants=2,
     ),
     # dict(

@@ -157,12 +157,6 @@
 </div>
 <br>
 <br>
-<div class="log">
-<p>ここに実験で行ったやり取りの履歴が表示されます。</p>
-{{ for loghtml in loghtml_list }
-{{ loghtml }}
-{{ endfor }}
-</div>
 {{ endblock }}
 
 {% block app_styles %}
@@ -176,12 +170,6 @@
             border: solid 1px black;
             box-sizing: border-box;
             width: 50%;
-        }
-        .log {
-          width: 1000px;
-          height: 600px;
-          border: 1px solid black;
-          overflow-y: scroll;
         }
     </style>
 {% endblock %}

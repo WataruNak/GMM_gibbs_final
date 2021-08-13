@@ -100,7 +100,6 @@ class FinalResults(Page):
             "my_dict" : my_dict,
             "others_dict" : others_dict,
             "name_html_list" : Constants.name_html_list,
-            "loghtml_list" : player.participant.loghtml_list,
         }
 
 

@@ -38,8 +38,7 @@ let sortablename = Sortable.create(el, {
         let childidlist = [];
         for (let jj=0; jj< box_list[j].childElementCount; jj++) {
           let stimid = Number(box_list[j].children[jj].id);
-          let catofimg_namechange = Number(sorted_order[j].substr(-1));
-          img_cat_list[stimid].value = catofimg_namechange;
+          img_cat_list[stimid].value = sorted_order[j].substr(-1);
           childidlist.push(String(stimid));
         };
         boxchildren_list[j].value = childidlist.join(",");
@@ -114,8 +113,7 @@ const handleDrop = (e) => {
   e.currentTarget.appendChild(document.getElementById(id));
   let imgid4cat = Number(document.getElementById(id).id);
   let categoryorder = document.getElementById("name_order").value.split(',');
-  let catofimg = Number(categoryorder[Number(e.currentTarget.id.substr(-1))].substr(-1));
-  img_cat_list[imgid4cat].value = String(catofimg);
+  img_cat_list[imgid4cat].value = categoryorder[Number(e.currentTarget.id.substr(-1))].substr(-1);
   for (let k=0; k<6; k++) {
     if (box_list[k].childElementCount>0) {
       let childidlist2 = [];

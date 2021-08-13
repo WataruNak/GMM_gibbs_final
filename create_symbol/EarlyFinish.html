@@ -1,0 +1,28 @@
+{{ block title }}
+    実験終了
+{{ endblock }}
+ 
+{{ block content }}
+<p>相手プレイヤーとのカテゴリー分類の一致度が目標を超えました。</p>
+<p>「次へ」ボタンを押して下さい。</p>
+    {{ next_button }}
+<br>
+<br>
+<div class="log">
+<p>ここに実験で行ったやり取りの履歴が表示されます。</p>
+{{ for loghtml in loghtml_list }
+{{ loghtml }}
+{{ endfor }}
+</div>
+{{ endblock }}
+
+{% block app_styles %}
+    <style>
+        .log {
+          width: 1000px;
+          height: 600px;
+          border: 1px solid black;
+          overflow-y: scroll;
+        }
+    </style>
+{% endblock %}

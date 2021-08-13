@@ -4,16 +4,46 @@
  
 {{ block content }}
 <p>このラウンドが終わった時点で、あなたと相手プレイヤーの分類の仕方は</p>
-{{ if kappa <= 0.4 }}
+{{ if ari <= 0.4 }}
 <p style="color: red;">ほとんど一致していません。</p>
-{{ elif kappa <= 0.6 }}
+{{ elif ari <= 0.6 }}
 <p style="color: yellow;">あまり一致していません。</p>
-{{ elif kappa <= 0.8 }}
+{{ elif ari <= 0.8 }}
 <p style="color: blue;">それなりに一致しています。</p>
 {{ else }}
 <p style="color: green;">かなり一致しています。</p>
 {{ endif }}
 <br>
+<p>また、あなたのカテゴリー分類は</p>
+{{ if kappa <= 0.4 }}
+<p style="color: red;">正解のものとはほとんど一致していません。</p>
+{{ elif ari <= 0.6 }}
+<p style="color: yellow;">正解のものとはあまり一致していません。</p>
+{{ elif ari <= 0.8 }}
+<p style="color: blue;">正解のものとそれなりに一致しています。</p>
+{{ else }}
+<p style="color: green;">正解のものとかなり一致しています。</p>
+{{ endif }}
+<br>
 <p>「次へ」ボタンを押して下さい。</p>
     {{ next_button }}
+<br>
+<br>
+<div class="log">
+<p>ここに実験で行ったやり取りの履歴が表示されます。</p>
+{{ for loghtml in loghtml_list }
+{{ loghtml }}
+{{ endfor }}
+</div>
 {{ endblock }}
+
+{% block app_styles %}
+    <style>
+        .log {
+          width: 1000px;
+          height: 600px;
+          border: 1px solid black;
+          overflow-y: scroll;
+        }
+    </style>
+{% endblock %}

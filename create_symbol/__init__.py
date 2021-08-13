@@ -1,10 +1,23 @@
 from otree.api import *
 import random
 from sklearn.metrics import cohen_kappa_score, adjusted_rand_score
+import itertools
 
 doc = """
 Your app description
 """
+
+def make_correct_list(label_num, item_num, correct_cat_num):
+    numlists = []
+    correct_lists = []
+    for ln in range(label_num):
+        numlist = [ln] * item_num
+        numlists.append(numlist)
+    for nl in itertools.permutations(numlists, correct_cat_num):
+        correctlist = list(itertools.chain.from_iterable(nl))
+        correct_lists.append(correctlist)
+    return correct_lists
+
 
 def make_imgcat_path(num):
     imgcatpath_list = []
@@ -131,16 +144,18 @@ class Constants(BaseConstants):
     imgcatpath_list = make_imgcat_path(40)
     accept_choice = ["×", "○"]
 
-    pred_cat_list = [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3
-    ]
+    correct_cat_list = make_correct_list(6, 10, 4)
+    goal_ari = 0.9
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        img_choice = random.sample(range(0,40,1), k=(5))
+        self.showed_imgs = []
+        self.showed_imgs4log = []
+        for id in img_choice:
+            self.showed_imgs.append(Constants.stimuliimg_html_list[img_choice[id]])
+            self.showed_imgs4log.append(Constants.logimg_html_list[img_choice[id]])
 
 
 class Group(BaseGroup):
@@ -298,7 +313,7 @@ class Player(BasePlayer):
     box4_children = models.StringField()
     box5_children = models.StringField()
 
-    ari = models.FloatField()
+    kappa = models.FloatField()
 
 
     def role(self):
@@ -381,13 +396,6 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        img_choice = random.sample(range(0,40,1), k=(5))
-        player.subsession.showed_imgs = []
-        player.subsession.showed_imgs4log = []
-        for id in img_choice:
-            player.subsession.showed_imgs.append(Constants.stimuliimg_html_list[img_choice[id]])
-            player.subsession.showed_imgs4log.append(Constants.logimg_html_list[img_choice[id]])
-        
         box0_defaultimgs = []
         if player.participant.box0_items[0] == 999:
             box0_defaultimgs.append("999")
@@ -432,10 +440,7 @@ class Speaker(Page):
         
         default_name_list = []
         for p in range(len(player.participant.default_nameorder)):
-            default_name_list.append(Constants.namehtml_list[p])
-        
-        other_players = player.get_others_in_group()
-        
+            default_name_list.append(Constants.namehtml_list[p])        
         
         return {
             "showed_imgs" : player.subsession.showed_imgs,
@@ -777,112 +782,132 @@ class WaitForSpeaker(WaitPage):
         return player.role() == 'listener'
 
 
-class WaitForListener(WaitPage):
-    titel_text = "「聞き手」の入力を待っています"
-    body_text = "「聞き手」があなたのつけた名前を受け入れるかどうかを決めています。入力があるまでお待ち下さい。"
+class ResultsWaitPage(WaitPage):
     @staticmethod
-    def is_displayed(player: Player):
-        return player.role() == 'speaker'
+    def after_all_players_arrive(group: Group):
+        for player in group.get_players():
+            other_player = player.get_others_in_group()[0]
+            player.kappa = max(
+                cohen_kappa_score(cl, player.participant.img_category_list) for cl in Constants.correct_cat_list
+                )
+            player.ari = adjusted_rand_score(
+                group.get_players()[0].participant.img_category_list,
+                group.get_players()[1].participant.img_category_list
+            )
+            imgs_this_round = player.subsession.showed_imgs4log
+            loghead = "<p>ラウンド{}</p>".format(player.round_number)
+            log1 = "<p>表示された画像（左から順に1,2,3,4,5番）：</p>"
+            log_divhead = "<div style=\"display: flex;\">"
+            log_divtail = "</div>"
+            logtail = "<p>------------------------------------------------------------</p><br>"
+            if player.role() == 'speaker':
+                log0 = "<p>あなたの役割：「話し手」</p>"
+                log2 = "<p>あなたの選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
+                log3 = "<p>相手がその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
+                log4 = "<p>{}, {}, {}, {}, {}<\p><br><br><br>".format(
+                    Constants.accept_choice[other_player.accept0],
+                    Constants.accept_choice[other_player.accept1],
+                    Constants.accept_choice[other_player.accept2],
+                    Constants.accept_choice[other_player.accept3],
+                    Constants.accept_choice[other_player.accept4],
+                    )
+                player.participant.loghtml_list.append(loghead)
+                player.participant.loghtml_list.append(log0)
+                player.participant.loghtml_list.append(log1)
+                player.participant.loghtml_list.append(log_divhead)
+                for img_tr in imgs_this_round:
+                    player.participant.loghtml_list.append(img_tr)
+                player.participant.loghtml_list.append(log_divtail)
+                player.participant.loghtml_list.append(log2)
+                player.participant.loghtml_list.append(log_divhead)
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice0)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice1)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice2)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice3)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice4)])
+                player.participant.loghtml_list.append(log_divtail)
+                player.participant.loghtml_list.append(log3)
+                player.participant.loghtml_list.append(log4)
+                player.participant.loghtml_list.append(logtail)
+            else:
+                log0 = "<p>あなたの役割：「聞き手」</p>"
+                log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
+                log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
+                log4 = "<p>{}, {}, {}, {}, {}<\p>".format(
+                    Constants.accept_choice[player.accept0],
+                    Constants.accept_choice[player.accept1],
+                    Constants.accept_choice[player.accept2],
+                    Constants.accept_choice[player.accept3],
+                    Constants.accept_choice[player.accept4],
+                    )
+                player.participant.loghtml_list.append(log0)
+                player.participant.loghtml_list.append(log1)
+                player.participant.loghtml_list.append(log_divhead)
+                for img_tr in imgs_this_round:
+                    player.participant.loghtml_list.append(img_tr)
+                player.participant.loghtml_list.append(log_divtail)
+                player.participant.loghtml_list.append(log2)
+                player.participant.loghtml_list.append(log_divhead)
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(other_player.s_choice0)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(other_player.s_choice1)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(other_player.s_choice2)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(other_player.s_choice3)])
+                player.participant.loghtml_list.append(Constants.logname_html_list[int(other_player.s_choice4)])
+                player.participant.loghtml_list.append(log_divtail)
+                player.participant.loghtml_list.append(log3)
+                player.participant.loghtml_list.append(log4)
+                player.participant.loghtml_list.append(logtail)
 
 
 class EndOfRound(Page):
     @staticmethod
     def vars_for_template(player: Player):
-        all_players = player.get_players()
-        player.subsession.kappa = cohen_kappa_score(
-            all_players[0].participant.img_category_list,
-            all_players[1].participant.img_category_list
-            )
-        player.ari = adjusted_rand_score(
-            Constants.pred_cat_list,
-            player.participant.img_category_list
-        )
-
-        imgs_this_round = player.subsession.showed_imgs4log
-        other_players = player.get_others_in_group()
-        if player.role() == 'speaker':
-            log0 = "<p>あなたの役割：「話し手」</p>"
-            log1 = "<p>表示された画像（左から順に1,2,3,4,5番）：</p>"
-            log_divhead = "<div style=\"display: flex;\">"
-            log_divtail = "</div>"
-            log2 = "<p>あなたの選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
-            log3 = "<p>相手がその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
-            log4 = "<p>{}, {}, {}, {}, {}<\p><br><br><br>".format(
-                Constants.accept_choice[other_players[0].accept0],
-                Constants.accept_choice[other_players[0].accept1],
-                Constants.accept_choice[other_players[0].accept2],
-                Constants.accept_choice[other_players[0].accept3],
-                Constants.accept_choice[other_players[0].accept4],
-                )
-            player.participant.loghtml_list.append(log0)
-            player.participant.loghtml_list.append(log1)
-            player.participant.loghtml_list.append(log_divhead)
-            for img_tr in imgs_this_round:
-                player.participant.loghtml_list.append(img_tr)
-            player.participant.loghtml_list.append(log_divtail)
-            player.participant.loghtml_list.append(log2)
-            player.participant.loghtml_list.append(log_divhead)
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice0)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice1)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice2)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice3)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(player.s_choice4)])
-            player.participant.loghtml_list.append(log_divtail)
-            player.participant.loghtml_list.append(log3)
-            player.participant.loghtml_list.append(log4)
-        else:
-            log0 = "<p>あなたの役割：「聞き手」</p>"
-            log1 = "<p>表示された画像（左から順に1,2,3,4,5番）：</p>"
-            log_divhead = "<div style=\"display: flex;\">"
-            log_divtail = "</div>"
-            log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
-            log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
-            log4 = "<p>{}, {}, {}, {}, {}<\p><br><br><br>".format(
-                Constants.accept_choice[player.accept0],
-                Constants.accept_choice[player.accept1],
-                Constants.accept_choice[player.accept2],
-                Constants.accept_choice[player.accept3],
-                Constants.accept_choice[player.accept4],
-                )
-            player.participant.loghtml_list.append(log0)
-            player.participant.loghtml_list.append(log1)
-            player.participant.loghtml_list.append(log_divhead)
-            for img_tr in imgs_this_round:
-                player.participant.loghtml_list.append(img_tr)
-            player.participant.loghtml_list.append(log_divtail)
-            player.participant.loghtml_list.append(log2)
-            player.participant.loghtml_list.append(log_divhead)
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(other_players[0].s_choice0)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(other_players[0].s_choice1)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(other_players[0].s_choice2)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(other_players[0].s_choice3)])
-            player.participant.loghtml_list.append(Constants.logname_html_list[int(other_players[0].s_choice4)])
-            player.participant.loghtml_list.append(log_divtail)
-            player.participant.loghtml_list.append(log3)
-            player.participant.loghtml_list.append(log4)
         return {
-            "kappa" : player.subsession.kappa,
+            "kappa" : player.kappa,
+            "ari" : player.ari,
+            "loghtml_list" : player.participant.loghtml_list,
         }
 
 
 
-class ResultsWaitPage(WaitPage):
+class EarlyFinish(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.round_number == Constants.num_rounds
+        return player.ari >= Constants.goal_ari
+    
+    @staticmethod
+    def vars_for_template(player: Player):
+        player.parcitipant.final_round_num = player.round_number
+        player.parcitipant.final_kappa = player.kappa
+        player.parcitipant.final_ari = player.ari
+        return {
+            "loghtml_list" : player.participant.loghtml_list,
+        }
+    
+    def app_after_this_page(self, upcoming_apps):
+        player = self.player
+        if player.whatever:
+            return upcoming_apps[0]
 
 
-class Results(Page):
+class LateFinish(Page):
     @staticmethod
     def is_displayed(player: Player):
         return player.round_number == Constants.num_rounds
     
     @staticmethod
     def vars_for_template(player: Player):
+        player.parcitipant.final_round_num = player.round_number
+        player.parcitipant.final_kappa = player.kappa
+        player.parcitipant.final_ari = player.ari
         return {
-            "dict1" : player.participant.img2category,
-            "dict2" : player.participant.img2name,
+            "loghtml_list" : player.participant.loghtml_list,
         }
+    
+    def app_after_this_page(self, upcoming_apps):
+        player = self.player
+        if player.whatever:
+            return upcoming_apps[0]
 
 
 page_sequence = [
@@ -891,8 +916,8 @@ page_sequence = [
     Speaker,
     WaitForSpeaker,
     Listener,
-    WaitForListener,
-    EndOfRound,
     ResultsWaitPage,
-    Results
+    EndOfRound,
+    EarlyFinish,
+    LateFinish,
     ]

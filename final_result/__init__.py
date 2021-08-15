@@ -61,6 +61,27 @@ def make_name_html_list(height, width):
         ]
     return img_html_list
 
+def custom_export(players):
+    yield [
+        "session",
+        "participant_code",
+        "id_in_group",
+        "final_round_num",
+        "final_kappa",
+        "final_ari"
+        ]
+    for p in players:
+        participant = p.participant
+        session = p.session
+        yield [
+            session.code,
+            participant.code,
+            p.id_in_group,
+            participant.final_round_num,
+            participant.final_kappa,
+            participant.final_ari,
+            ]
+
 
 class Constants(BaseConstants):
     name_in_url = 'final_result'
@@ -101,7 +122,5 @@ class FinalResults(Page):
             "others_dict" : others_dict,
             "name_html_list" : Constants.name_html_list,
         }
-
-
 
 page_sequence = [FinalResults]

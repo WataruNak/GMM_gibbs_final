@@ -3,33 +3,38 @@
 {{ endblock }}
 
 {{ block content }}
-<p>今回表示された画像は以下の5つです。</p>
-<div style="display: flex;">
-    <div style="width: 70px">1番目の画像</div>
-    <div style="width: 70px">2番目の画像</div>
-    <div style="width: 70px">3番目の画像</div>
-    <div style="width: 70px">4番目の画像</div>
-    <div style="width: 70px">5番目の画像</div>
-</div>
+<p>今回表示された画像と、それらに対して「話し手」がつけた記号は以下の通りです。</p>
 <div style="display: flex;">
 {{ for showed_img in showed_imgs }}
 {{ showed_img }}
 {{ endfor }}
 </div>
-<p>「話し手」がこれらの画像に付けた記号は、</p>
-<p>1番目の画像：{{ others_choice0 + 1 }}番の記号</p>
-<p>2番目の画像：{{ others_choice1 + 1 }}番の記号</p>
-<p>3番目の画像：{{ others_choice2 + 1 }}番の記号</p>
-<p>4番目の画像：{{ others_choice3 + 1 }}番の記号</p>
-<p>5番目の画像：{{ others_choice4 + 1 }}番の記号</p>
-<p>でした。それぞれの組み合わせについて、受け入れるか受け入れないかを選び、
-「次へ」ボタンを押して下さい。</p>
-{% formfield player.accept0 %}
-{% formfield player.accept1 %}
-{% formfield player.accept2 %}
-{% formfield player.accept3 %}
-{% formfield player.accept4 %}
-
+<br>
+<div style="display: flex;">
+{{ for name in others_choice_list }}
+{{ name }}
+{{ endfor }}
+</div>
+<br>
+<br>
+<p>これを参考に下にある分類表を調整し、終わったら「次へ」を押してください。</p>
+<p>この提案通りになるように動かしても構いませんし、「話し手」の提案は変だと思ったら何も
+移動させなくても構いません。</p>
+<p>「次へ」ボタンを押すまでは、上の5つ以外の画像や記号の欄も動かすことができます。</p>
+<br>
+<p>なお、あなたの付けた記号が「話し手」の提案と同じだった場合は「提案を受け入れた」、
+違った場合は「提案を受け入れなかった」と、それぞれの画像について「話し手」に
+伝えられます。</p>
+<br>
+<p>※この上に表示されている画像はドラッグできません。対応する画像は、
+1番目の画像が<span style="color: red;">赤</span>、
+2番目の画像が<span style="color: orange;">オレンジ</span>、
+3番目の画像が<span style="color: blue;">青</span>、
+4番目の画像が<span style="color: green;">緑</span>、
+5番目の画像が<span style="color: purple;">紫</span>
+の枠でそれぞれ囲われていますので、表の中のそれらの画像をドラッグして
+分類を変更してください。</p>
+<br>
     {{ next_button }}
 <br>
 <br>
@@ -213,11 +218,27 @@
           background-color: rgba(255, 255, 0, 0.3);
         }
 
-        .box {
+        .log {
           width: 1000px;
           height: 600px;
           border: 1px solid black;
           overflow-y: scroll;
+        }
+
+        .selected0 {
+            border: 0.5px solid red;
+        }
+        .selected1 {
+            border: 0.5px solid orange;
+        }
+        .selected2 {
+            border: 0.5px solid brue;
+        }
+        .selected3 {
+            border: 0.5px solid green;
+        }
+        .selected4 {
+            border: 0.5px solid purple;
         }
     </style>
 {% endblock %}

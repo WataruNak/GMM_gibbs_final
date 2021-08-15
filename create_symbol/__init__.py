@@ -25,48 +25,48 @@ def make_imgcat_path(num):
         imgcatpath_list.append("img{}_cat".format(_))
     return imgcatpath_list
 
-def make_img_html_list(height, width):
+def make_img_html_list(height, width, id_name):
     img_html_list = [
-        "<img src = \"https://imgur.com/wqnOMfy.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/LHJYfxo.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/9Xa4VnX.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/D91W1KT.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/J35mb8e.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/IC9TPNn.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/cJQIb6k.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/2rj1L4f.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/CeGed6S.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/u28iEnb.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/N1rDlYe.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/4uFfzbw.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/ATEBW84.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/OUEAyTS.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/oLE2TWf.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/xiGpQvF.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/NnOAzoD.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/0wGJ58N.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/nitf5Sq.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/dwXrpvH.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/K8sGXHa.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/XejnHhh.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/yFw1I6M.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/iuGyxnS.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/zysvnS8.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/jv5EHuP.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/fqjlV3Y.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/2NYuf1e.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/jy5MPbW.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/7Rf9TKU.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/BgSfDLZ.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/3sfX7Mr.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/6R8GCoP.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/A5ju4zJ.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/QF9ee5p.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/vW5QaBq.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/NcY47LO.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/GDI9kz8.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/OmiMBXk.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
-        "<img src = \"https://imgur.com/in0lSLH.jpg\" height=\"{}px\" width=\"{}px\"/>".format(height, width),
+        "<img src = \"https://imgur.com/wqnOMfy.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}0\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/LHJYfxo.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}1\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/9Xa4VnX.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}2\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/D91W1KT.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}3\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/J35mb8e.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}4\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/IC9TPNn.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}5\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/cJQIb6k.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}6\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/2rj1L4f.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}7\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/CeGed6S.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}8\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/u28iEnb.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}9\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/N1rDlYe.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}10\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/4uFfzbw.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}11\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/ATEBW84.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}12\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/OUEAyTS.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}13\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/oLE2TWf.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}14\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/xiGpQvF.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}15\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/NnOAzoD.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}16\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/0wGJ58N.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}17\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/nitf5Sq.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}18\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/dwXrpvH.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}19\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/K8sGXHa.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}20\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/XejnHhh.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}21\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/yFw1I6M.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}22\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/iuGyxnS.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}23\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/zysvnS8.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}24\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/jv5EHuP.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}25\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/fqjlV3Y.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}26\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/2NYuf1e.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}27\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/jy5MPbW.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}28\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/7Rf9TKU.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}29\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/BgSfDLZ.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}30\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/3sfX7Mr.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}31\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/6R8GCoP.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}32\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/A5ju4zJ.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}33\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/QF9ee5p.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}34\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/vW5QaBq.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}35\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/NcY47LO.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}36\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/GDI9kz8.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}37\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/OmiMBXk.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}38\"/>".format(height, width, id_name),
+        "<img src = \"https://imgur.com/in0lSLH.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}39\"/>".format(height, width, id_name),
         ]
     return img_html_list
     
@@ -136,8 +136,8 @@ class Constants(BaseConstants):
         "<li draggable=\"true\" id=\"name5\" data-id=\"sym5\"><img src=\"https://imgur.com/RdWIiGo.png\" height=\"100px\" width=\"100px\"></li>",
         ]
 
-    stimuliimg_html_list = make_img_html_list(70, 70)
-    logimg_html_list = make_img_html_list(30, 30)
+    stimuliimg_html_list = make_img_html_list(70, 70, "stimuli")
+    logimg_html_list = make_img_html_list(30, 30, "logimg")
     choicename_html_list = make_name_html_list(70, 70)
     logname_html_list = make_name_html_list(30, 30)
 
@@ -150,12 +150,12 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        img_choice = random.sample(range(0,40,1), k=(5))
+        self.img_choice = random.sample(range(0,40,1), k=(5))
         self.showed_imgs = []
         self.showed_imgs4log = []
-        for id in img_choice:
-            self.showed_imgs.append(Constants.stimuliimg_html_list[img_choice[id]])
-            self.showed_imgs4log.append(Constants.logimg_html_list[img_choice[id]])
+        for id in self.img_choice:
+            self.showed_imgs.append(Constants.stimuliimg_html_list[self.img_choice[id]])
+            self.showed_imgs4log.append(Constants.logimg_html_list[self.img_choice[id]])
 
 
 class Group(BaseGroup):
@@ -163,106 +163,17 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    s_choice0 = models.StringField(
-        initial="99",
-        label="1番目の画像",
-        choices=[
-            ["0", "1番の記号"],
-            ["1", "2番の記号"],
-            ["2", "3番の記号"],
-            ["3", "4番の記号"],
-            ["4", "5番の記号"],
-            ["5", "6番の記号"],
-            ],
-        widget = widgets.RadioSelectHorizontal,
-    )
-    s_choice1 = models.StringField(
-        initial="99",
-        label="2番目の画像",
-        choices=[
-            ["0", "1番の記号"],
-            ["1", "2番の記号"],
-            ["2", "3番の記号"],
-            ["3", "4番の記号"],
-            ["4", "5番の記号"],
-            ["5", "6番の記号"],
-            ],
-        widget = widgets.RadioSelectHorizontal,
-    )
-    s_choice2 = models.StringField(
-        initial="99",
-        label="3番目の画像",
-        choices=[
-            ["0", "1番の記号"],
-            ["1", "2番の記号"],
-            ["2", "3番の記号"],
-            ["3", "4番の記号"],
-            ["4", "5番の記号"],
-            ["5", "6番の記号"],
-            ],
-        widget = widgets.RadioSelectHorizontal,
-    )
-    s_choice3 = models.StringField(
-        initial="99",
-        label="4番目の画像",
-        choices=[
-            ["0", "1番の記号"],
-            ["1", "2番の記号"],
-            ["2", "3番の記号"],
-            ["3", "4番の記号"],
-            ["4", "5番の記号"],
-            ["5", "6番の記号"],
-            ],
-        widget = widgets.RadioSelectHorizontal,
-    )
-    s_choice4 = models.StringField(
-        initial="99",
-        label="5番目の画像",
-        choices=[
-            ["0", "1番の記号"],
-            ["1", "2番の記号"],
-            ["2", "3番の記号"],
-            ["3", "4番の記号"],
-            ["4", "5番の記号"],
-            ["5", "6番の記号"],
-            ],
-        widget = widgets.RadioSelectHorizontal,
-    )
+    s_choice0 = models.StringField(initial="99")
+    s_choice1 = models.StringField(initial="99")
+    s_choice2 = models.StringField(initial="99")
+    s_choice3 = models.StringField(initial="99")
+    s_choice4 = models.StringField(initial="99")
 
-    accept0 = models.IntegerField(
-        initial=2,
-        label="1番目の画像",
-        choices=[[0, "受け入れない"], [1, "受け入れる"]],
-        widget = widgets.RadioSelect,
-    )
-
-    accept1 = models.IntegerField(
-        initial=2,
-        label="2番目の画像",
-        choices=[[0, "受け入れない"], [1, "受け入れる"]],
-        widget = widgets.RadioSelect,
-    )
-
-    accept2 = models.IntegerField(
-        initial=2,
-        label="3番目の画像",
-        choices=[[0, "受け入れない"], [1, "受け入れる"]],
-        widget = widgets.RadioSelect,
-    )
-
-    accept3 = models.IntegerField(
-        initial=2,
-        label="4番目の画像",
-        choices=[[0, "受け入れない"], [1, "受け入れる"]],
-        widget = widgets.RadioSelect,
-    )
-
-    accept4 = models.IntegerField(
-        initial=2,
-        label="5番目の画像",
-        choices=[[0, "受け入れない"], [1, "受け入れる"]],
-        widget = widgets.RadioSelect,
-    )
+    accept0 = models.IntegerField(initial=2)
+    accept1 = models.IntegerField(initial=2)
+    accept2 = models.IntegerField(initial=2)
+    accept3 = models.IntegerField(initial=2)
+    accept4 = models.IntegerField(initial=2)
 
     name_order = models.StringField()
     img0_cat = models.StringField()
@@ -334,12 +245,16 @@ def custom_export(players):
     yield [
         "session",
         "participant_code",
-        "round_number",
-        "id_in_group",
-        "img_id",
-        "send_choice",
-        "accept",
-        "rename_choice",
+        "id_in_group", "round_number", "kappa", "ari",
+        "accept0", "accept1", "accept2", "accept3", "accept4",
+        "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
+        "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
+        "img10_cat", "img11_cat", "img12_cat", "img13_cat", "img14_cat",
+        "img15_cat", "img16_cat", "img17_cat", "img18_cat", "img19_cat",
+        "img20_cat", "img21_cat", "img22_cat", "img23_cat", "img24_cat",
+        "img25_cat", "img26_cat", "img27_cat", "img28_cat", "img29_cat",
+        "img30_cat", "img31_cat", "img32_cat", "img33_cat", "img34_cat",
+        "img35_cat", "img36_cat", "img37_cat", "img38_cat", "img39_cat",
         ]
     for p in players:
         participant = p.participant
@@ -347,15 +262,17 @@ def custom_export(players):
         yield [
             session.code,
             participant.code,
-            p.round_number,
-            p.id_in_group,
-            p.test_id,
-            p.send_choice,
-            p.accept,
-            p.rename_choice
+            p.id_in_group, p.round_number, p.kappa, p.ari,
+            p.accept0, p.accept1, p.accept2, p.accept3, p.accept4, 
+            p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
+            p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
+            p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
+            p.img15_cat, p.img16_cat, p.img17_cat, p.img18_cat, p.img19_cat,
+            p.img20_cat, p.img21_cat, p.img22_cat, p.img23_cat, p.img24_cat,
+            p.img25_cat, p.img26_cat, p.img27_cat, p.img28_cat, p.img29_cat,
+            p.img30_cat, p.img31_cat, p.img32_cat, p.img33_cat, p.img34_cat,
+            p.img35_cat, p.img36_cat, p.img37_cat, p.img38_cat, p.img39_cat,
             ]
-
-
 
 # PAGES
 class Instruction(Page):
@@ -370,14 +287,15 @@ class ShowRole(Page):
         if player.round_number == 1:
             player.participant.loghtml_list =["<p>実験開始</p><br>",]
         return {
+            "round_num" : player.round_number,
             "role" : player.role(),
             }
 
 
 class Speaker(Page):
+    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
-        "s_choice0", "s_choice1", "s_choice2", "s_choice3", "s_choice4",
         "name_order", 
         "box0_children", "box1_children", "box2_children",
         "box3_children", "box4_children", "box5_children",
@@ -469,58 +387,30 @@ class Speaker(Page):
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
             default_name_list=player.participant.default_name_list,
-            default_name_value=default_name_value
+            default_name_value=default_name_value,
+            img_choice=player.subsession.img_choice,
+            role=player.role(),
         )
     
     @staticmethod
     def before_next_page(player, timeout_happened):
-        player.participant.img_category_list[0] = int(player.img0_cat)
-        player.participant.img_category_list[1] = int(player.img1_cat)
-        player.participant.img_category_list[2] = int(player.img2_cat)
-        player.participant.img_category_list[3] = int(player.img3_cat)
-        player.participant.img_category_list[4] = int(player.img4_cat)
-        player.participant.img_category_list[5] = int(player.img5_cat)
-        player.participant.img_category_list[6] = int(player.img6_cat)
-        player.participant.img_category_list[7] = int(player.img7_cat)
-        player.participant.img_category_list[8] = int(player.img8_cat)
-        player.participant.img_category_list[9] = int(player.img9_cat)
-        player.participant.img_category_list[10] = int(player.img10_cat)
-        player.participant.img_category_list[11] = int(player.img11_cat)
-        player.participant.img_category_list[12] = int(player.img12_cat)
-        player.participant.img_category_list[13] = int(player.img13_cat)
-        player.participant.img_category_list[14] = int(player.img14_cat)
-        player.participant.img_category_list[15] = int(player.img15_cat)
-        player.participant.img_category_list[16] = int(player.img16_cat)
-        player.participant.img_category_list[17] = int(player.img17_cat)
-        player.participant.img_category_list[18] = int(player.img18_cat)
-        player.participant.img_category_list[19] = int(player.img19_cat)
-        player.participant.img_category_list[20] = int(player.img20_cat)
-        player.participant.img_category_list[21] = int(player.img21_cat)
-        player.participant.img_category_list[22] = int(player.img22_cat)
-        player.participant.img_category_list[23] = int(player.img23_cat)
-        player.participant.img_category_list[24] = int(player.img24_cat)
-        player.participant.img_category_list[25] = int(player.img25_cat)
-        player.participant.img_category_list[26] = int(player.img26_cat)
-        player.participant.img_category_list[27] = int(player.img27_cat)
-        player.participant.img_category_list[28] = int(player.img28_cat)
-        player.participant.img_category_list[29] = int(player.img29_cat)
-        player.participant.img_category_list[30] = int(player.img30_cat)
-        player.participant.img_category_list[31] = int(player.img31_cat)
-        player.participant.img_category_list[32] = int(player.img32_cat)
-        player.participant.img_category_list[33] = int(player.img33_cat)
-        player.participant.img_category_list[34] = int(player.img34_cat)
-        player.participant.img_category_list[35] = int(player.img35_cat)
-        player.participant.img_category_list[36] = int(player.img36_cat)
-        player.participant.img_category_list[37] = int(player.img37_cat)
-        player.participant.img_category_list[38] = int(player.img38_cat)
-        player.participant.img_category_list[39] = int(player.img39_cat)
-
+        cat_list = [
+            player.img0_cat, player.img1_cat, player.img2_cat, player.img3_cat, player.img4_cat,
+            player.img5_cat, player.img6_cat, player.img7_cat, player.img8_cat, player.img9_cat,
+            player.img10_cat, player.img11_cat, player.img12_cat, player.img13_cat, player.img14_cat,
+            player.img15_cat, player.img16_cat, player.img17_cat, player.img18_cat, player.img19_cat,
+            player.img20_cat, player.img21_cat, player.img22_cat, player.img23_cat, player.img24_cat,
+            player.img25_cat, player.img26_cat, player.img27_cat, player.img28_cat, player.img29_cat,
+            player.img30_cat, player.img31_cat, player.img32_cat, player.img33_cat, player.img34_cat,
+            player.img35_cat, player.img36_cat, player.img37_cat, player.img38_cat, player.img39_cat,
+        ]
+        for q in range(40):
+            player.participant.img_category_list[q] = int(cat_list[q])
+        
         player.participant.default_nameorder = []
-
         n_list = player.name_order.split(",")
         for name in n_list:
-            player.participant.default_nameorder.append(int(name[-1]))
-        
+            player.participant.default_nameorder.append(int(name[-1]))        
         if player.box0_children == "999":
             player.participant.box0_items = [999,]
         else:
@@ -528,39 +418,34 @@ class Speaker(Page):
             for b0i in b0list:
                 player.participant.box0_items = []
                 player.participant.box0_items.append(int(b0i))
-
         if player.box1_children == "999":
             player.participant.box1_items = [999,]
         else:
             b1list = player.box1_children.split(",")
             for b1i in b1list:
                 player.participant.box1_items = []
-                player.participant.box1_items.append(int(b1i))
-        
+                player.participant.box1_items.append(int(b1i))        
         if player.box2_children == "999":
             player.participant.box2_items = [999,]
         else:
             b2list = player.box2_children.split(",")
             for b2i in b2list:
                 player.participant.box2_items = []
-                player.participant.box2_items.append(int(b2i))
-        
+                player.participant.box2_items.append(int(b2i))        
         if player.box3_children == "999":
             player.participant.box3_items = [999,]
         else:
             b3list = player.box3_children.split(",")
             for b3i in b3list:
                 player.participant.box3_items = []
-                player.participant.box3_items.append(int(b3i))
-        
+                player.participant.box3_items.append(int(b3i))        
         if player.box4_children == "999":
             player.participant.box4_items = [999,]
         else:
             b4list = player.box4_children.split(",")
             for b4i in b4list:
                 player.participant.box4_items = []
-                player.participant.box4_items.append(int(b4i))
-        
+                player.participant.box4_items.append(int(b4i))        
         if player.box5_children == "999":
             player.participant.box5_items = [999,]
         else:
@@ -571,9 +456,9 @@ class Speaker(Page):
 
 
 class Listener(Page):
+    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
-        "accept0", "accept1", "accept2", "accept3", "accept4",
         "name_order", 
         "box0_children", "box1_children", "box2_children",
         "box3_children", "box4_children", "box5_children",
@@ -639,18 +524,19 @@ class Listener(Page):
         for p in range(len(player.participant.default_nameorder)):
             default_name_list.append(Constants.namehtml_list[p])
         
-        other_players = player.get_others_in_group()
-        
+        other_player = player.get_others_in_group()[0]
+        others_choice_list = [
+            Constants.choicename_html_list[int(other_player.s_choice0)],
+            Constants.choicename_html_list[int(other_player.s_choice1)],
+            Constants.choicename_html_list[int(other_player.s_choice2)],
+            Constants.choicename_html_list[int(other_player.s_choice3)],
+            Constants.choicename_html_list[int(other_player.s_choice4)],
+        ]        
         
         return {
             "showed_imgs" : player.subsession.showed_imgs,
-            "choice_names" : Constants.choicename_html_list,
+            "others_choice_list" : others_choice_list,
             "default_name_list" : default_name_list,
-            "others_choice0" : other_players[0].s_choice0,
-            "others_choice1" : other_players[0].s_choice1,
-            "others_choice2" : other_players[0].s_choice2,
-            "others_choice3" : other_players[0].s_choice3,
-            "others_choice4" : other_players[0].s_choice4,
             "box0_defaultimgs" : box0_defaultimgs,
             "box1_defaultimgs" : box1_defaultimgs,
             "box2_defaultimgs" : box2_defaultimgs,
@@ -673,58 +559,52 @@ class Listener(Page):
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
             default_name_list=player.participant.default_name_list,
-            default_name_value=default_name_value
+            default_name_value=default_name_value,
+            img_choice=player.subsession.img_choice,
+            role=player.role(),
         )
     
     @staticmethod
     def before_next_page(player, timeout_happened):
-        player.participant.img_category_list[0] = int(player.img0_cat)
-        player.participant.img_category_list[1] = int(player.img1_cat)
-        player.participant.img_category_list[2] = int(player.img2_cat)
-        player.participant.img_category_list[3] = int(player.img3_cat)
-        player.participant.img_category_list[4] = int(player.img4_cat)
-        player.participant.img_category_list[5] = int(player.img5_cat)
-        player.participant.img_category_list[6] = int(player.img6_cat)
-        player.participant.img_category_list[7] = int(player.img7_cat)
-        player.participant.img_category_list[8] = int(player.img8_cat)
-        player.participant.img_category_list[9] = int(player.img9_cat)
-        player.participant.img_category_list[10] = int(player.img10_cat)
-        player.participant.img_category_list[11] = int(player.img11_cat)
-        player.participant.img_category_list[12] = int(player.img12_cat)
-        player.participant.img_category_list[13] = int(player.img13_cat)
-        player.participant.img_category_list[14] = int(player.img14_cat)
-        player.participant.img_category_list[15] = int(player.img15_cat)
-        player.participant.img_category_list[16] = int(player.img16_cat)
-        player.participant.img_category_list[17] = int(player.img17_cat)
-        player.participant.img_category_list[18] = int(player.img18_cat)
-        player.participant.img_category_list[19] = int(player.img19_cat)
-        player.participant.img_category_list[20] = int(player.img20_cat)
-        player.participant.img_category_list[21] = int(player.img21_cat)
-        player.participant.img_category_list[22] = int(player.img22_cat)
-        player.participant.img_category_list[23] = int(player.img23_cat)
-        player.participant.img_category_list[24] = int(player.img24_cat)
-        player.participant.img_category_list[25] = int(player.img25_cat)
-        player.participant.img_category_list[26] = int(player.img26_cat)
-        player.participant.img_category_list[27] = int(player.img27_cat)
-        player.participant.img_category_list[28] = int(player.img28_cat)
-        player.participant.img_category_list[29] = int(player.img29_cat)
-        player.participant.img_category_list[30] = int(player.img30_cat)
-        player.participant.img_category_list[31] = int(player.img31_cat)
-        player.participant.img_category_list[32] = int(player.img32_cat)
-        player.participant.img_category_list[33] = int(player.img33_cat)
-        player.participant.img_category_list[34] = int(player.img34_cat)
-        player.participant.img_category_list[35] = int(player.img35_cat)
-        player.participant.img_category_list[36] = int(player.img36_cat)
-        player.participant.img_category_list[37] = int(player.img37_cat)
-        player.participant.img_category_list[38] = int(player.img38_cat)
-        player.participant.img_category_list[39] = int(player.img39_cat)
+        cat_list = [
+            player.img0_cat, player.img1_cat, player.img2_cat, player.img3_cat, player.img4_cat,
+            player.img5_cat, player.img6_cat, player.img7_cat, player.img8_cat, player.img9_cat,
+            player.img10_cat, player.img11_cat, player.img12_cat, player.img13_cat, player.img14_cat,
+            player.img15_cat, player.img16_cat, player.img17_cat, player.img18_cat, player.img19_cat,
+            player.img20_cat, player.img21_cat, player.img22_cat, player.img23_cat, player.img24_cat,
+            player.img25_cat, player.img26_cat, player.img27_cat, player.img28_cat, player.img29_cat,
+            player.img30_cat, player.img31_cat, player.img32_cat, player.img33_cat, player.img34_cat,
+            player.img35_cat, player.img36_cat, player.img37_cat, player.img38_cat, player.img39_cat,
+        ]
+        for q in range(40):
+            player.participant.img_category_list[q] = int(cat_list[q])
+
+        other_player = player.get_others_in_group()[0]
+        if player.participant.img_category_list[player.subsession.img_choice[0]] == int(other_player.s_choice0):
+            player.accept0 = 1
+        else:
+            player.accept0 = 0
+        if player.participant.img_category_list[player.subsession.img_choice[1]] == int(other_player.s_choice1):
+            player.accept1 = 1
+        else:
+            player.accept1 = 0
+        if player.participant.img_category_list[player.subsession.img_choice[2]] == int(other_player.s_choice2):
+            player.accept2 = 1
+        else:
+            player.accept2 = 0
+        if player.participant.img_category_list[player.subsession.img_choice[3]] == int(other_player.s_choice3):
+            player.accept3 = 1
+        else:
+            player.accept3 = 0
+        if player.participant.img_category_list[player.subsession.img_choice[4]] == int(other_player.s_choice4):
+            player.accept4 = 1
+        else:
+            player.accept4 = 0
 
         player.participant.default_nameorder = []
-
         n_list = player.name_order.split(",")
         for name in n_list:
-            player.participant.default_nameorder.append(int(name[-1]))
-        
+            player.participant.default_nameorder.append(int(name[-1]))        
         if player.box0_children == "999":
             player.participant.box0_items = [999,]
         else:
@@ -732,39 +612,34 @@ class Listener(Page):
             for b0i in b0list:
                 player.participant.box0_items = []
                 player.participant.box0_items.append(int(b0i))
-
         if player.box1_children == "999":
             player.participant.box1_items = [999,]
         else:
             b1list = player.box1_children.split(",")
             for b1i in b1list:
                 player.participant.box1_items = []
-                player.participant.box1_items.append(int(b1i))
-        
+                player.participant.box1_items.append(int(b1i))        
         if player.box2_children == "999":
             player.participant.box2_items = [999,]
         else:
             b2list = player.box2_children.split(",")
             for b2i in b2list:
                 player.participant.box2_items = []
-                player.participant.box2_items.append(int(b2i))
-        
+                player.participant.box2_items.append(int(b2i))        
         if player.box3_children == "999":
             player.participant.box3_items = [999,]
         else:
             b3list = player.box3_children.split(",")
             for b3i in b3list:
                 player.participant.box3_items = []
-                player.participant.box3_items.append(int(b3i))
-        
+                player.participant.box3_items.append(int(b3i))        
         if player.box4_children == "999":
             player.participant.box4_items = [999,]
         else:
             b4list = player.box4_children.split(",")
             for b4i in b4list:
                 player.participant.box4_items = []
-                player.participant.box4_items.append(int(b4i))
-        
+                player.participant.box4_items.append(int(b4i))        
         if player.box5_children == "999":
             player.participant.box5_items = [999,]
         else:
@@ -777,7 +652,7 @@ class Listener(Page):
 
 class WaitForSpeaker(WaitPage):
     titel_text = "「話し手」の入力を待っています"
-    body_text = "あなたは「聞き手」です。「話し手」が名前を決めるまでお待ち下さい。"
+    body_text = "あなたは「聞き手」です。「話し手」の入力をお待ち下さい。"
     @staticmethod
     def is_displayed(player: Player):
         return player.role() == 'listener'
@@ -864,11 +739,11 @@ class EndOfRound(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return {
+            "round_num" : player.round_number,
             "kappa" : player.kappa,
             "ari" : player.ari,
             "loghtml_list" : player.participant.loghtml_list,
         }
-
 
 
 class EarlyFinish(Page):
@@ -881,9 +756,7 @@ class EarlyFinish(Page):
         player.parcitipant.final_round_num = player.round_number
         player.parcitipant.final_kappa = player.kappa
         player.parcitipant.final_ari = player.ari
-        return {
-            "loghtml_list" : player.participant.loghtml_list,
-        }
+        return {"loghtml_list" : player.participant.loghtml_list,}
     
     def app_after_this_page(self, upcoming_apps):
         player = self.player
@@ -901,9 +774,7 @@ class LateFinish(Page):
         player.parcitipant.final_round_num = player.round_number
         player.parcitipant.final_kappa = player.kappa
         player.parcitipant.final_ari = player.ari
-        return {
-            "loghtml_list" : player.participant.loghtml_list,
-        }
+        return {"loghtml_list" : player.participant.loghtml_list,}
     
     def app_after_this_page(self, upcoming_apps):
         player = self.player

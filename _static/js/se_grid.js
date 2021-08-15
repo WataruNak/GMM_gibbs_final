@@ -1,14 +1,40 @@
 // アイテムのリストを取得
 const items = [...document.querySelectorAll(".item")];
-let img_category_list = jx_vars.img_category_list;
-let imgcatpath_list = jx_vars.imgcatpath_list;
-let default_name_value = jx_vars.default_name_value
+let img_category_list = js_vars.img_category_list;
+let imgcatpath_list = js_vars.imgcatpath_list;
+let default_name_value = js_vars.default_name_value;
+let img_choice = js_vars.img_choice;
+let choice_cat_fields = [
+  document.getElementById("s_choice0"),
+  document.getElementById("s_choice1"),
+  document.getElementById("s_choice2"),
+  document.getElementById("s_choice3"),
+  document.getElementById("s_choice4"),
+]
+let stimuli_img_id_list = []
+for (let d=0; d<40; d++) {
+  stimuli_img_id_list.push("stimuli" + d)
+}
+
+let choice_img_class_list = [
+  "selected0", "selected1", "selected2", "selected3", "selected4"
+]
+let role = js_vars
 
 window.onload = function() {
   for (let a=0; a<40; a++) {
-    document.getElementById(imgcatpath_list[a]).value = img_category_list[a]
+    document.getElementById(imgcatpath_list[a]).value = String(img_category_list[a]);
   };
   document.getElementById("name_order").value = default_name_value;
+  for (let b=0; b<5; b++) {
+    document.getElementById(stimuli_img_id_list[img_choice[b]]).classList.add(choice_img_class_list[b])
+    document.getElementById(String(img_choice[b])).classList.add(choice_img_class_list[b]);
+  };
+  if (role == "speaker") {
+    for (let c=0; c<40; c++) {
+      choice_cat_fields[c].value = String(img_category_list[img_choice[c]])
+    };
+  };  
 };
 
 let img_cat_list = new Array(40);
@@ -50,6 +76,15 @@ let sortablename = Sortable.create(el, {
         boxchildren_list[j].value = "999"
       };
     };
+    if (role == "speaker") {
+      for (let l=0; l<5; l++) {
+        if (
+          choice_cat_fields[l].value != document.getElementById(String(img_choice[l]))
+          ) {
+            choice_cat_fields[l].value = document.getElementById(String(img_choice[l]))
+          };
+        }
+    }
   }
 });
 
@@ -131,6 +166,15 @@ const handleDrop = (e) => {
       boxchildren_list[k].value = "999"
     };
   };
+  if (role == "speaker") {
+    for (let m=0; m<5; m++) {
+      if (
+        choice_cat_fields[m].value != document.getElementById(String(img_choice[m]))
+        ) {
+          choice_cat_fields[m].value = document.getElementById(String(img_choice[m]))
+        };
+      }
+  }
 }
 
 // ドロップ先のリストを取得

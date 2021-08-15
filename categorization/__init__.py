@@ -148,10 +148,15 @@ def custom_export(players):
     yield [
         "session",
         "participant_code",
-        "round_number",
-        "id_in_group",
-        "stimuli_id",
-        "selected_category",
+        "id_in_group", "kappa", "ari",
+        "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
+        "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
+        "img10_cat", "img11_cat", "img12_cat", "img13_cat", "img14_cat",
+        "img15_cat", "img16_cat", "img17_cat", "img18_cat", "img19_cat",
+        "img20_cat", "img21_cat", "img22_cat", "img23_cat", "img24_cat",
+        "img25_cat", "img26_cat", "img27_cat", "img28_cat", "img29_cat",
+        "img30_cat", "img31_cat", "img32_cat", "img33_cat", "img34_cat",
+        "img35_cat", "img36_cat", "img37_cat", "img38_cat", "img39_cat",
         ]
     for p in players:
         participant = p.participant
@@ -159,10 +164,15 @@ def custom_export(players):
         yield [
             session.code,
             participant.code,
-            p.round_number,
-            p.id_in_group,
-            p.stimuli_id,
-            p.selected_category,
+            p.id_in_group, p.kappa, p.ari,
+            p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
+            p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
+            p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
+            p.img15_cat, p.img16_cat, p.img17_cat, p.img18_cat, p.img19_cat,
+            p.img20_cat, p.img21_cat, p.img22_cat, p.img23_cat, p.img24_cat,
+            p.img25_cat, p.img26_cat, p.img27_cat, p.img28_cat, p.img29_cat,
+            p.img30_cat, p.img31_cat, p.img32_cat, p.img33_cat, p.img34_cat,
+            p.img35_cat, p.img36_cat, p.img37_cat, p.img38_cat, p.img39_cat,
             ]
 
 # PAGES

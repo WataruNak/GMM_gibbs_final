@@ -311,6 +311,7 @@ class Categorize(Page):
         player.participant.img_category_list.append(int(player.img1_cat))
         player.participant.img_category_list.append(int(player.img2_cat))
         player.participant.img_category_list.append(int(player.img3_cat))
+        player.participant.img_category_list.append(int(player.img4_cat))
         player.participant.img_category_list.append(int(player.img5_cat))
         player.participant.img_category_list.append(int(player.img6_cat))
         player.participant.img_category_list.append(int(player.img7_cat))
@@ -356,50 +357,32 @@ class Categorize(Page):
         if player.box0_children == "999":
             player.participant.box0_items = [999,]
         else:
-            b0list = player.box0_children.split(",")
-            for b0i in b0list:
-                player.participant.box0_items = []
-                player.participant.box0_items.append(int(b0i))
+            player.participant.box0_items = [int(b0i) for b0i  in player.box0_children.split(",")]
 
         if player.box1_children == "999":
             player.participant.box1_items = [999,]
         else:
-            b1list = player.box1_children.split(",")
-            for b1i in b1list:
-                player.participant.box1_items = []
-                player.participant.box1_items.append(int(b1i))
+            player.participant.box1_items = [int(b1i) for b1i  in player.box1_children.split(",")]
         
         if player.box2_children == "999":
             player.participant.box2_items = [999,]
         else:
-            b2list = player.box2_children.split(",")
-            for b2i in b2list:
-                player.participant.box2_items = []
-                player.participant.box2_items.append(int(b2i))
+            player.participant.box2_items = [int(b2i) for b2i  in player.box2_children.split(",")]
         
         if player.box3_children == "999":
             player.participant.box3_items = [999,]
         else:
-            b3list = player.box3_children.split(",")
-            for b3i in b3list:
-                player.participant.box3_items = []
-                player.participant.box3_items.append(int(b3i))
+            player.participant.box3_items = [int(b3i) for b3i  in player.box3_children.split(",")]
         
         if player.box4_children == "999":
             player.participant.box4_items = [999,]
         else:
-            b4list = player.box4_children.split(",")
-            for b4i in b4list:
-                player.participant.box4_items = []
-                player.participant.box4_items.append(int(b4i))
+            player.participant.box4_items = [int(b4i) for b4i  in player.box4_children.split(",")]
         
         if player.box5_children == "999":
             player.participant.box5_items = [999,]
         else:
-            b5list = player.box5_children.split(",")
-            for b5i in b5list:
-                player.participant.box5_items = []
-                player.participant.box5_items.append(int(b5i))
+            player.participant.box5_items = [int(b5i) for b5i  in player.box5_children.split(",")]
 
 
 
@@ -446,6 +429,12 @@ class Results(Page):
             "box3_children" : player.box3_children,
             "box4_children" : player.box4_children,
             "box5_children" : player.box5_children,
+            "box0_items" : player.participant.box0_items,
+            "box1_items" : player.participant.box1_items,
+            "box2_items" : player.participant.box2_items,
+            "box3_items" : player.participant.box3_items,
+            "box4_items" : player.participant.box4_items,
+            "box5_items" : player.participant.box5_items,
         }
 
 

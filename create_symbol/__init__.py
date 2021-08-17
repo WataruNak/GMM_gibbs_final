@@ -149,13 +149,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        self.img_choice = random.sample(range(0,40,1), k=(5))
-        self.showed_imgs = []
-        self.showed_imgs4log = []
-        for id in self.img_choice:
-            self.showed_imgs.append(Constants.stimuliimg_html_list[self.img_choice[id]])
-            self.showed_imgs4log.append(Constants.logimg_html_list[self.img_choice[id]])
+    pass
 
 
 class Group(BaseGroup):
@@ -285,7 +279,11 @@ class ShowRole(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if player.round_number == 1:
-            player.participant.loghtml_list =["<p>実験開始</p><br>",]
+            player.participant.loghtml_list =[]
+            logstart = "<p>実験開始</p>"
+            logbar = "<p>↓↓↓↓↓↓↓↓↓↓</p><br>"
+            player.participant.loghtml_list.append(logstart)
+            player.participant.loghtml_list.append(logbar)
         return {
             "round_num" : player.round_number,
             "role" : player.role(),
@@ -315,6 +313,14 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
+        player.participant.img_choice = []
+        player.participant.img_choice = random.sample(range(0,40,1), k=(5))
+        player.participant.showed_imgs = []
+        player.participant.showed_imgs4log = []
+        for id in player.participant.img_choice:
+            player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
+            player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
+
         box0_defaultimgs = []
         if player.participant.box0_items[0] == 999:
             box0_defaultimgs.append("999")
@@ -362,7 +368,7 @@ class Speaker(Page):
             default_name_list.append(Constants.namehtml_list[p])        
         
         return {
-            "showed_imgs" : player.subsession.showed_imgs,
+            "showed_imgs" : player.participant.showed_imgs,
             "choice_names" : Constants.choicename_html_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
@@ -372,7 +378,7 @@ class Speaker(Page):
             "box4_defaultimgs" : box4_defaultimgs,
             "box5_defaultimgs" : box5_defaultimgs,
             "img_category_list" : player.participant.img_category_list,
-            "loghtml_list" : player.participant.log_html_list,           
+            "loghtml_list" : player.participant.loghtml_list,           
         }
     
     @staticmethod
@@ -386,9 +392,9 @@ class Speaker(Page):
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
-            default_name_list=player.participant.default_name_list,
+            default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
-            img_choice=player.subsession.img_choice,
+            img_choice=player.participant.img_choice,
             role=player.role(),
         )
     
@@ -414,45 +420,33 @@ class Speaker(Page):
         if player.box0_children == "999":
             player.participant.box0_items = [999,]
         else:
-            b0list = player.box0_children.split(",")
-            for b0i in b0list:
-                player.participant.box0_items = []
-                player.participant.box0_items.append(int(b0i))
+            player.participant.box0_items = []
+            player.participant.box0_items = [int(b0i) for b0i in player.box0_children.split(",")]
         if player.box1_children == "999":
             player.participant.box1_items = [999,]
         else:
-            b1list = player.box1_children.split(",")
-            for b1i in b1list:
-                player.participant.box1_items = []
-                player.participant.box1_items.append(int(b1i))        
+            player.participant.box1_items = []
+            player.participant.box1_items = [int(b1i) for b1i in player.box1_children.split(",")]
         if player.box2_children == "999":
             player.participant.box2_items = [999,]
         else:
-            b2list = player.box2_children.split(",")
-            for b2i in b2list:
-                player.participant.box2_items = []
-                player.participant.box2_items.append(int(b2i))        
+            player.participant.box2_items = []
+            player.participant.box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
         if player.box3_children == "999":
             player.participant.box3_items = [999,]
         else:
-            b3list = player.box3_children.split(",")
-            for b3i in b3list:
-                player.participant.box3_items = []
-                player.participant.box3_items.append(int(b3i))        
+            player.participant.box3_items = []
+            player.participant.box3_items = [int(b3i) for b3i in player.box3_children.split(",")]
         if player.box4_children == "999":
             player.participant.box4_items = [999,]
         else:
-            b4list = player.box4_children.split(",")
-            for b4i in b4list:
-                player.participant.box4_items = []
-                player.participant.box4_items.append(int(b4i))        
+            player.participant.box4_items = []
+            player.participant.box4_items = [int(b4i) for b4i in player.box4_children.split(",")]
         if player.box5_children == "999":
             player.participant.box5_items = [999,]
         else:
-            b5list = player.box5_children.split(",")
-            for b5i in b5list:
-                player.participant.box5_items = []
-                player.participant.box5_items.append(int(b5i))
+            player.participant.box5_items = []
+            player.participant.box5_items = [int(b5i) for b5i in player.box5_children.split(",")]
 
 
 class Listener(Page):
@@ -534,7 +528,7 @@ class Listener(Page):
         ]        
         
         return {
-            "showed_imgs" : player.subsession.showed_imgs,
+            "showed_imgs" : other_player.participant.showed_imgs,
             "others_choice_list" : others_choice_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
@@ -544,7 +538,7 @@ class Listener(Page):
             "box4_defaultimgs" : box4_defaultimgs,
             "box5_defaultimgs" : box5_defaultimgs,
             "img_category_list" : player.participant.img_category_list,
-            "loghtml_list" : player.participant.log_html_list,            
+            "loghtml_list" : player.participant.loghtml_list,            
         }
     
     @staticmethod
@@ -555,12 +549,15 @@ class Listener(Page):
                     "sym" + str(player.participant.default_nameorder[3]) + "," +\
                         "sym" + str(player.participant.default_nameorder[4]) + "," +\
                             "sym" + str(player.participant.default_nameorder[5])
+
+        other_player = player.get_others_in_group()[0]
+
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
-            default_name_list=player.participant.default_name_list,
+            default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
-            img_choice=player.subsession.img_choice,
+            img_choice=other_player.participant.img_choice,
             role=player.role(),
         )
     
@@ -580,23 +577,23 @@ class Listener(Page):
             player.participant.img_category_list[q] = int(cat_list[q])
 
         other_player = player.get_others_in_group()[0]
-        if player.participant.img_category_list[player.subsession.img_choice[0]] == int(other_player.s_choice0):
+        if player.participant.img_category_list[other_player.participant.img_choice[0]] == int(other_player.s_choice0):
             player.accept0 = 1
         else:
             player.accept0 = 0
-        if player.participant.img_category_list[player.subsession.img_choice[1]] == int(other_player.s_choice1):
+        if player.participant.img_category_list[other_player.participant.img_choice[1]] == int(other_player.s_choice1):
             player.accept1 = 1
         else:
             player.accept1 = 0
-        if player.participant.img_category_list[player.subsession.img_choice[2]] == int(other_player.s_choice2):
+        if player.participant.img_category_list[other_player.participant.img_choice[2]] == int(other_player.s_choice2):
             player.accept2 = 1
         else:
             player.accept2 = 0
-        if player.participant.img_category_list[player.subsession.img_choice[3]] == int(other_player.s_choice3):
+        if player.participant.img_category_list[other_player.participant.img_choice[3]] == int(other_player.s_choice3):
             player.accept3 = 1
         else:
             player.accept3 = 0
-        if player.participant.img_category_list[player.subsession.img_choice[4]] == int(other_player.s_choice4):
+        if player.participant.img_category_list[other_player.participant.img_choice[4]] == int(other_player.s_choice4):
             player.accept4 = 1
         else:
             player.accept4 = 0
@@ -608,46 +605,33 @@ class Listener(Page):
         if player.box0_children == "999":
             player.participant.box0_items = [999,]
         else:
-            b0list = player.box0_children.split(",")
-            for b0i in b0list:
-                player.participant.box0_items = []
-                player.participant.box0_items.append(int(b0i))
+            player.participant.box0_items = []
+            player.participant.box0_items = [int(b0i) for b0i in player.box0_children.split(",")]
         if player.box1_children == "999":
             player.participant.box1_items = [999,]
         else:
-            b1list = player.box1_children.split(",")
-            for b1i in b1list:
-                player.participant.box1_items = []
-                player.participant.box1_items.append(int(b1i))        
+            player.participant.box1_items = []
+            player.participant.box1_items = [int(b1i) for b1i in player.box1_children.split(",")]
         if player.box2_children == "999":
             player.participant.box2_items = [999,]
         else:
-            b2list = player.box2_children.split(",")
-            for b2i in b2list:
-                player.participant.box2_items = []
-                player.participant.box2_items.append(int(b2i))        
+            player.participant.box2_items = []
+            player.participant.box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
         if player.box3_children == "999":
             player.participant.box3_items = [999,]
         else:
-            b3list = player.box3_children.split(",")
-            for b3i in b3list:
-                player.participant.box3_items = []
-                player.participant.box3_items.append(int(b3i))        
+            player.participant.box3_items = []
+            player.participant.box3_items = [int(b3i) for b3i in player.box3_children.split(",")]
         if player.box4_children == "999":
             player.participant.box4_items = [999,]
         else:
-            b4list = player.box4_children.split(",")
-            for b4i in b4list:
-                player.participant.box4_items = []
-                player.participant.box4_items.append(int(b4i))        
+            player.participant.box4_items = []
+            player.participant.box4_items = [int(b4i) for b4i in player.box4_children.split(",")]
         if player.box5_children == "999":
             player.participant.box5_items = [999,]
         else:
-            b5list = player.box5_children.split(",")
-            for b5i in b5list:
-                player.participant.box5_items = []
-                player.participant.box5_items.append(int(b5i))
-
+            player.participant.box5_items = []
+            player.participant.box5_items = [int(b5i) for b5i in player.box5_children.split(",")]
 
 
 class WaitForSpeaker(WaitPage):
@@ -670,7 +654,6 @@ class ResultsWaitPage(WaitPage):
                 group.get_players()[0].participant.img_category_list,
                 group.get_players()[1].participant.img_category_list
             )
-            imgs_this_round = player.subsession.showed_imgs4log
             loghead = "<p>ラウンド{}</p>".format(player.round_number)
             log1 = "<p>表示された画像（左から順に1,2,3,4,5番）：</p>"
             log_divhead = "<div style=\"display: flex;\">"
@@ -678,6 +661,7 @@ class ResultsWaitPage(WaitPage):
             logtail = "<p>------------------------------------------------------------</p><br>"
             if player.role() == 'speaker':
                 log0 = "<p>あなたの役割：「話し手」</p>"
+                imgs_this_round = player.participant.showed_imgs4log
                 log2 = "<p>あなたの選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>相手がその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
                 log4 = "<p>{}, {}, {}, {}, {}<\p><br><br><br>".format(
@@ -707,6 +691,7 @@ class ResultsWaitPage(WaitPage):
                 player.participant.loghtml_list.append(logtail)
             else:
                 log0 = "<p>あなたの役割：「聞き手」</p>"
+                imgs_this_round = other_player.participant.showed_imgs4log
                 log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
                 log4 = "<p>{}, {}, {}, {}, {}<\p>".format(

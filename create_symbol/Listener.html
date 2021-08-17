@@ -40,49 +40,49 @@
 <br>
 <div class="area">
     <ul id="names" class="name-list">
-        {{ for namehtml in namehtml_list }}
+        {{ for namehtml in default_name_list }}
         {{ namehtml }}
         {{ endfor }}
     </ul>
 
 <div class="grid">
     <div class="box box0" id="box0">
-    {{ if box0_defaultimgs[0] != "999" }}
+    {{ if "999" not in box0_defaultimgs }}
     {{ for b0i in box0_defaultimgs }}
     {{ b0i }}
     {{ endfor }}
     {{ endif }}
     </div>
     <div class="box box1" id="box1">
-    {{ if box1_defaultimgs[0] != "999" }}
+    {{ if "999" not in box1_defaultimgs }}
     {{ for b1i in box1_defaultimgs }}
     {{ b1i }}
     {{ endfor }}
     {{ endif }}
     </div>
     <div class="box box2" id="box2">
-    {{ if box2_defaultimgs[0] != "999" }}
+    {{ if "999" not in box2_defaultimgs }}
     {{ for b2i in box2_defaultimgs }}
     {{ b2i }}
     {{ endfor }}
     {{ endif }}
     </div>
     <div class="box box3" id="box3">
-    {{ if box3_defaultimgs[0] != "999" }}
+    {{ if "999" not in box3_defaultimgs }}
     {{ for b3i in box3_defaultimgs }}
     {{ b3i }}
     {{ endfor }}
     {{ endif }}
     </div>
     <div class="box box4" id="box4">
-    {{ if box4_defaultimgs[0] != "999" }}
+    {{ if "999" not in box4_defaultimgs }}
     {{ for b4i in box4_defaultimgs }}
     {{ b4i }}
     {{ endfor }}
     {{ endif }}
     </div>
     <div class="box box5" id="box5">
-    {{ if box5_defaultimgs[0] != "999" }}
+    {{ if "999" not in box5_defaultimgs }}
     {{ for b5i in box5_defaultimgs }}
     {{ b5i }}
     {{ endfor }}
@@ -94,7 +94,7 @@
 <br>
 <div class="log">
 <p>ここに実験で行ったやり取りの履歴が表示されます。</p>
-{{ for loghtml in loghtml_list }
+{{ for loghtml in loghtml_list }}
 {{ loghtml }}
 {{ endfor }}
 </div>
@@ -226,19 +226,19 @@
         }
 
         .selected0 {
-            border: 0.5px solid red;
+            border: 1.5px solid red;
         }
         .selected1 {
-            border: 0.5px solid orange;
+            border: 1.5px solid orange;
         }
         .selected2 {
-            border: 0.5px solid brue;
+            border: 1.5px solid blue;
         }
         .selected3 {
-            border: 0.5px solid green;
+            border: 1.5px solid green;
         }
         .selected4 {
-            border: 0.5px solid purple;
+            border: 1.5px solid purple;
         }
     </style>
 {% endblock %}

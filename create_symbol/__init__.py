@@ -25,121 +25,70 @@ def make_imgcat_path(num):
         imgcatpath_list.append("img{}_cat".format(_))
     return imgcatpath_list
 
-def make_img_html_list(height, width, id_name):
-    img_html_list = [
-        "<img src = \"https://imgur.com/wqnOMfy.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}0\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/LHJYfxo.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}1\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/9Xa4VnX.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}2\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/D91W1KT.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}3\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/J35mb8e.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}4\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/IC9TPNn.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}5\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/cJQIb6k.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}6\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/2rj1L4f.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}7\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/CeGed6S.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}8\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/u28iEnb.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}9\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/N1rDlYe.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}10\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/4uFfzbw.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}11\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/ATEBW84.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}12\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/OUEAyTS.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}13\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/oLE2TWf.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}14\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/xiGpQvF.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}15\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/NnOAzoD.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}16\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/0wGJ58N.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}17\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/nitf5Sq.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}18\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/dwXrpvH.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}19\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/K8sGXHa.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}20\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/XejnHhh.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}21\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/yFw1I6M.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}22\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/iuGyxnS.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}23\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/zysvnS8.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}24\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/jv5EHuP.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}25\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/fqjlV3Y.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}26\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/2NYuf1e.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}27\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/jy5MPbW.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}28\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/7Rf9TKU.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}29\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/BgSfDLZ.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}30\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/3sfX7Mr.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}31\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/6R8GCoP.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}32\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/A5ju4zJ.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}33\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/QF9ee5p.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}34\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/vW5QaBq.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}35\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/NcY47LO.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}36\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/GDI9kz8.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}37\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/OmiMBXk.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}38\"/>".format(height, width, id_name),
-        "<img src = \"https://imgur.com/in0lSLH.jpg\" height=\"{}px\" width=\"{}px\" id=\"{}39\"/>".format(height, width, id_name),
-        ]
+def make_draggableimg_html_list(img_num, path_list, height, width):
+    img_html_list = []
+    for da in range(img_num):
+        img_html_list.append(
+            "<img src = \"{}\" class=\"item\" draggable=\"true\" id=\"{}\" height=\"{}px\" width=\"{}px\"/>".format(path_list[da], da, height, width)
+        )
     return img_html_list
-    
-def make_name_html_list(height, width):
-    img_html_list = [
-        "<img src=\"https://imgur.com/a1HYfcA.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        "<img src=\"https://imgur.com/xMBZ0Dg.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        "<img src=\"https://imgur.com/Xh5Scyo.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        "<img src=\"https://imgur.com/PBZ3YNV.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        "<img src=\"https://imgur.com/dmiNF4h.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        "<img src=\"https://imgur.com/RdWIiGo.png\" height=\"{}px\" width=\"{}px\">".format(height, width),
-        ]
+
+
+def make_img_html_list(img_num, path_list, height, width, id_name):
+    img_html_list = []
+    for a in range(img_num):
+        img_html_list.append(
+            "<img src = \"{}\" height=\"{}px\" width=\"{}px\" id=\"{}{}\"/>".format(path_list[a], height, width, id_name, a)
+        )
+    return img_html_list
+
+def make_draggablename_html_list(name_num, path_list, height, width):
+    img_html_list = []
+    for db in range(name_num):
+        img_html_list.append(
+            "<li draggable=\"true\" id=\"name{}\" data-id=\"sym{}\"><img src=\"{}\" height=\"{}px\" width=\"{}px\"></li>".format(
+                db, db, path_list[db], height, width)
+        )
+    return img_html_list
+
+def make_name_html_list(name_num, path_list, height, width):
+    img_html_list = []
+    for b in range(name_num):
+        img_html_list.append(
+            "<img src=\"{}\" height=\"{}px\" width=\"{}px\">".format(path_list[b], height, width)
+        )
     return img_html_list
 
 class Constants(BaseConstants):
     name_in_url = 'create_symbol'
     players_per_group = 2
     num_rounds = 40
-    imghtml_list = [
-        "<img src = \"https://imgur.com/wqnOMfy.jpg\" class=\"item\" draggable=\"true\" id=\"0\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/LHJYfxo.jpg\" class=\"item\" draggable=\"true\" id=\"1\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/9Xa4VnX.jpg\" class=\"item\" draggable=\"true\" id=\"2\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/D91W1KT.jpg\" class=\"item\" draggable=\"true\" id=\"3\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/J35mb8e.jpg\" class=\"item\" draggable=\"true\" id=\"4\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/IC9TPNn.jpg\" class=\"item\" draggable=\"true\" id=\"5\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/cJQIb6k.jpg\" class=\"item\" draggable=\"true\" id=\"6\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/2rj1L4f.jpg\" class=\"item\" draggable=\"true\" id=\"7\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/CeGed6S.jpg\" class=\"item\" draggable=\"true\" id=\"8\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/u28iEnb.jpg\" class=\"item\" draggable=\"true\" id=\"9\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/N1rDlYe.jpg\" class=\"item\" draggable=\"true\" id=\"10\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/4uFfzbw.jpg\" class=\"item\" draggable=\"true\" id=\"11\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/ATEBW84.jpg\" class=\"item\" draggable=\"true\" id=\"12\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/OUEAyTS.jpg\" class=\"item\" draggable=\"true\" id=\"13\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/oLE2TWf.jpg\" class=\"item\" draggable=\"true\" id=\"14\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/xiGpQvF.jpg\" class=\"item\" draggable=\"true\" id=\"15\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/NnOAzoD.jpg\" class=\"item\" draggable=\"true\" id=\"16\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/0wGJ58N.jpg\" class=\"item\" draggable=\"true\" id=\"17\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/nitf5Sq.jpg\" class=\"item\" draggable=\"true\" id=\"18\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/dwXrpvH.jpg\" class=\"item\" draggable=\"true\" id=\"19\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/K8sGXHa.jpg\" class=\"item\" draggable=\"true\" id=\"20\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/XejnHhh.jpg\" class=\"item\" draggable=\"true\" id=\"21\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/yFw1I6M.jpg\" class=\"item\" draggable=\"true\" id=\"22\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/iuGyxnS.jpg\" class=\"item\" draggable=\"true\" id=\"23\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/zysvnS8.jpg\" class=\"item\" draggable=\"true\" id=\"24\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/jv5EHuP.jpg\" class=\"item\" draggable=\"true\" id=\"25\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/fqjlV3Y.jpg\" class=\"item\" draggable=\"true\" id=\"26\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/2NYuf1e.jpg\" class=\"item\" draggable=\"true\" id=\"27\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/jy5MPbW.jpg\" class=\"item\" draggable=\"true\" id=\"28\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/7Rf9TKU.jpg\" class=\"item\" draggable=\"true\" id=\"29\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/BgSfDLZ.jpg\" class=\"item\" draggable=\"true\" id=\"30\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/3sfX7Mr.jpg\" class=\"item\" draggable=\"true\" id=\"31\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/6R8GCoP.jpg\" class=\"item\" draggable=\"true\" id=\"32\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/A5ju4zJ.jpg\" class=\"item\" draggable=\"true\" id=\"33\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/QF9ee5p.jpg\" class=\"item\" draggable=\"true\" id=\"34\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/vW5QaBq.jpg\" class=\"item\" draggable=\"true\" id=\"35\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/NcY47LO.jpg\" class=\"item\" draggable=\"true\" id=\"36\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/GDI9kz8.jpg\" class=\"item\" draggable=\"true\" id=\"37\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/OmiMBXk.jpg\" class=\"item\" draggable=\"true\" id=\"38\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/in0lSLH.jpg\" class=\"item\" draggable=\"true\" id=\"39\" height=\"50px\" width=\"50px\"/>",
-        ]
-    namehtml_list = [
-        "<li draggable=\"true\" id=\"name0\" data-id=\"sym0\"><img src=\"https://imgur.com/a1HYfcA.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name1\" data-id=\"sym1\"><img src=\"https://imgur.com/xMBZ0Dg.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name2\" data-id=\"sym2\"><img src=\"https://imgur.com/Xh5Scyo.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name3\" data-id=\"sym3\"><img src=\"https://imgur.com/PBZ3YNV.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name4\" data-id=\"sym4\"><img src=\"https://imgur.com/dmiNF4h.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name5\" data-id=\"sym5\"><img src=\"https://imgur.com/RdWIiGo.png\" height=\"100px\" width=\"100px\"></li>",
+    imgpath_list = [
+        "https://imgur.com/wqnOMfy.jpg","https://imgur.com/LHJYfxo.jpg","https://imgur.com/9Xa4VnX.jpg","https://imgur.com/D91W1KT.jpg",
+        "https://imgur.com/J35mb8e.jpg","https://imgur.com/IC9TPNn.jpg","https://imgur.com/cJQIb6k.jpg","https://imgur.com/2rj1L4f.jpg",
+        "https://imgur.com/CeGed6S.jpg","https://imgur.com/u28iEnb.jpg","https://imgur.com/N1rDlYe.jpg","https://imgur.com/4uFfzbw.jpg",
+        "https://imgur.com/ATEBW84.jpg","https://imgur.com/OUEAyTS.jpg","https://imgur.com/oLE2TWf.jpg","https://imgur.com/xiGpQvF.jpg",
+        "https://imgur.com/NnOAzoD.jpg","https://imgur.com/0wGJ58N.jpg","https://imgur.com/nitf5Sq.jpg","https://imgur.com/dwXrpvH.jpg",
+        "https://imgur.com/K8sGXHa.jpg","https://imgur.com/XejnHhh.jpg","https://imgur.com/yFw1I6M.jpg","https://imgur.com/iuGyxnS.jpg",
+        "https://imgur.com/zysvnS8.jpg","https://imgur.com/jv5EHuP.jpg","https://imgur.com/fqjlV3Y.jpg","https://imgur.com/2NYuf1e.jpg",
+        "https://imgur.com/jy5MPbW.jpg","https://imgur.com/7Rf9TKU.jpg","https://imgur.com/BgSfDLZ.jpg","https://imgur.com/3sfX7Mr.jpg",
+        "https://imgur.com/6R8GCoP.jpg","https://imgur.com/A5ju4zJ.jpg","https://imgur.com/QF9ee5p.jpg","https://imgur.com/vW5QaBq.jpg",
+        "https://imgur.com/NcY47LO.jpg","https://imgur.com/GDI9kz8.jpg","https://imgur.com/OmiMBXk.jpg","https://imgur.com/in0lSLH.jpg",
+    ]
+
+    namepath_list = [
+        "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
+        "https://imgur.com/PBZ3YNV.png","https://imgur.com/dmiNF4h.png","https://imgur.com/RdWIiGo.png",
         ]
 
-    stimuliimg_html_list = make_img_html_list(70, 70, "stimuli")
-    logimg_html_list = make_img_html_list(30, 30, "logimg")
-    choicename_html_list = make_name_html_list(70, 70)
-    logname_html_list = make_name_html_list(30, 30)
+
+    imghtml_list = make_draggableimg_html_list(40, imgpath_list, 50, 50)
+    namehtml_list = make_draggablename_html_list(6, namepath_list, 100, 100)
+
+    stimuliimg_html_list = make_img_html_list(40, imgpath_list, 70, 70, "stimuli")
+    logimg_html_list = make_img_html_list(40, imgpath_list, 30, 30, "logimg")
+    choicename_html_list = make_name_html_list(6, namepath_list, 70, 70)
+    logname_html_list = make_name_html_list(6, namepath_list, 30, 30)
 
     imgcatpath_list = make_imgcat_path(40)
     accept_choice = ["×", "○"]

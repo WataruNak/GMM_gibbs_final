@@ -22,61 +22,48 @@ def make_correct_list(label_num, item_num, correct_cat_num):
         correct_lists.append(correctlist)
     return correct_lists
 
+def make_draggableimg_html_list(img_num, path_list, height, width):
+    img_html_list = []
+    for da in range(img_num):
+        img_html_list.append(
+            "<img src = \"{}\" class=\"item\" draggable=\"true\" id=\"{}\" height=\"{}px\" width=\"{}px\"/>".format(path_list[da], da, height, width)
+        )
+    return img_html_list
+
+def make_draggablename_html_list(name_num, path_list, height, width):
+    img_html_list = []
+    for db in range(name_num):
+        img_html_list.append(
+            "<li draggable=\"true\" id=\"name{}\" data-id=\"sym{}\"><img src=\"{}\" height=\"{}px\" width=\"{}px\"></li>".format(
+                db, db, path_list[db], height, width)
+        )
+    return img_html_list
+
 
 class Constants(BaseConstants):
     name_in_url = 'categorization'
     players_per_group = 2
     num_rounds = 1
-    imghtml_list = [
-        "<img src = \"https://imgur.com/wqnOMfy.jpg\" class=\"item\" draggable=\"true\" id=\"0\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/LHJYfxo.jpg\" class=\"item\" draggable=\"true\" id=\"1\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/9Xa4VnX.jpg\" class=\"item\" draggable=\"true\" id=\"2\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/D91W1KT.jpg\" class=\"item\" draggable=\"true\" id=\"3\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/J35mb8e.jpg\" class=\"item\" draggable=\"true\" id=\"4\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/IC9TPNn.jpg\" class=\"item\" draggable=\"true\" id=\"5\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/cJQIb6k.jpg\" class=\"item\" draggable=\"true\" id=\"6\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/2rj1L4f.jpg\" class=\"item\" draggable=\"true\" id=\"7\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/CeGed6S.jpg\" class=\"item\" draggable=\"true\" id=\"8\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/u28iEnb.jpg\" class=\"item\" draggable=\"true\" id=\"9\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/N1rDlYe.jpg\" class=\"item\" draggable=\"true\" id=\"10\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/4uFfzbw.jpg\" class=\"item\" draggable=\"true\" id=\"11\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/ATEBW84.jpg\" class=\"item\" draggable=\"true\" id=\"12\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/OUEAyTS.jpg\" class=\"item\" draggable=\"true\" id=\"13\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/oLE2TWf.jpg\" class=\"item\" draggable=\"true\" id=\"14\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/xiGpQvF.jpg\" class=\"item\" draggable=\"true\" id=\"15\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/NnOAzoD.jpg\" class=\"item\" draggable=\"true\" id=\"16\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/0wGJ58N.jpg\" class=\"item\" draggable=\"true\" id=\"17\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/nitf5Sq.jpg\" class=\"item\" draggable=\"true\" id=\"18\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/dwXrpvH.jpg\" class=\"item\" draggable=\"true\" id=\"19\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/K8sGXHa.jpg\" class=\"item\" draggable=\"true\" id=\"20\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/XejnHhh.jpg\" class=\"item\" draggable=\"true\" id=\"21\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/yFw1I6M.jpg\" class=\"item\" draggable=\"true\" id=\"22\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/iuGyxnS.jpg\" class=\"item\" draggable=\"true\" id=\"23\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/zysvnS8.jpg\" class=\"item\" draggable=\"true\" id=\"24\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/jv5EHuP.jpg\" class=\"item\" draggable=\"true\" id=\"25\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/fqjlV3Y.jpg\" class=\"item\" draggable=\"true\" id=\"26\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/2NYuf1e.jpg\" class=\"item\" draggable=\"true\" id=\"27\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/jy5MPbW.jpg\" class=\"item\" draggable=\"true\" id=\"28\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/7Rf9TKU.jpg\" class=\"item\" draggable=\"true\" id=\"29\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/BgSfDLZ.jpg\" class=\"item\" draggable=\"true\" id=\"30\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/3sfX7Mr.jpg\" class=\"item\" draggable=\"true\" id=\"31\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/6R8GCoP.jpg\" class=\"item\" draggable=\"true\" id=\"32\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/A5ju4zJ.jpg\" class=\"item\" draggable=\"true\" id=\"33\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/QF9ee5p.jpg\" class=\"item\" draggable=\"true\" id=\"34\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/vW5QaBq.jpg\" class=\"item\" draggable=\"true\" id=\"35\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/NcY47LO.jpg\" class=\"item\" draggable=\"true\" id=\"36\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/GDI9kz8.jpg\" class=\"item\" draggable=\"true\" id=\"37\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/OmiMBXk.jpg\" class=\"item\" draggable=\"true\" id=\"38\" height=\"50px\" width=\"50px\"/>",
-        "<img src = \"https://imgur.com/in0lSLH.jpg\" class=\"item\" draggable=\"true\" id=\"39\" height=\"50px\" width=\"50px\"/>",
+    imgpath_list = [
+        "https://imgur.com/wqnOMfy.jpg","https://imgur.com/LHJYfxo.jpg","https://imgur.com/9Xa4VnX.jpg","https://imgur.com/D91W1KT.jpg",
+        "https://imgur.com/J35mb8e.jpg","https://imgur.com/IC9TPNn.jpg","https://imgur.com/cJQIb6k.jpg","https://imgur.com/2rj1L4f.jpg",
+        "https://imgur.com/CeGed6S.jpg","https://imgur.com/u28iEnb.jpg","https://imgur.com/N1rDlYe.jpg","https://imgur.com/4uFfzbw.jpg",
+        "https://imgur.com/ATEBW84.jpg","https://imgur.com/OUEAyTS.jpg","https://imgur.com/oLE2TWf.jpg","https://imgur.com/xiGpQvF.jpg",
+        "https://imgur.com/NnOAzoD.jpg","https://imgur.com/0wGJ58N.jpg","https://imgur.com/nitf5Sq.jpg","https://imgur.com/dwXrpvH.jpg",
+        "https://imgur.com/K8sGXHa.jpg","https://imgur.com/XejnHhh.jpg","https://imgur.com/yFw1I6M.jpg","https://imgur.com/iuGyxnS.jpg",
+        "https://imgur.com/zysvnS8.jpg","https://imgur.com/jv5EHuP.jpg","https://imgur.com/fqjlV3Y.jpg","https://imgur.com/2NYuf1e.jpg",
+        "https://imgur.com/jy5MPbW.jpg","https://imgur.com/7Rf9TKU.jpg","https://imgur.com/BgSfDLZ.jpg","https://imgur.com/3sfX7Mr.jpg",
+        "https://imgur.com/6R8GCoP.jpg","https://imgur.com/A5ju4zJ.jpg","https://imgur.com/QF9ee5p.jpg","https://imgur.com/vW5QaBq.jpg",
+        "https://imgur.com/NcY47LO.jpg","https://imgur.com/GDI9kz8.jpg","https://imgur.com/OmiMBXk.jpg","https://imgur.com/in0lSLH.jpg",
+    ]
+
+    namepath_list = [
+        "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
+        "https://imgur.com/PBZ3YNV.png","https://imgur.com/dmiNF4h.png","https://imgur.com/RdWIiGo.png",
         ]
-    namehtml_list = [
-        "<li draggable=\"true\" id=\"name0\" data-id=\"sym0\"><img src=\"https://imgur.com/a1HYfcA.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name1\" data-id=\"sym1\"><img src=\"https://imgur.com/xMBZ0Dg.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name2\" data-id=\"sym2\"><img src=\"https://imgur.com/Xh5Scyo.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name3\" data-id=\"sym3\"><img src=\"https://imgur.com/PBZ3YNV.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name4\" data-id=\"sym4\"><img src=\"https://imgur.com/dmiNF4h.png\" height=\"100px\" width=\"100px\"></li>",
-        "<li draggable=\"true\" id=\"name5\" data-id=\"sym5\"><img src=\"https://imgur.com/RdWIiGo.png\" height=\"100px\" width=\"100px\"></li>",
-        ]
+    
+    imghtml_list = make_draggableimg_html_list(40, imgpath_list, 50, 50)
+    namehtml_list = make_draggablename_html_list(6, namepath_list, 100, 100)
     
     correct_cat_list = make_correct_list(6, 10, 4)
     goal_ari = 0.9
@@ -223,167 +210,94 @@ class Categorize(Page):
 
     @staticmethod
     def before_next_page(player, timeout_happened):
+        cat_list = [
+            player.img0_cat, player.img1_cat, player.img2_cat, player.img3_cat, player.img4_cat,
+            player.img5_cat, player.img6_cat, player.img7_cat, player.img8_cat, player.img9_cat,
+            player.img10_cat, player.img11_cat, player.img12_cat, player.img13_cat, player.img14_cat,
+            player.img15_cat, player.img16_cat, player.img17_cat, player.img18_cat, player.img19_cat,
+            player.img20_cat, player.img21_cat, player.img22_cat, player.img23_cat, player.img24_cat,
+            player.img25_cat, player.img26_cat, player.img27_cat, player.img28_cat, player.img29_cat,
+            player.img30_cat, player.img31_cat, player.img32_cat, player.img33_cat, player.img34_cat,
+            player.img35_cat, player.img36_cat, player.img37_cat, player.img38_cat, player.img39_cat,
+        ]
+
         if timeout_happened:
-            if player.img0_cat == "99":
-                player.img0_cat = str(random.randint(0, 5))
-            if player.img1_cat == "99":
-                player.img1_cat = str(random.randint(0, 5))
-            if player.img2_cat == "99":
-                player.img2_cat = str(random.randint(0, 5))
-            if player.img3_cat == "99":
-                player.img3_cat = str(random.randint(0, 5))
-            if player.img4_cat == "99":
-                player.img4_cat = str(random.randint(0, 5))
-            if player.img5_cat == "99":
-                player.img5_cat = str(random.randint(0, 5))
-            if player.img6_cat == "99":
-                player.img6_cat = str(random.randint(0, 5))
-            if player.img7_cat == "99":
-                player.img7_cat = str(random.randint(0, 5))
-            if player.img8_cat == "99":
-                player.img8_cat = str(random.randint(0, 5))
-            if player.img9_cat == "99":
-                player.img9_cat = str(random.randint(0, 5))
-            if player.img10_cat == "99":
-                player.img10_cat = str(random.randint(0, 5))
-            if player.img11_cat == "99":
-                player.img11_cat = str(random.randint(0, 5))
-            if player.img12_cat == "99":
-                player.img12_cat = str(random.randint(0, 5))
-            if player.img13_cat == "99":
-                player.img13_cat = str(random.randint(0, 5))
-            if player.img14_cat == "99":
-                player.img14_cat = str(random.randint(0, 5))
-            if player.img15_cat == "99":
-                player.img15_cat = str(random.randint(0, 5))
-            if player.img16_cat == "99":
-                player.img16_cat = str(random.randint(0, 5))
-            if player.img17_cat == "99":
-                player.img17_cat = str(random.randint(0, 5))
-            if player.img18_cat == "99":
-                player.img18_cat = str(random.randint(0, 5))
-            if player.img19_cat == "99":
-                player.img19_cat = str(random.randint(0, 5))
-            if player.img20_cat == "99":
-                player.img20_cat = str(random.randint(0, 5))
-            if player.img21_cat == "99":
-                player.img21_cat = str(random.randint(0, 5))
-            if player.img22_cat == "99":
-                player.img22_cat = str(random.randint(0, 5))
-            if player.img23_cat == "99":
-                player.img23_cat = str(random.randint(0, 5))
-            if player.img24_cat == "99":
-                player.img24_cat = str(random.randint(0, 5))
-            if player.img25_cat == "99":
-                player.img25_cat = str(random.randint(0, 5))
-            if player.img26_cat == "99":
-                player.img26_cat = str(random.randint(0, 5))
-            if player.img27_cat == "99":
-                player.img27_cat = str(random.randint(0, 5))
-            if player.img28_cat == "99":
-                player.img28_cat = str(random.randint(0, 5))
-            if player.img29_cat == "99":
-                player.img29_cat = str(random.randint(0, 5))
-            if player.img30_cat == "99":
-                player.img30_cat = str(random.randint(0, 5))
-            if player.img31_cat == "99":
-                player.img31_cat = str(random.randint(0, 5))
-            if player.img32_cat == "99":
-                player.img32_cat = str(random.randint(0, 5))
-            if player.img33_cat == "99":
-                player.img33_cat = str(random.randint(0, 5))
-            if player.img34_cat == "99":
-                player.img34_cat = str(random.randint(0, 5))
-            if player.img35_cat == "99":
-                player.img35_cat = str(random.randint(0, 5))
-            if player.img36_cat == "99":
-                player.img36_cat = str(random.randint(0, 5))
-            if player.img37_cat == "99":
-                player.img37_cat = str(random.randint(0, 5))
-            if player.img38_cat == "99":
-                player.img38_cat = str(random.randint(0, 5))
-            if player.img39_cat == "99":
-                player.img39_cat = str(random.randint(0, 5))
-
-
-        player.participant.img_category_list = []
-        player.participant.img_category_list.append(int(player.img0_cat))
-        player.participant.img_category_list.append(int(player.img1_cat))
-        player.participant.img_category_list.append(int(player.img2_cat))
-        player.participant.img_category_list.append(int(player.img3_cat))
-        player.participant.img_category_list.append(int(player.img4_cat))
-        player.participant.img_category_list.append(int(player.img5_cat))
-        player.participant.img_category_list.append(int(player.img6_cat))
-        player.participant.img_category_list.append(int(player.img7_cat))
-        player.participant.img_category_list.append(int(player.img8_cat))
-        player.participant.img_category_list.append(int(player.img9_cat))
-        player.participant.img_category_list.append(int(player.img10_cat))
-        player.participant.img_category_list.append(int(player.img11_cat))
-        player.participant.img_category_list.append(int(player.img12_cat))
-        player.participant.img_category_list.append(int(player.img13_cat))
-        player.participant.img_category_list.append(int(player.img14_cat))
-        player.participant.img_category_list.append(int(player.img15_cat))
-        player.participant.img_category_list.append(int(player.img16_cat))
-        player.participant.img_category_list.append(int(player.img17_cat))
-        player.participant.img_category_list.append(int(player.img18_cat))
-        player.participant.img_category_list.append(int(player.img19_cat))
-        player.participant.img_category_list.append(int(player.img20_cat))
-        player.participant.img_category_list.append(int(player.img21_cat))
-        player.participant.img_category_list.append(int(player.img22_cat))
-        player.participant.img_category_list.append(int(player.img23_cat))
-        player.participant.img_category_list.append(int(player.img24_cat))
-        player.participant.img_category_list.append(int(player.img25_cat))
-        player.participant.img_category_list.append(int(player.img26_cat))
-        player.participant.img_category_list.append(int(player.img27_cat))
-        player.participant.img_category_list.append(int(player.img28_cat))
-        player.participant.img_category_list.append(int(player.img29_cat))
-        player.participant.img_category_list.append(int(player.img30_cat))
-        player.participant.img_category_list.append(int(player.img31_cat))
-        player.participant.img_category_list.append(int(player.img32_cat))
-        player.participant.img_category_list.append(int(player.img33_cat))
-        player.participant.img_category_list.append(int(player.img34_cat))
-        player.participant.img_category_list.append(int(player.img35_cat))
-        player.participant.img_category_list.append(int(player.img36_cat))
-        player.participant.img_category_list.append(int(player.img37_cat))
-        player.participant.img_category_list.append(int(player.img38_cat))
-        player.participant.img_category_list.append(int(player.img39_cat))
-
-        player.participant.default_nameorder = []
-
-        n_list = player.name_order.split(",")
-        for name in n_list:
-            player.participant.default_nameorder.append(int(name[-1]))
+            for pc in cat_list:
+                if pc == "99":
+                    pc = str(random.randint(0, 5))
+            player.participant.box0_items = []
+            player.participant.box1_items = []
+            player.participant.box2_items = []
+            player.participant.box3_items = []
+            player.participant.box4_items = []
+            player.participant.box5_items = []
+            for pc2 in cat_list:
+                if pc2 == "0":
+                    player.participant.box0_items.append(int(pc2))
+                if pc2 == "1":
+                    player.participant.box1_items.append(int(pc2))
+                if pc2 == "2":
+                    player.participant.box2_items.append(int(pc2))
+                if pc2 == "3":
+                    player.participant.box3_items.append(int(pc2))
+                if pc2 == "4":
+                    player.participant.box4_items.append(int(pc2))
+                if pc2 == "5":
+                    player.participant.box5_items.append(int(pc2))
+            
+            if player.participant.box0_items == []:
+                player.participant.box0_items = [999,]
+            if player.participant.box1_items == []:
+                player.participant.box1_items = [999,]
+            if player.participant.box2_items == []:
+                player.participant.box2_items = [999,]
+            if player.participant.box3_items == []:
+                player.participant.box3_items = [999,]
+            if player.participant.box4_items == []:
+                player.participant.box4_items = [999,]
+            if player.participant.box5_items == []:
+                player.participant.box5_items = [999,]
         
-        if player.box0_children == "999":
-            player.participant.box0_items = [999,]
         else:
-            player.participant.box0_items = [int(b0i) for b0i  in player.box0_children.split(",")]
+            player.participant.img_category_list = []
+            for imc in cat_list:
+                player.participant.img_category_list.append(int(imc))
 
-        if player.box1_children == "999":
-            player.participant.box1_items = [999,]
-        else:
-            player.participant.box1_items = [int(b1i) for b1i  in player.box1_children.split(",")]
-        
-        if player.box2_children == "999":
-            player.participant.box2_items = [999,]
-        else:
-            player.participant.box2_items = [int(b2i) for b2i  in player.box2_children.split(",")]
-        
-        if player.box3_children == "999":
-            player.participant.box3_items = [999,]
-        else:
-            player.participant.box3_items = [int(b3i) for b3i  in player.box3_children.split(",")]
-        
-        if player.box4_children == "999":
-            player.participant.box4_items = [999,]
-        else:
-            player.participant.box4_items = [int(b4i) for b4i  in player.box4_children.split(",")]
-        
-        if player.box5_children == "999":
-            player.participant.box5_items = [999,]
-        else:
-            player.participant.box5_items = [int(b5i) for b5i  in player.box5_children.split(",")]
+            player.participant.default_nameorder = []
 
+            n_list = player.name_order.split(",")
+            for name in n_list:
+                player.participant.default_nameorder.append(int(name[-1]))
+        
+            if player.box0_children == "999":
+                player.participant.box0_items = [999,]
+            else:
+                player.participant.box0_items = [int(b0i) for b0i  in player.box0_children.split(",")]
+
+            if player.box1_children == "999":
+                player.participant.box1_items = [999,]
+            else:
+                player.participant.box1_items = [int(b1i) for b1i  in player.box1_children.split(",")]
+        
+            if player.box2_children == "999":
+                player.participant.box2_items = [999,]
+            else:
+                player.participant.box2_items = [int(b2i) for b2i  in player.box2_children.split(",")]
+        
+            if player.box3_children == "999":
+                player.participant.box3_items = [999,]
+            else:
+                player.participant.box3_items = [int(b3i) for b3i  in player.box3_children.split(",")]
+        
+            if player.box4_children == "999":
+                player.participant.box4_items = [999,]
+            else:
+                player.participant.box4_items = [int(b4i) for b4i  in player.box4_children.split(",")]
+        
+            if player.box5_children == "999":
+                player.participant.box5_items = [999,]
+            else:
+                player.participant.box5_items = [int(b5i) for b5i  in player.box5_children.split(",")]
 
 
 class ResultsWaitPage(WaitPage):

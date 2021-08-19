@@ -98,7 +98,16 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        img_choice = random.sample(range(0,40,1), k=(5))
+        for player in self.get_players():
+            player.participant.img_choice = []
+            player.participant.showed_imgs = []
+            player.participant.showed_imgs4log = []
+            for id in img_choice:
+                player.participant.img_choice.append(id)
+                player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
+                player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
 
 
 class Group(BaseGroup):
@@ -262,14 +271,6 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        player.participant.img_choice = []
-        player.participant.img_choice = random.sample(range(0,40,1), k=(5))
-        player.participant.showed_imgs = []
-        player.participant.showed_imgs4log = []
-        for id in player.participant.img_choice:
-            player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
-            player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
-
         box0_defaultimgs = []
         if player.participant.box0_items[0] == 999:
             box0_defaultimgs.append("999")
@@ -477,7 +478,7 @@ class Listener(Page):
         ]        
         
         return {
-            "showed_imgs" : other_player.participant.showed_imgs,
+            "showed_imgs" : player.participant.showed_imgs,
             "others_choice_list" : others_choice_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
@@ -506,7 +507,7 @@ class Listener(Page):
             imgcatpath_list=Constants.imgcatpath_list,
             default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
-            img_choice=other_player.participant.img_choice,
+            img_choice=player.participant.img_choice,
             role=player.role(),
         )
     
@@ -526,23 +527,23 @@ class Listener(Page):
             player.participant.img_category_list[q] = int(cat_list[q])
 
         other_player = player.get_others_in_group()[0]
-        if player.participant.img_category_list[other_player.participant.img_choice[0]] == int(other_player.s_choice0):
+        if player.participant.img_category_list[player.participant.img_choice[0]] == int(other_player.s_choice0):
             player.accept0 = 1
         else:
             player.accept0 = 0
-        if player.participant.img_category_list[other_player.participant.img_choice[1]] == int(other_player.s_choice1):
+        if player.participant.img_category_list[player.participant.img_choice[1]] == int(other_player.s_choice1):
             player.accept1 = 1
         else:
             player.accept1 = 0
-        if player.participant.img_category_list[other_player.participant.img_choice[2]] == int(other_player.s_choice2):
+        if player.participant.img_category_list[player.participant.img_choice[2]] == int(other_player.s_choice2):
             player.accept2 = 1
         else:
             player.accept2 = 0
-        if player.participant.img_category_list[other_player.participant.img_choice[3]] == int(other_player.s_choice3):
+        if player.participant.img_category_list[player.participant.img_choice[3]] == int(other_player.s_choice3):
             player.accept3 = 1
         else:
             player.accept3 = 0
-        if player.participant.img_category_list[other_player.participant.img_choice[4]] == int(other_player.s_choice4):
+        if player.participant.img_category_list[player.participant.img_choice[4]] == int(other_player.s_choice4):
             player.accept4 = 1
         else:
             player.accept4 = 0
@@ -640,7 +641,7 @@ class ResultsWaitPage(WaitPage):
                 player.participant.loghtml_list.append(logtail)
             else:
                 log0 = "<p>あなたの役割：「聞き手」</p>"
-                imgs_this_round = other_player.participant.showed_imgs4log
+                imgs_this_round = player.participant.showed_imgs4log
                 log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
                 log4 = "<p>{}, {}, {}, {}, {}<\p>".format(

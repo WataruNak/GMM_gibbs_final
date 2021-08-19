@@ -8,21 +8,21 @@
 {{ if ari <= 0.4 }}
 <p style="color: red;">ほとんど一致していませんでした。</p>
 {{ elif ari <= 0.6 }}
-<p style="color: yellow;">あまり一致していませんでした。</p>
+<p style="color: orange;">あまり一致していませんでした。</p>
 {{ elif ari <= 0.8 }}
 <p style="color: blue;">それなりに一致していました。</p>
-{{ else }}
+{{ elif ari > 0.8 }}
 <p style="color: green;">かなり一致していました。</p>
 {{ endif }}
 <br>
 <p>また、あなたのカテゴリー分類は</p>
 {{ if kappa <= 0.4 }}
 <p style="color: red;">正解のものとはほとんど一致していませんでした。</p>
-{{ elif ari <= 0.6 }}
-<p style="color: yellow;">正解のものとはあまり一致していませんでした。</p>
-{{ elif ari <= 0.8 }}
+{{ elif kappa <= 0.6 }}
+<p style="color: orange;">正解のものとはあまり一致していませんでした。</p>
+{{ elif kappa <= 0.8 }}
 <p style="color: blue;">正解のものとそれなりに一致していました。</p>
-{{ else }}
+{{ elif kappa > 0.8 }}
 <p style="color: green;">正解のものとかなり一致していました。</p>
 {{ endif }}
 <br>

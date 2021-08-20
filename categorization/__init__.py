@@ -169,7 +169,7 @@ class Instruction(Page):
     pass
 
 class Categorize(Page):
-    timeout_seconds = 600
+    timeout_seconds = 300
     form_model = 'player'
     form_fields = [
         "name_order", 
@@ -221,28 +221,32 @@ class Categorize(Page):
         ]
 
         if timeout_happened:
+            player.participant.img_category_list = []
             for pc in cat_list:
-                if pc == "99":
+                if pc == "":
                     pc = str(random.randint(0, 5))
+                player.participant.img_category_list.append(int(pc))
+
             player.participant.box0_items = []
             player.participant.box1_items = []
             player.participant.box2_items = []
             player.participant.box3_items = []
             player.participant.box4_items = []
             player.participant.box5_items = []
-            for pc2 in cat_list:
+            for c in range(40):
+                pc2 = player.participant.img_category_list[player.participant.stimuli_id_list[c]]
                 if pc2 == "0":
-                    player.participant.box0_items.append(int(pc2))
+                    player.participant.box0_items.append(player.participant.stimuli_id_list[c])
                 if pc2 == "1":
-                    player.participant.box1_items.append(int(pc2))
+                    player.participant.box1_items.append(player.participant.stimuli_id_list[c])
                 if pc2 == "2":
-                    player.participant.box2_items.append(int(pc2))
+                    player.participant.box2_items.append(player.participant.stimuli_id_list[c])
                 if pc2 == "3":
-                    player.participant.box3_items.append(int(pc2))
+                    player.participant.box3_items.append(player.participant.stimuli_id_list[c])
                 if pc2 == "4":
-                    player.participant.box4_items.append(int(pc2))
+                    player.participant.box4_items.append(player.participant.stimuli_id_list[c])
                 if pc2 == "5":
-                    player.participant.box5_items.append(int(pc2))
+                    player.participant.box5_items.append(player.participant.stimuli_id_list[c])
             
             if player.participant.box0_items == []:
                 player.participant.box0_items = [999,]
@@ -256,6 +260,14 @@ class Categorize(Page):
                 player.participant.box4_items = [999,]
             if player.participant.box5_items == []:
                 player.participant.box5_items = [999,]
+            
+            player.participant.default_nameorder = []
+            if player.name_order == "":
+                player.participant.default_nameorder = [0, 1, 2, 3, 4, 5]
+            else:
+                n_list = player.name_order.split(",")
+                for name in n_list:
+                    player.participant.default_nameorder.append(int(name[-1]))
         
         else:
             player.participant.img_category_list = []

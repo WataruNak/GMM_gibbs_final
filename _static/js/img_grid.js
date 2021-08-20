@@ -3,10 +3,6 @@ const items = [...document.querySelectorAll(".item")];
 const imgorder = js_vars.id_order;
 let imgcatexample = js_vars.imgcatex;
 
-window.onload = function() {
-  alert("ページが読み込まれました！");
-};
-
 let img_cat_list = new Array(40);
   for (let n=0; n<40; n++) {
     let path = "img" + n + "_cat";
@@ -24,8 +20,6 @@ let boxchildren_list = new Array(6);
     let boxchildrenpath = "box" + mc + "_children";
     boxchildren_list[mc] = document.getElementById(boxchildrenpath);
   };
-
-console.log("hello");
 
 
 let el = document.getElementById('names');

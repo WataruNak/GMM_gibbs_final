@@ -240,6 +240,7 @@ class ShowRole(Page):
 
 
 class Speaker(Page):
+    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
         "name_order", 
@@ -405,6 +406,7 @@ class Speaker(Page):
             player.participant.box5_items = []
             player.participant.box5_items = [int(b5i) for b5i in player.box5_children.split(",")]
 
+'''
 class Debug(Page):
     @staticmethod
     def vars_for_template(player: Player):
@@ -421,11 +423,10 @@ class Debug(Page):
             "box4_items" : player.participant.box4_items,
             "box5_items" : player.participant.box5_items,
             }
-
-
-
+'''
 
 class Listener(Page):
+    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
         "name_order", 
@@ -655,7 +656,7 @@ class ResultsWaitPage(WaitPage):
                 imgs_this_round = player.participant.showed_imgs4log
                 log2 = "<p>あなたの選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>相手がその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
-                log4 = "<p>{}, {}, {}, {}, {}<\p><br><br><br>".format(
+                log4 = "<p>{}, {}, {}, {}, {}</p><br><br><br>".format(
                     Constants.accept_choice[other_player.accept0],
                     Constants.accept_choice[other_player.accept1],
                     Constants.accept_choice[other_player.accept2],
@@ -685,7 +686,7 @@ class ResultsWaitPage(WaitPage):
                 imgs_this_round = other_player.participant.showed_imgs4log
                 log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
-                log4 = "<p>{}, {}, {}, {}, {}<\p>".format(
+                log4 = "<p>{}, {}, {}, {}, {}</p>".format(
                     Constants.accept_choice[player.accept0],
                     Constants.accept_choice[player.accept1],
                     Constants.accept_choice[player.accept2],
@@ -767,7 +768,6 @@ page_sequence = [
     ShowRole,
     Speaker,
     WaitForSpeaker,
-    Debug,
     Listener,
     ResultsWaitPage,
     EndOfRound,

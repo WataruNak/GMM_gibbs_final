@@ -66,13 +66,6 @@ window.onload = function() {
     };  
   };
 
-
-
-console.log("hello");
-console.log(role);
-console.log("abc")
-
-
 let el = document.getElementById('names');
 let sortablename = Sortable.create(el, {
   onChange: function (evt) {
@@ -94,20 +87,12 @@ let sortablename = Sortable.create(el, {
     };
     if (role == "speaker") {
       for (let l=0; l<5; l++) {
-        console.log(img_cat_list[img_choice[l]]);
-        console.log(img_cat_list[img_choice[l]].value);
-        console.log(img_choice[l]);
         if (
           choice_cat_fields[l].value != img_cat_list[img_choice[l]].value
           ) {
             choice_cat_fields[l].value = img_cat_list[img_choice[l]].value
           };
         };
-      console.log(choice_cat_fields[0].value);
-      console.log(choice_cat_fields[1].value);
-      console.log(choice_cat_fields[2].value);
-      console.log(choice_cat_fields[3].value);
-      console.log(choice_cat_fields[4].value);
     }
   }
 });
@@ -192,21 +177,12 @@ const handleDrop = (e) => {
   };
   if (role == "speaker") {
     for (let m=0; m<5; m++) {
-      console.log(img_cat_list[img_choice[m]]);
-      console.log(img_cat_list[img_choice[m]].value);
-      console.log(img_choice[m]);
       if (
         choice_cat_fields[m].value != img_cat_list[img_choice[m]].value
         ) {
           choice_cat_fields[m].value = img_cat_list[img_choice[m]].value
         };
       };
-      console.log(choice_cat_fields[0].value);
-      console.log(choice_cat_fields[0]);
-      console.log(choice_cat_fields[1].value);
-      console.log(choice_cat_fields[2].value);
-      console.log(choice_cat_fields[3].value);
-      console.log(choice_cat_fields[4].value);
   }
 }
 

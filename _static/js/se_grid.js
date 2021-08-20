@@ -9,33 +9,17 @@ let choice_cat_fields = [
   document.getElementById("s_choice1"),
   document.getElementById("s_choice2"),
   document.getElementById("s_choice3"),
-  document.getElementById("s_choice4"),
+  document.getElementById("s_choice4"), 
 ]
 let stimuli_img_id_list = []
 for (let d=0; d<40; d++) {
-  stimuli_img_id_list.push("stimuli" + d)
+  stimuli_img_id_list.push("stimuli" + d) 
 }
 
 let choice_img_class_list = [
   "selected0", "selected1", "selected2", "selected3", "selected4"
 ]
-let role = js_vars
-
-window.onload = function() {
-  for (let a=0; a<40; a++) {
-    document.getElementById(imgcatpath_list[a]).value = String(img_category_list[a]);
-  };
-  document.getElementById("name_order").value = default_name_value;
-  for (let b=0; b<5; b++) {
-    document.getElementById(stimuli_img_id_list[img_choice[b]]).classList.add(choice_img_class_list[b])
-    document.getElementById(String(img_choice[b])).classList.add(choice_img_class_list[b]);
-  };
-  if (role == "speaker") {
-    for (let c=0; c<40; c++) {
-      choice_cat_fields[c].value = String(img_category_list[img_choice[c]])
-    };
-  };  
-};
+let role = js_vars.role
 
 let img_cat_list = new Array(40);
   for (let n=0; n<40; n++) {
@@ -54,7 +38,39 @@ let boxchildren_list = new Array(6);
     boxchildren_list[mc] = document.getElementById(boxchildrenpath);
   };
 
+window.onload = function() {  
+    for (let a=0; a<40; a++) {
+      document.getElementById(imgcatpath_list[a]).value = String(img_category_list[a]);
+    };
+    document.getElementById("name_order").value = default_name_value;
+    for (let b=0; b<5; b++) {
+      document.getElementById(stimuli_img_id_list[img_choice[b]]).classList.add(choice_img_class_list[b])
+      document.getElementById(String(img_choice[b])).classList.add(choice_img_class_list[b]);
+    };
+    for (let d=0; d<6; d++) {
+      if (box_list[d].childElementCount>0) {
+        let firstlist = [];
+        for (let dd=0; dd<box_list[d].childElementCount; dd++) {
+          let firstid = Number(box_list[d].children[dd].id);
+          firstlist.push(String(firstid));
+        };
+        boxchildren_list[d].value = firstlist.join(",");
+      } else {
+        boxchildren_list[d].value = "999"
+      };
+    };
+    if (role == "speaker") {
+      for (let c=0; c<5; c++) {
+        choice_cat_fields[c].value = String(img_category_list[img_choice[c]]);
+      };
+    };  
+  };
+
+
+
 console.log("hello");
+console.log(role);
+console.log("abc")
 
 
 let el = document.getElementById('names');
@@ -78,12 +94,20 @@ let sortablename = Sortable.create(el, {
     };
     if (role == "speaker") {
       for (let l=0; l<5; l++) {
+        console.log(img_cat_list[img_choice[l]]);
+        console.log(img_cat_list[img_choice[l]].value);
+        console.log(img_choice[l]);
         if (
-          choice_cat_fields[l].value != document.getElementById(String(img_choice[l]))
+          choice_cat_fields[l].value != img_cat_list[img_choice[l]].value
           ) {
-            choice_cat_fields[l].value = document.getElementById(String(img_choice[l]))
+            choice_cat_fields[l].value = img_cat_list[img_choice[l]].value
           };
-        }
+        };
+      console.log(choice_cat_fields[0].value);
+      console.log(choice_cat_fields[1].value);
+      console.log(choice_cat_fields[2].value);
+      console.log(choice_cat_fields[3].value);
+      console.log(choice_cat_fields[4].value);
     }
   }
 });
@@ -168,12 +192,21 @@ const handleDrop = (e) => {
   };
   if (role == "speaker") {
     for (let m=0; m<5; m++) {
+      console.log(img_cat_list[img_choice[m]]);
+      console.log(img_cat_list[img_choice[m]].value);
+      console.log(img_choice[m]);
       if (
-        choice_cat_fields[m].value != document.getElementById(String(img_choice[m]))
+        choice_cat_fields[m].value != img_cat_list[img_choice[m]].value
         ) {
-          choice_cat_fields[m].value = document.getElementById(String(img_choice[m]))
+          choice_cat_fields[m].value = img_cat_list[img_choice[m]].value
         };
-      }
+      };
+      console.log(choice_cat_fields[0].value);
+      console.log(choice_cat_fields[0]);
+      console.log(choice_cat_fields[1].value);
+      console.log(choice_cat_fields[2].value);
+      console.log(choice_cat_fields[3].value);
+      console.log(choice_cat_fields[4].value);
   }
 }
 

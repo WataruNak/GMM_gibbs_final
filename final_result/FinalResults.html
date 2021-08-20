@@ -32,123 +32,51 @@
 <p>画面を閉じていただいて結構です。</p>
 <br>
 <br>
-<div class = "box">
 <p>あなたのカテゴリー分類の一覧</p>
-<div class = "imgs">
-{{ name_html_list[0] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 0 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[1] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 1 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[2] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 2 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[3] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 3 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[4] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 4 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[5] }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 5 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-</div>
-
 <div class = "box">
-<p>相手プレイヤーのカテゴリー分類の一覧</p>
-<div class = "imgs">
-{{ name_html_list[0] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box0">
+{{ name0 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 0 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[1] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box1">
+{{ name1 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 1 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[2] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box2">
+{{ name2 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 2 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[3] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box3">
+{{ name3 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 3 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[4] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box4">
+{{ name4 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 4 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<br>
-<br>
-<div class = "imgs">
-{{ name_html_list[5] }}
-{{ for k, v in others_dict.items() }}
+<div class = "box5">
+{{ name5 }}
+{{ for k, v in my_dict.items() }}
 {{ if v == 5 }}
 {{ k }}
 {{ endif }}
@@ -156,20 +84,107 @@
 </div>
 </div>
 <br>
-<br>
+<p>相手プレイヤーのカテゴリー分類の一覧</p>
+<div class = "box">
+<div class = "box0">
+{{ name0 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 0 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+<div class = "box1">
+{{ name1 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 1 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+<div class = "box2">
+{{ name2 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 2 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+<div class = "box3">
+{{ name3 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 3 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+<div class = "box4">
+{{ name4 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 4 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+<div class = "box5">
+{{ name5 }}
+{{ for k, v in others_dict.items() }}
+{{ if v == 5 }}
+{{ k }}
+{{ endif }}
+{{ endfor }}
+</div>
+</div>
 {{ endblock }}
 
 {% block app_styles %}
     <style>
-        div.imgs {
+        div.box {
+            display: grid;
+            grid-template-columns: 900px;
+            grid-template-rows: 100px 100px 100px 100px 100px 100px;
+        }
+
+        .box0 {
             display: flex;
             flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 1/2;
         }
-        div.box {
+
+        .box1 {
             display: flex;
-            border: solid 1px black;
-            box-sizing: border-box;
-            width: 50%;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 2/3;
+        }
+
+        .box2 {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 3/4;
+           }
+
+        .box3 {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 4/5;
+        }
+
+        .box4 {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 5/6;
+        }
+
+        .box5 {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            grid-row: 6/7;
         }
     </style>
 {% endblock %}

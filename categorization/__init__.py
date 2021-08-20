@@ -325,9 +325,8 @@ class EarlyFinish(Page):
             "kappa" : player.kappa,
         }
     
-    def app_after_this_page(self, upcoming_apps):
-        player = self.player
-        if player.whatever:
+    def app_after_this_page(player, upcoming_apps):
+        if player.ari >= Constants.goal_ari:
             return upcoming_apps[-1]
 
 class Results(Page):    

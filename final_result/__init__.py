@@ -77,9 +77,9 @@ def custom_export(players):
             session.code,
             participant.code,
             p.id_in_group,
-            participant.final_round_num,
-            participant.final_kappa,
-            participant.final_ari,
+            p.final_round_num,
+            p.final_kappa,
+            p.final_ari,
             ]
 
 
@@ -100,7 +100,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    final_round_num = models.IntegerField()
+    final_kappa = models.FloatField()
+    final_ari = models.FloatField()
 
 
 # PAGES
@@ -111,16 +113,25 @@ class FinalResults(Page):
         others_dict = {}
         other_player = player.get_others_in_group()[0]
         for id in player.participant.stimuli_id_list:
-            my_dict[Constants.img_html_list[id]] = player.patcitipant.img_category_list[id]
+            my_dict[Constants.img_html_list[id]] = player.participant.img_category_list[id]
         for oid in other_player.participant.stimuli_id_list:
-            others_dict[Constants.img_html_list[oid]] = other_player.patcitipant.img_category_list[oid]
+            others_dict[Constants.img_html_list[oid]] = other_player.participant.img_category_list[oid]
+        
+        player.final_round_num = player.participant.final_round_num
+        player.final_ari = player.participant.final_ari
+        player.final_kappa = player.participant.final_kappa
         return {
             "final_round_num" : player.participant.final_round_num,
-            "final_kappa": player.participant.final_kappa,
-            "final_ari": player.participant.final_ari,
+            "kappa": player.participant.final_kappa,
+            "ari": player.participant.final_ari,
             "my_dict" : my_dict,
             "others_dict" : others_dict,
-            "name_html_list" : Constants.name_html_list,
+            "name0" : Constants.name_html_list[0],
+            "name1" : Constants.name_html_list[1],
+            "name2" : Constants.name_html_list[2],
+            "name3" : Constants.name_html_list[3],
+            "name4" : Constants.name_html_list[4],
+            "name5" : Constants.name_html_list[5],
         }
 
 page_sequence = [FinalResults]

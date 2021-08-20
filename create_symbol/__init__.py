@@ -98,16 +98,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        img_choice = random.sample(range(0,40,1), k=(5))
-        for player in self.get_players():
-            player.participant.img_choice = []
-            player.participant.showed_imgs = []
-            player.participant.showed_imgs4log = []
-            for id in img_choice:
-                player.participant.img_choice.append(id)
-                player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
-                player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
+    pass
 
 
 class Group(BaseGroup):
@@ -249,12 +240,12 @@ class ShowRole(Page):
 
 
 class Speaker(Page):
-    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
         "name_order", 
         "box0_children", "box1_children", "box2_children",
         "box3_children", "box4_children", "box5_children",
+        "s_choice0", "s_choice1", "s_choice2", "s_choice3", "s_choice4",
         "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
         "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
         "img10_cat", "img11_cat", "img12_cat", "img13_cat", "img14_cat",
@@ -271,52 +262,62 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
+        img_choice = random.sample(range(0,40,1), k=(5))
+        player.participant.img_choice = []
+        player.participant.showed_imgs = []
+        player.participant.showed_imgs4log = []
         box0_defaultimgs = []
-        if player.participant.box0_items[0] == 999:
-            box0_defaultimgs.append("999")
-        else:
-            for j in range(len(player.participant.box0_items)):
-                box0_defaultimgs.append(Constants.imghtml_list[player.participant.box0_items[j]])
-        
         box1_defaultimgs = []
-        if player.participant.box1_items[0] == 999:
-            box1_defaultimgs.append("999")
-        else:
-            for k in range(len(player.participant.box1_items)):
-                box1_defaultimgs.append(Constants.imghtml_list[player.participant.box1_items[k]])
-        
         box2_defaultimgs = []
-        if player.participant.box2_items[0] == 999:
-            box2_defaultimgs.append("999")
-        else:
-            for l in range(len(player.participant.box2_items)):
-                box2_defaultimgs.append(Constants.imghtml_list[player.participant.box2_items[l]])
-        
         box3_defaultimgs = []
-        if player.participant.box3_items[0] == 999:
-            box3_defaultimgs.append("999")
-        else:
-            for m in range(len(player.participant.box3_items)):
-                box3_defaultimgs.append(Constants.imghtml_list[player.participant.box3_items[m]])
-        
         box4_defaultimgs = []
-        if player.participant.box4_items[0] == 999:
-            box4_defaultimgs.append("999")
-        else:
-            for n in range(len(player.participant.box4_items)):
-                box4_defaultimgs.append(Constants.imghtml_list[player.participant.box4_items[n]])
-        
         box5_defaultimgs = []
-        if player.participant.box5_items[0] == 999:
-            box5_defaultimgs.append("999")
-        else:
-            for o in range(len(player.participant.box5_items)):
-                box5_defaultimgs.append(Constants.imghtml_list[player.participant.box5_items[o]])
-        
         default_name_list = []
         for p in range(len(player.participant.default_nameorder)):
-            default_name_list.append(Constants.namehtml_list[p])        
+                default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
+
+        if player.role() == "speaker":
+            for id in img_choice:
+                player.participant.img_choice.append(id)
+                player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
+                player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
+
+            if player.participant.box0_items[0] == 999:
+                box0_defaultimgs.append("999")
+            else:
+                for j in range(len(player.participant.box0_items)):
+                    box0_defaultimgs.append(Constants.imghtml_list[player.participant.box0_items[j]])
+                    
+            if player.participant.box1_items[0] == 999:
+                box1_defaultimgs.append("999")
+            else:
+                for k in range(len(player.participant.box1_items)):
+                    box1_defaultimgs.append(Constants.imghtml_list[player.participant.box1_items[k]])
         
+            if player.participant.box2_items[0] == 999:
+                box2_defaultimgs.append("999")
+            else:
+                for l in range(len(player.participant.box2_items)):
+                    box2_defaultimgs.append(Constants.imghtml_list[player.participant.box2_items[l]])
+        
+            if player.participant.box3_items[0] == 999:
+                box3_defaultimgs.append("999")
+            else:
+                for m in range(len(player.participant.box3_items)):
+                    box3_defaultimgs.append(Constants.imghtml_list[player.participant.box3_items[m]])
+        
+            if player.participant.box4_items[0] == 999:
+                box4_defaultimgs.append("999")
+            else:
+                for n in range(len(player.participant.box4_items)):
+                    box4_defaultimgs.append(Constants.imghtml_list[player.participant.box4_items[n]])
+        
+            if player.participant.box5_items[0] == 999:
+                box5_defaultimgs.append("999")
+            else:
+                for o in range(len(player.participant.box5_items)):
+                    box5_defaultimgs.append(Constants.imghtml_list[player.participant.box5_items[o]])
+           
         return {
             "showed_imgs" : player.participant.showed_imgs,
             "choice_names" : Constants.choicename_html_list,
@@ -339,12 +340,18 @@ class Speaker(Page):
                     "sym" + str(player.participant.default_nameorder[3]) + "," +\
                         "sym" + str(player.participant.default_nameorder[4]) + "," +\
                             "sym" + str(player.participant.default_nameorder[5])
+        other_player = player.get_others_in_group()[0]
+        if player.role() == "speaker":
+            img_choice = player.participant.img_choice
+        else:
+            img_choice = other_player.participant.img_choice
+
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
             default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
-            img_choice=player.participant.img_choice,
+            img_choice=img_choice,
             role=player.role(),
         )
     
@@ -398,9 +405,27 @@ class Speaker(Page):
             player.participant.box5_items = []
             player.participant.box5_items = [int(b5i) for b5i in player.box5_children.split(",")]
 
+class Debug(Page):
+    @staticmethod
+    def vars_for_template(player: Player):
+        return {
+            "s_choice0" : player.s_choice0,
+            "s_choice1" : player.s_choice1,
+            "s_choice2" : player.s_choice2,
+            "s_choice3" : player.s_choice3,
+            "s_choice4" : player.s_choice4,
+            "box0_items" : player.participant.box0_items,
+            "box1_items" : player.participant.box1_items,
+            "box2_items" : player.participant.box2_items,
+            "box3_items" : player.participant.box3_items,
+            "box4_items" : player.participant.box4_items,
+            "box5_items" : player.participant.box5_items,
+            }
+
+
+
 
 class Listener(Page):
-    timeout_seconds = 180
     form_model = 'player'
     form_fields = [
         "name_order", 
@@ -418,67 +443,79 @@ class Listener(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        return player.role() == 'speaker'
+        return player.role() == 'listener'
 
     @staticmethod
     def vars_for_template(player: Player):
         box0_defaultimgs = []
-        if player.participant.box0_items[0] == 999:
-            box0_defaultimgs.append("999")
-        else:
-            for j in range(len(player.participant.box0_items)):
-                box0_defaultimgs.append(Constants.imghtml_list[player.participant.box0_items[j]])
-        
         box1_defaultimgs = []
-        if player.participant.box1_items[0] == 999:
-            box1_defaultimgs.append("999")
-        else:
-            for k in range(len(player.participant.box1_items)):
-                box1_defaultimgs.append(Constants.imghtml_list[player.participant.box1_items[k]])
-        
         box2_defaultimgs = []
-        if player.participant.box2_items[0] == 999:
-            box2_defaultimgs.append("999")
-        else:
-            for l in range(len(player.participant.box2_items)):
-                box2_defaultimgs.append(Constants.imghtml_list[player.participant.box2_items[l]])
-        
         box3_defaultimgs = []
-        if player.participant.box3_items[0] == 999:
-            box3_defaultimgs.append("999")
-        else:
-            for m in range(len(player.participant.box3_items)):
-                box3_defaultimgs.append(Constants.imghtml_list[player.participant.box3_items[m]])
-        
         box4_defaultimgs = []
-        if player.participant.box4_items[0] == 999:
-            box4_defaultimgs.append("999")
-        else:
-            for n in range(len(player.participant.box4_items)):
-                box4_defaultimgs.append(Constants.imghtml_list[player.participant.box4_items[n]])
-        
         box5_defaultimgs = []
-        if player.participant.box5_items[0] == 999:
-            box5_defaultimgs.append("999")
-        else:
-            for o in range(len(player.participant.box5_items)):
-                box5_defaultimgs.append(Constants.imghtml_list[player.participant.box5_items[o]])
-        
         default_name_list = []
         for p in range(len(player.participant.default_nameorder)):
-            default_name_list.append(Constants.namehtml_list[p])
+            default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
+        if player.role() == "listener":
+            other_player = player.get_others_in_group()[0]
+            showed_imgs = other_player.participant.showed_imgs
+
+            if player.participant.box0_items[0] == 999:
+                box0_defaultimgs.append("999")
+            else:
+                for j in range(len(player.participant.box0_items)):
+                    box0_defaultimgs.append(Constants.imghtml_list[player.participant.box0_items[j]])
         
-        other_player = player.get_others_in_group()[0]
-        others_choice_list = [
-            Constants.choicename_html_list[int(other_player.s_choice0)],
-            Constants.choicename_html_list[int(other_player.s_choice1)],
-            Constants.choicename_html_list[int(other_player.s_choice2)],
-            Constants.choicename_html_list[int(other_player.s_choice3)],
-            Constants.choicename_html_list[int(other_player.s_choice4)],
-        ]        
+            
+            if player.participant.box1_items[0] == 999:
+                box1_defaultimgs.append("999")
+            else:
+                for k in range(len(player.participant.box1_items)):
+                    box1_defaultimgs.append(Constants.imghtml_list[player.participant.box1_items[k]])
+        
+            if player.participant.box2_items[0] == 999:
+                box2_defaultimgs.append("999")
+            else:
+                for l in range(len(player.participant.box2_items)):
+                    box2_defaultimgs.append(Constants.imghtml_list[player.participant.box2_items[l]])
+        
+            if player.participant.box3_items[0] == 999:
+                box3_defaultimgs.append("999")
+            else:
+                for m in range(len(player.participant.box3_items)):
+                    box3_defaultimgs.append(Constants.imghtml_list[player.participant.box3_items[m]])
+        
+            if player.participant.box4_items[0] == 999:
+                box4_defaultimgs.append("999")
+            else:
+                for n in range(len(player.participant.box4_items)):
+                    box4_defaultimgs.append(Constants.imghtml_list[player.participant.box4_items[n]])
+        
+            if player.participant.box5_items[0] == 999:
+                box5_defaultimgs.append("999")
+            else:
+                for o in range(len(player.participant.box5_items)):
+                    box5_defaultimgs.append(Constants.imghtml_list[player.participant.box5_items[o]])
+
+            others_choice_list = [
+                Constants.choicename_html_list[int(other_player.s_choice0)],
+                Constants.choicename_html_list[int(other_player.s_choice1)],
+                Constants.choicename_html_list[int(other_player.s_choice2)],
+                Constants.choicename_html_list[int(other_player.s_choice3)],
+                Constants.choicename_html_list[int(other_player.s_choice4)],
+            ]
+        else:
+            showed_imgs = player.participant.showed_imgs
+            others_choice_list = [
+                Constants.choicename_html_list[int(player.s_choice0)],
+                Constants.choicename_html_list[int(player.s_choice1)],
+                Constants.choicename_html_list[int(player.s_choice2)],
+                Constants.choicename_html_list[int(player.s_choice3)],
+                Constants.choicename_html_list[int(player.s_choice4)],
+            ]
         
         return {
-            "showed_imgs" : player.participant.showed_imgs,
+            "showed_imgs" : showed_imgs,
             "others_choice_list" : others_choice_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
@@ -501,13 +538,17 @@ class Listener(Page):
                             "sym" + str(player.participant.default_nameorder[5])
 
         other_player = player.get_others_in_group()[0]
+        if player.role() == "listener":
+            img_choice = other_player.participant.img_choice
+        else:
+            img_choice = player.participant.img_choice
 
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
             default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
-            img_choice=player.participant.img_choice,
+            img_choice=img_choice,
             role=player.role(),
         )
     
@@ -527,23 +568,23 @@ class Listener(Page):
             player.participant.img_category_list[q] = int(cat_list[q])
 
         other_player = player.get_others_in_group()[0]
-        if player.participant.img_category_list[player.participant.img_choice[0]] == int(other_player.s_choice0):
+        if player.participant.img_category_list[other_player.participant.img_choice[0]] == int(other_player.s_choice0):
             player.accept0 = 1
         else:
             player.accept0 = 0
-        if player.participant.img_category_list[player.participant.img_choice[1]] == int(other_player.s_choice1):
+        if player.participant.img_category_list[other_player.participant.img_choice[1]] == int(other_player.s_choice1):
             player.accept1 = 1
         else:
             player.accept1 = 0
-        if player.participant.img_category_list[player.participant.img_choice[2]] == int(other_player.s_choice2):
+        if player.participant.img_category_list[other_player.participant.img_choice[2]] == int(other_player.s_choice2):
             player.accept2 = 1
         else:
             player.accept2 = 0
-        if player.participant.img_category_list[player.participant.img_choice[3]] == int(other_player.s_choice3):
+        if player.participant.img_category_list[other_player.participant.img_choice[3]] == int(other_player.s_choice3):
             player.accept3 = 1
         else:
             player.accept3 = 0
-        if player.participant.img_category_list[player.participant.img_choice[4]] == int(other_player.s_choice4):
+        if player.participant.img_category_list[other_player.participant.img_choice[4]] == int(other_player.s_choice4):
             player.accept4 = 1
         else:
             player.accept4 = 0
@@ -641,7 +682,7 @@ class ResultsWaitPage(WaitPage):
                 player.participant.loghtml_list.append(logtail)
             else:
                 log0 = "<p>あなたの役割：「聞き手」</p>"
-                imgs_this_round = player.participant.showed_imgs4log
+                imgs_this_round = other_player.participant.showed_imgs4log
                 log2 = "<p>相手の選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>あなたがその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
                 log4 = "<p>{}, {}, {}, {}, {}<\p>".format(
@@ -678,6 +719,12 @@ class EndOfRound(Page):
             "kappa" : player.kappa,
             "ari" : player.ari,
             "loghtml_list" : player.participant.loghtml_list,
+            "box0_items" : player.participant.box0_items,
+            "box1_items" : player.participant.box1_items,
+            "box2_items" : player.participant.box2_items,
+            "box3_items" : player.participant.box3_items,
+            "box4_items" : player.participant.box4_items,
+            "box5_items" : player.participant.box5_items,
         }
 
 
@@ -688,14 +735,14 @@ class EarlyFinish(Page):
     
     @staticmethod
     def vars_for_template(player: Player):
-        player.parcitipant.final_round_num = player.round_number
-        player.parcitipant.final_kappa = player.kappa
-        player.parcitipant.final_ari = player.ari
+        player.participant.final_round_num = player.round_number
+        player.participant.final_kappa = player.kappa
+        player.participant.final_ari = player.ari
         return {"loghtml_list" : player.participant.loghtml_list,}
     
-    def app_after_this_page(self, upcoming_apps):
-        player = self.player
-        if player.whatever:
+    @staticmethod
+    def app_after_this_page(player, upcoming_apps):
+        if player.ari >= Constants.goal_ari:
             return upcoming_apps[0]
 
 
@@ -706,15 +753,13 @@ class LateFinish(Page):
     
     @staticmethod
     def vars_for_template(player: Player):
-        player.parcitipant.final_round_num = player.round_number
-        player.parcitipant.final_kappa = player.kappa
-        player.parcitipant.final_ari = player.ari
+        player.participant.final_round_num = player.round_number
+        player.participant.final_kappa = player.kappa
+        player.participant.final_ari = player.ari
         return {"loghtml_list" : player.participant.loghtml_list,}
     
-    def app_after_this_page(self, upcoming_apps):
-        player = self.player
-        if player.whatever:
-            return upcoming_apps[0]
+    def app_after_this_page(player, upcoming_apps):
+        return upcoming_apps[0]
 
 
 page_sequence = [
@@ -722,6 +767,7 @@ page_sequence = [
     ShowRole,
     Speaker,
     WaitForSpeaker,
+    Debug,
     Listener,
     ResultsWaitPage,
     EndOfRound,

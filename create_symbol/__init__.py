@@ -656,7 +656,7 @@ class ResultsWaitPage(WaitPage):
                 imgs_this_round = player.participant.showed_imgs4log
                 log2 = "<p>あなたの選んだ記号（左から順に1,2,3,4,5番に対する記号）：</p>"
                 log3 = "<p>相手がその記号を受け入れたかどうか（左から順に1,2,3,4,5番への答え）：</p>"
-                log4 = "<p>{}, {}, {}, {}, {}</p><br><br><br>".format(
+                log4 = "<p>{}, {}, {}, {}, {}</p>".format(
                     Constants.accept_choice[other_player.accept0],
                     Constants.accept_choice[other_player.accept1],
                     Constants.accept_choice[other_player.accept2],
@@ -693,6 +693,7 @@ class ResultsWaitPage(WaitPage):
                     Constants.accept_choice[player.accept3],
                     Constants.accept_choice[player.accept4],
                     )
+                player.participant.loghtml_list.append(loghead)
                 player.participant.loghtml_list.append(log0)
                 player.participant.loghtml_list.append(log1)
                 player.participant.loghtml_list.append(log_divhead)

@@ -21,6 +21,16 @@ let boxchildren_list = new Array(6);
     boxchildren_list[mc] = document.getElementById(boxchildrenpath);
   };
 
+  window.onload = function() {  
+    for (let a=0; a<40; a++) {
+      document.getElementById(imgcatpath_list[a]).value = "99";
+    };
+    document.getElementById("name_order").value = "sym0,sym1,sym2,sym3,sym4,sym5";
+    for (let d=0; d<6; d++) {
+      boxchildren_list[d].value = "999"
+    };
+  };  
+
 
 let el = document.getElementById('names');
 let sortablename = Sortable.create(el, {

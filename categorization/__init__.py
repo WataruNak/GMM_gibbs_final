@@ -11,6 +11,12 @@ https://github.com/SortableJS/Sortable sortable git
 https://qiita.com/t-iguchi/items/20dc31d5e004d7145634 js in django
 """
 
+def make_imgcat_path(num):
+    imgcatpath_list = []
+    for _ in range(num):
+        imgcatpath_list.append("img{}_cat".format(_))
+    return imgcatpath_list
+
 def make_correct_list(label_num, item_num, correct_cat_num):
     numlists = []
     correct_lists = []
@@ -45,6 +51,32 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     imgpath_list = [
+        "https://imgur.com/gubdkt0.jpg","https://imgur.com/BteivhO.jpg","https://imgur.com/otWcXp5.jpg","https://imgur.com/BwZcuBw.jpg",
+        "https://imgur.com/fZRcZg0.jpg","https://imgur.com/HxGqKu1.jpg","https://imgur.com/3oIIr67.jpg","https://imgur.com/qRuBkRm.jpg",
+        "https://imgur.com/tDUCcFe.jpg","https://imgur.com/5LnW1cL.jpg","https://imgur.com/B8sx0kD.jpg","https://imgur.com/g8Cmjez.jpg",
+        "https://imgur.com/iP5SV7e.jpg","https://imgur.com/XAbgTOc.jpg","https://imgur.com/px8BCcT.jpg","https://imgur.com/WLOcyhk.jpg",
+        "https://imgur.com/st6BOzf.jpg","https://imgur.com/2GknAAv.jpg","https://imgur.com/nMGFQ9S.jpg","https://imgur.com/5Tnbba6.jpg",
+        "https://imgur.com/UAQ4IxZ.jpg","https://imgur.com/u30m8NG.jpg","https://imgur.com/Ad0CDOW.jpg","https://imgur.com/UdNELcS.jpg",
+        "https://imgur.com/OvSCL1C.jpg","https://imgur.com/Let0gsJ.jpg","https://imgur.com/XDmWi91.jpg","https://imgur.com/faOrbC9.jpg",
+        "https://imgur.com/Kll1v00.jpg","https://imgur.com/04EJwCc.jpg","https://imgur.com/C3aTj09.jpg","https://imgur.com/79bmUFm.jpg",
+        "https://imgur.com/gk2Yjar.jpg","https://imgur.com/6OCJPMi.jpg","https://imgur.com/8cV6OEF.jpg","https://imgur.com/VcviHH3.jpg",
+        "https://imgur.com/iD3xLvL.jpg","https://imgur.com/CK9wKWO.jpg","https://imgur.com/6F2Phvt.jpg","https://imgur.com/xQ65RB7.jpg"
+        ]
+
+    namepath_list = [
+        "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
+        "https://imgur.com/PBZ3YNV.png","https://imgur.com/dmiNF4h.png","https://imgur.com/RdWIiGo.png",
+        ]
+    
+    imgcatpath_list = make_imgcat_path(40)
+    imghtml_list = make_draggableimg_html_list(40, imgpath_list, 50, 50)
+    namehtml_list = make_draggablename_html_list(6, namepath_list, 100, 100)
+    
+    correct_cat_list = make_correct_list(6, 10, 4)
+    goal_kappa = 0.9
+    
+'''
+firstimgs = [
         "https://imgur.com/wqnOMfy.jpg","https://imgur.com/LHJYfxo.jpg","https://imgur.com/9Xa4VnX.jpg","https://imgur.com/D91W1KT.jpg",
         "https://imgur.com/J35mb8e.jpg","https://imgur.com/IC9TPNn.jpg","https://imgur.com/cJQIb6k.jpg","https://imgur.com/2rj1L4f.jpg",
         "https://imgur.com/CeGed6S.jpg","https://imgur.com/u28iEnb.jpg","https://imgur.com/N1rDlYe.jpg","https://imgur.com/4uFfzbw.jpg",
@@ -55,19 +87,34 @@ class Constants(BaseConstants):
         "https://imgur.com/jy5MPbW.jpg","https://imgur.com/7Rf9TKU.jpg","https://imgur.com/BgSfDLZ.jpg","https://imgur.com/3sfX7Mr.jpg",
         "https://imgur.com/6R8GCoP.jpg","https://imgur.com/A5ju4zJ.jpg","https://imgur.com/QF9ee5p.jpg","https://imgur.com/vW5QaBq.jpg",
         "https://imgur.com/NcY47LO.jpg","https://imgur.com/GDI9kz8.jpg","https://imgur.com/OmiMBXk.jpg","https://imgur.com/in0lSLH.jpg",
+        ]
+
+cov500 = [
+    "https://imgur.com/MkFP42F.jpg","https://imgur.com/GPDTUaA.jpg","https://imgur.com/61Na1G0.jpg","https://imgur.com/tMae72r.jpg",
+    "https://imgur.com/zb7DESw.jpg","https://imgur.com/apH5SbV.jpg","https://imgur.com/LCngO2B.jpg","https://imgur.com/PACbnL1.jpg",
+    "https://imgur.com/GdNj2tg.jpg","https://imgur.com/E9cmL88.jpg","https://imgur.com/XTJT9XT.jpg","https://imgur.com/z2Tb9J6.jpg",
+    "https://imgur.com/Wpa13XC.jpg","https://imgur.com/UfH1Xdj.jpg","https://imgur.com/mM4VFyl.jpg","https://imgur.com/i4rjYCD.jpg",
+    "https://imgur.com/3YWeq7v.jpg","https://imgur.com/jX9tSng.jpg","https://imgur.com/JN15yVv.jpg","https://imgur.com/dKMourP.jpg",
+    "https://imgur.com/l1sGbsN.jpg","https://imgur.com/0bfFUKz.jpg","https://imgur.com/bcrSlP7.jpg","https://imgur.com/uPei4da.jpg",
+    "https://imgur.com/s0LPFfE.jpg","https://imgur.com/tQ2wDrB.jpg","https://imgur.com/kqDjPiy.jpg","https://imgur.com/8wYr6KN.jpg",
+    "https://imgur.com/o7Evc0D.jpg","https://imgur.com/EE4EQuR.jpg","https://imgur.com/euVFgYG.jpg","https://imgur.com/9iyHLi9.jpg",
+    "https://imgur.com/23ITL08.jpg","https://imgur.com/t5yRPiY.jpg","https://imgur.com/krVuESa.jpg","https://imgur.com/7nZLZ8G.jpg",
+    "https://imgur.com/FVFKxtr.jpg","https://imgur.com/fmwxlEg.jpg","https://imgur.com/NNv4KqQ.jpg","https://imgur.com/QkQJkiZ.jpg"
     ]
 
-    namepath_list = [
-        "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
-        "https://imgur.com/PBZ3YNV.png","https://imgur.com/dmiNF4h.png","https://imgur.com/RdWIiGo.png",
-        ]
-    
-    imghtml_list = make_draggableimg_html_list(40, imgpath_list, 50, 50)
-    namehtml_list = make_draggablename_html_list(6, namepath_list, 100, 100)
-    
-    correct_cat_list = make_correct_list(6, 10, 4)
-    goal_ari = 0.9
-    
+cov300 = [
+    "https://imgur.com/gubdkt0.jpg","https://imgur.com/BteivhO.jpg","https://imgur.com/otWcXp5.jpg","https://imgur.com/BwZcuBw.jpg",
+    "https://imgur.com/fZRcZg0.jpg","https://imgur.com/HxGqKu1.jpg","https://imgur.com/3oIIr67.jpg","https://imgur.com/qRuBkRm.jpg",
+    "https://imgur.com/tDUCcFe.jpg","https://imgur.com/5LnW1cL.jpg","https://imgur.com/B8sx0kD.jpg","https://imgur.com/g8Cmjez.jpg",
+    "https://imgur.com/iP5SV7e.jpg","https://imgur.com/XAbgTOc.jpg","https://imgur.com/px8BCcT.jpg","https://imgur.com/WLOcyhk.jpg",
+    "https://imgur.com/st6BOzf.jpg","https://imgur.com/2GknAAv.jpg","https://imgur.com/nMGFQ9S.jpg","https://imgur.com/5Tnbba6.jpg",
+    "https://imgur.com/UAQ4IxZ.jpg","https://imgur.com/u30m8NG.jpg","https://imgur.com/Ad0CDOW.jpg","https://imgur.com/UdNELcS.jpg",
+    "https://imgur.com/OvSCL1C.jpg","https://imgur.com/Let0gsJ.jpg","https://imgur.com/XDmWi91.jpg","https://imgur.com/faOrbC9.jpg",
+    "https://imgur.com/Kll1v00.jpg","https://imgur.com/04EJwCc.jpg","https://imgur.com/C3aTj09.jpg","https://imgur.com/79bmUFm.jpg",
+    "https://imgur.com/gk2Yjar.jpg","https://imgur.com/6OCJPMi.jpg","https://imgur.com/8cV6OEF.jpg","https://imgur.com/VcviHH3.jpg",
+    "https://imgur.com/iD3xLvL.jpg","https://imgur.com/CK9wKWO.jpg","https://imgur.com/6F2Phvt.jpg","https://imgur.com/xQ65RB7.jpg"
+    ]
+'''
 
 
 class Subsession(BaseSubsession):
@@ -126,7 +173,8 @@ class Player(BasePlayer):
     box4_children = models.StringField(default="999")
     box5_children = models.StringField(default="999")
 
-    kappa = models.FloatField()
+    c_kappa = models.FloatField()
+    ip_kappa = models.FloatField()
     ari = models.FloatField()
 
 
@@ -134,7 +182,7 @@ def custom_export(players):
     yield [
         "session",
         "participant_code",
-        "id_in_group", "kappa", "ari",
+        "id_in_group", "c_kappa", "ip_kappa", "ari",
         "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
         "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
         "img10_cat", "img11_cat", "img12_cat", "img13_cat", "img14_cat",
@@ -150,7 +198,7 @@ def custom_export(players):
         yield [
             session.code,
             participant.code,
-            p.id_in_group, p.kappa, p.ari,
+            p.id_in_group, p._c_kappa, p._ip_kappa, p.ari,
             p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
             p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
             p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
@@ -204,7 +252,7 @@ class Categorize(Page):
     def js_vars(player):
         return dict(
             id_order=player.participant.stimuli_id_list,
-            name_order=player.name_order,
+            imgcatpath_list=Constants.imgcatpath_list,
         )
 
     @staticmethod
@@ -313,9 +361,13 @@ class ResultsWaitPage(WaitPage):
     @staticmethod
     def after_all_players_arrive(group: Group):
         for player in group.get_players():
-            player.kappa = max(
+            player.c_kappa = max(
                 cohen_kappa_score(cl, player.participant.img_category_list) for cl in Constants.correct_cat_list
                 )
+            player.ip_kappa = cohen_kappa_score(
+                group.get_players()[0].participant.img_category_list,
+                group.get_players()[1].participant.img_category_list
+            )
             player.ari = adjusted_rand_score(
                 group.get_players()[0].participant.img_category_list,
                 group.get_players()[1].participant.img_category_list
@@ -324,26 +376,29 @@ class ResultsWaitPage(WaitPage):
 class EarlyFinish(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.ari >= Constants.goal_ari
+        return player.ip_kappa >= Constants.goal_kappa
     
     @staticmethod
     def vars_for_template(player: Player):
         player.participant.final_round_num = 0
-        player.participant.final_kappa = player.kappa
+        player.participant.final_c_kappa = player.c_kappa
+        player.participant.final_ip_kappa = player.ip_kappa
         player.participant.final_ari = player.ari
         return {
-            "kappa" : player.kappa,
+            "c_kappa" : player.c_kappa,
+            "ip_kappa" : player.ip_kappa,
         }
     
     def app_after_this_page(player, upcoming_apps):
-        if player.ari >= Constants.goal_ari:
+        if player.ip_kappa >= Constants.goal_kappa:
             return upcoming_apps[-1]
 
 class Results(Page):    
     @staticmethod
     def vars_for_template(player: Player):
         return {
-            "kappa" : player.kappa,
+            "c_kappa" : player.c_kappa,
+            "ip_kappa" : player.ip_kappa,
             "ari" : player.ari,
             "name_order" : player.name_order,
             "img0_cat" : player.img0_cat,

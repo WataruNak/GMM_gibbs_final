@@ -40,7 +40,7 @@ let boxchildren_list = new Array(6);
 
 window.onload = function() {  
     for (let a=0; a<40; a++) {
-      document.getElementById(imgcatpath_list[a]).value = String(img_category_list[a]);
+      img_cat_list[a].value = String(img_category_list[a]);
     };
     document.getElementById("name_order").value = default_name_value;
     for (let b=0; b<5; b++) {
@@ -63,7 +63,8 @@ window.onload = function() {
       for (let c=0; c<5; c++) {
         choice_cat_fields[c].value = String(img_category_list[img_choice[c]]);
       };
-    };  
+    };
+    alert('ページの読み込みが完了しました。「OK」ボタンを押して操作を開始してください。');  
   };
 
 let el = document.getElementById('names');

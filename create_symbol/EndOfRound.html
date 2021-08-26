@@ -5,24 +5,24 @@
 {{ block content }}
 <p>第{{ round_num }}ラウンドが終了しました。</p>
 <p>このラウンドが終わった時点で、あなたと相手プレイヤーの分類の仕方は</p>
-{{ if ari <= 0.4 }}
+{{ if ip_kappa <= 0.4 }}
 <p style="color: red;">ほとんど一致していません。</p>
-{{ elif ari <= 0.6 }}
+{{ elif ip_kappa <= 0.6 }}
 <p style="color: orange;">あまり一致していません。</p>
-{{ elif ari <= 0.8 }}
+{{ elif ip_kappa <= 0.8 }}
 <p style="color: blue;">それなりに一致しています。</p>
-{{ elif ari > 0.8 }}
+{{ elif ip_kappa > 0.8 }}
 <p style="color: green;">かなり一致しています。</p>
 {{ endif }}
 <br>
 <p>また、あなたのカテゴリー分類は</p>
-{{ if kappa <= 0.4 }}
+{{ if c_kappa <= 0.4 }}
 <p style="color: red;">正解のものとはほとんど一致していません。</p>
-{{ elif kappa <= 0.6 }}
+{{ elif c_kappa <= 0.6 }}
 <p style="color: orange;">正解のものとはあまり一致していません。</p>
-{{ elif kappa <= 0.8 }}
+{{ elif c_kappa <= 0.8 }}
 <p style="color: blue;">正解のものとそれなりに一致しています。</p>
-{{ elif kappa > 0.8 }}
+{{ elif c_kappa > 0.8 }}
 <p style="color: green;">正解のものとかなり一致しています。</p>
 {{ endif }}
 <br>

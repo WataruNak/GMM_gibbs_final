@@ -1,12 +1,11 @@
 // アイテムのリストを取得
 const items = [...document.querySelectorAll(".item")];
 const imgorder = js_vars.id_order;
-let imgcatexample = js_vars.imgcatex;
+const imgcatpath_list = js_vars.imgcatpath_list;
 
 let img_cat_list = new Array(40);
   for (let n=0; n<40; n++) {
-    let path = "img" + n + "_cat";
-    img_cat_list[n] = document.getElementById(path);
+    img_cat_list[n] = document.getElementById(imgcatpath_list[n]);
   };
 
 let box_list = new Array(6);
@@ -23,12 +22,13 @@ let boxchildren_list = new Array(6);
 
   window.onload = function() {  
     for (let a=0; a<40; a++) {
-      document.getElementById(imgcatpath_list[a]).value = "99";
+      img_cat_list[a].value = "99";
     };
     document.getElementById("name_order").value = "sym0,sym1,sym2,sym3,sym4,sym5";
     for (let d=0; d<6; d++) {
       boxchildren_list[d].value = "999"
     };
+    alert('ページの読み込みが完了しました。「OK」ボタンを押して操作を開始してください。');
   };  
 
 

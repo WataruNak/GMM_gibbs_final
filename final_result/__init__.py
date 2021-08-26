@@ -20,7 +20,8 @@ def custom_export(players):
         "participant_code",
         "id_in_group",
         "final_round_num",
-        "final_kappa",
+        "final_c_kappa,",
+        "final_ip_kappa",
         "final_ari"
         ]
     for p in players:
@@ -31,7 +32,8 @@ def custom_export(players):
             participant.code,
             p.id_in_group,
             p.final_round_num,
-            p.final_kappa,
+            p.final_c_kappa,
+            p.final_ip_kappa,
             p.final_ari,
             ]
 
@@ -41,17 +43,17 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     imgpath_list = [
-        "https://imgur.com/wqnOMfy.jpg","https://imgur.com/LHJYfxo.jpg","https://imgur.com/9Xa4VnX.jpg","https://imgur.com/D91W1KT.jpg",
-        "https://imgur.com/J35mb8e.jpg","https://imgur.com/IC9TPNn.jpg","https://imgur.com/cJQIb6k.jpg","https://imgur.com/2rj1L4f.jpg",
-        "https://imgur.com/CeGed6S.jpg","https://imgur.com/u28iEnb.jpg","https://imgur.com/N1rDlYe.jpg","https://imgur.com/4uFfzbw.jpg",
-        "https://imgur.com/ATEBW84.jpg","https://imgur.com/OUEAyTS.jpg","https://imgur.com/oLE2TWf.jpg","https://imgur.com/xiGpQvF.jpg",
-        "https://imgur.com/NnOAzoD.jpg","https://imgur.com/0wGJ58N.jpg","https://imgur.com/nitf5Sq.jpg","https://imgur.com/dwXrpvH.jpg",
-        "https://imgur.com/K8sGXHa.jpg","https://imgur.com/XejnHhh.jpg","https://imgur.com/yFw1I6M.jpg","https://imgur.com/iuGyxnS.jpg",
-        "https://imgur.com/zysvnS8.jpg","https://imgur.com/jv5EHuP.jpg","https://imgur.com/fqjlV3Y.jpg","https://imgur.com/2NYuf1e.jpg",
-        "https://imgur.com/jy5MPbW.jpg","https://imgur.com/7Rf9TKU.jpg","https://imgur.com/BgSfDLZ.jpg","https://imgur.com/3sfX7Mr.jpg",
-        "https://imgur.com/6R8GCoP.jpg","https://imgur.com/A5ju4zJ.jpg","https://imgur.com/QF9ee5p.jpg","https://imgur.com/vW5QaBq.jpg",
-        "https://imgur.com/NcY47LO.jpg","https://imgur.com/GDI9kz8.jpg","https://imgur.com/OmiMBXk.jpg","https://imgur.com/in0lSLH.jpg",
-    ]
+        "https://imgur.com/gubdkt0.jpg","https://imgur.com/BteivhO.jpg","https://imgur.com/otWcXp5.jpg","https://imgur.com/BwZcuBw.jpg",
+        "https://imgur.com/fZRcZg0.jpg","https://imgur.com/HxGqKu1.jpg","https://imgur.com/3oIIr67.jpg","https://imgur.com/qRuBkRm.jpg",
+        "https://imgur.com/tDUCcFe.jpg","https://imgur.com/5LnW1cL.jpg","https://imgur.com/B8sx0kD.jpg","https://imgur.com/g8Cmjez.jpg",
+        "https://imgur.com/iP5SV7e.jpg","https://imgur.com/XAbgTOc.jpg","https://imgur.com/px8BCcT.jpg","https://imgur.com/WLOcyhk.jpg",
+        "https://imgur.com/st6BOzf.jpg","https://imgur.com/2GknAAv.jpg","https://imgur.com/nMGFQ9S.jpg","https://imgur.com/5Tnbba6.jpg",
+        "https://imgur.com/UAQ4IxZ.jpg","https://imgur.com/u30m8NG.jpg","https://imgur.com/Ad0CDOW.jpg","https://imgur.com/UdNELcS.jpg",
+        "https://imgur.com/OvSCL1C.jpg","https://imgur.com/Let0gsJ.jpg","https://imgur.com/XDmWi91.jpg","https://imgur.com/faOrbC9.jpg",
+        "https://imgur.com/Kll1v00.jpg","https://imgur.com/04EJwCc.jpg","https://imgur.com/C3aTj09.jpg","https://imgur.com/79bmUFm.jpg",
+        "https://imgur.com/gk2Yjar.jpg","https://imgur.com/6OCJPMi.jpg","https://imgur.com/8cV6OEF.jpg","https://imgur.com/VcviHH3.jpg",
+        "https://imgur.com/iD3xLvL.jpg","https://imgur.com/CK9wKWO.jpg","https://imgur.com/6F2Phvt.jpg","https://imgur.com/xQ65RB7.jpg"
+        ]
     namepath_list = [
         "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
         "https://imgur.com/PBZ3YNV.png","https://imgur.com/dmiNF4h.png","https://imgur.com/RdWIiGo.png",
@@ -70,7 +72,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     final_round_num = models.IntegerField()
-    final_kappa = models.FloatField()
+    final_c_kappa = models.FloatField()
+    final_ip_kappa = models.FloatField()
     final_ari = models.FloatField()
 
 
@@ -88,10 +91,12 @@ class FinalResults(Page):
         
         player.final_round_num = player.participant.final_round_num
         player.final_ari = player.participant.final_ari
-        player.final_kappa = player.participant.final_kappa
+        player.final_c_kappa = player.participant.final_c_kappa
+        player.final_ip_kappa = player.participant.final_ip_kappa
         return {
             "final_round_num" : player.participant.final_round_num,
-            "kappa": player.participant.final_kappa,
+            "c_kappa": player.participant.final_c_kappa,
+            "ip_kappa": player.participant.final_ip_kappa,
             "ari": player.participant.final_ari,
             "my_dict" : my_dict,
             "others_dict" : others_dict,

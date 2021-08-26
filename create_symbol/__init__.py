@@ -64,17 +64,17 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 40
     imgpath_list = [
-        "https://imgur.com/wqnOMfy.jpg","https://imgur.com/LHJYfxo.jpg","https://imgur.com/9Xa4VnX.jpg","https://imgur.com/D91W1KT.jpg",
-        "https://imgur.com/J35mb8e.jpg","https://imgur.com/IC9TPNn.jpg","https://imgur.com/cJQIb6k.jpg","https://imgur.com/2rj1L4f.jpg",
-        "https://imgur.com/CeGed6S.jpg","https://imgur.com/u28iEnb.jpg","https://imgur.com/N1rDlYe.jpg","https://imgur.com/4uFfzbw.jpg",
-        "https://imgur.com/ATEBW84.jpg","https://imgur.com/OUEAyTS.jpg","https://imgur.com/oLE2TWf.jpg","https://imgur.com/xiGpQvF.jpg",
-        "https://imgur.com/NnOAzoD.jpg","https://imgur.com/0wGJ58N.jpg","https://imgur.com/nitf5Sq.jpg","https://imgur.com/dwXrpvH.jpg",
-        "https://imgur.com/K8sGXHa.jpg","https://imgur.com/XejnHhh.jpg","https://imgur.com/yFw1I6M.jpg","https://imgur.com/iuGyxnS.jpg",
-        "https://imgur.com/zysvnS8.jpg","https://imgur.com/jv5EHuP.jpg","https://imgur.com/fqjlV3Y.jpg","https://imgur.com/2NYuf1e.jpg",
-        "https://imgur.com/jy5MPbW.jpg","https://imgur.com/7Rf9TKU.jpg","https://imgur.com/BgSfDLZ.jpg","https://imgur.com/3sfX7Mr.jpg",
-        "https://imgur.com/6R8GCoP.jpg","https://imgur.com/A5ju4zJ.jpg","https://imgur.com/QF9ee5p.jpg","https://imgur.com/vW5QaBq.jpg",
-        "https://imgur.com/NcY47LO.jpg","https://imgur.com/GDI9kz8.jpg","https://imgur.com/OmiMBXk.jpg","https://imgur.com/in0lSLH.jpg",
-    ]
+        "https://imgur.com/gubdkt0.jpg","https://imgur.com/BteivhO.jpg","https://imgur.com/otWcXp5.jpg","https://imgur.com/BwZcuBw.jpg",
+        "https://imgur.com/fZRcZg0.jpg","https://imgur.com/HxGqKu1.jpg","https://imgur.com/3oIIr67.jpg","https://imgur.com/qRuBkRm.jpg",
+        "https://imgur.com/tDUCcFe.jpg","https://imgur.com/5LnW1cL.jpg","https://imgur.com/B8sx0kD.jpg","https://imgur.com/g8Cmjez.jpg",
+        "https://imgur.com/iP5SV7e.jpg","https://imgur.com/XAbgTOc.jpg","https://imgur.com/px8BCcT.jpg","https://imgur.com/WLOcyhk.jpg",
+        "https://imgur.com/st6BOzf.jpg","https://imgur.com/2GknAAv.jpg","https://imgur.com/nMGFQ9S.jpg","https://imgur.com/5Tnbba6.jpg",
+        "https://imgur.com/UAQ4IxZ.jpg","https://imgur.com/u30m8NG.jpg","https://imgur.com/Ad0CDOW.jpg","https://imgur.com/UdNELcS.jpg",
+        "https://imgur.com/OvSCL1C.jpg","https://imgur.com/Let0gsJ.jpg","https://imgur.com/XDmWi91.jpg","https://imgur.com/faOrbC9.jpg",
+        "https://imgur.com/Kll1v00.jpg","https://imgur.com/04EJwCc.jpg","https://imgur.com/C3aTj09.jpg","https://imgur.com/79bmUFm.jpg",
+        "https://imgur.com/gk2Yjar.jpg","https://imgur.com/6OCJPMi.jpg","https://imgur.com/8cV6OEF.jpg","https://imgur.com/VcviHH3.jpg",
+        "https://imgur.com/iD3xLvL.jpg","https://imgur.com/CK9wKWO.jpg","https://imgur.com/6F2Phvt.jpg","https://imgur.com/xQ65RB7.jpg"
+        ]
 
     namepath_list = [
         "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
@@ -94,7 +94,7 @@ class Constants(BaseConstants):
     accept_choice = ["×", "○"]
 
     correct_cat_list = make_correct_list(6, 10, 4)
-    goal_ari = 0.9
+    goal_kappa = 0.9
 
 
 class Subsession(BaseSubsession):
@@ -167,7 +167,8 @@ class Player(BasePlayer):
     box4_children = models.StringField()
     box5_children = models.StringField()
 
-    kappa = models.FloatField()
+    c_kappa = models.FloatField()
+    ip_kappa = models.FloatField()
     ari = models.FloatField()
 
 
@@ -188,7 +189,7 @@ def custom_export(players):
     yield [
         "session",
         "participant_code",
-        "id_in_group", "round_number", "kappa", "ari",
+        "id_in_group", "round_number", "c_kappa", "ip_kappa", "ari",
         "accept0", "accept1", "accept2", "accept3", "accept4",
         "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
         "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
@@ -205,7 +206,7 @@ def custom_export(players):
         yield [
             session.code,
             participant.code,
-            p.id_in_group, p.round_number, p.kappa, p.ari,
+            p.id_in_group, p.round_number, p.c_kappa, p.ip_kappa, p.ari,
             p.accept0, p.accept1, p.accept2, p.accept3, p.accept4, 
             p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
             p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
@@ -230,7 +231,7 @@ class ShowRole(Page):
         if player.round_number == 1:
             player.participant.loghtml_list =[]
             logstart = "<p>実験開始</p>"
-            logbar = "<p>↓↓↓↓↓↓↓↓↓↓</p><br>"
+            logbar = "<p>------------------------------------------------------------</p>"
             player.participant.loghtml_list.append(logstart)
             player.participant.loghtml_list.append(logbar)
         return {
@@ -639,9 +640,13 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(group: Group):
         for player in group.get_players():
             other_player = player.get_others_in_group()[0]
-            player.kappa = max(
+            player.c_kappa = max(
                 cohen_kappa_score(cl, player.participant.img_category_list) for cl in Constants.correct_cat_list
                 )
+            player.ip_kappa = cohen_kappa_score(
+                group.get_players()[0].participant.img_category_list,
+                group.get_players()[1].participant.img_category_list
+            )
             player.ari = adjusted_rand_score(
                 group.get_players()[0].participant.img_category_list,
                 group.get_players()[1].participant.img_category_list
@@ -650,7 +655,7 @@ class ResultsWaitPage(WaitPage):
             log1 = "<p>表示された画像（左から順に1,2,3,4,5番）：</p>"
             log_divhead = "<div style=\"display: flex;\">"
             log_divtail = "</div>"
-            logtail = "<p>------------------------------------------------------------</p><br>"
+            logtail = "<p>------------------------------------------------------------</p>"
             if player.role() == 'speaker':
                 log0 = "<p>あなたの役割：「話し手」</p>"
                 imgs_this_round = player.participant.showed_imgs4log
@@ -718,7 +723,8 @@ class EndOfRound(Page):
     def vars_for_template(player: Player):
         return {
             "round_num" : player.round_number,
-            "kappa" : player.kappa,
+            "c_kappa" : player.c_kappa,
+            "ip_kappa" : player.ip_kappa,
             "ari" : player.ari,
             "loghtml_list" : player.participant.loghtml_list,
             "box0_items" : player.participant.box0_items,
@@ -733,18 +739,19 @@ class EndOfRound(Page):
 class EarlyFinish(Page):
     @staticmethod
     def is_displayed(player: Player):
-        return player.ari >= Constants.goal_ari
+        return player.ip_kappa >= Constants.goal_kappa
     
     @staticmethod
     def vars_for_template(player: Player):
         player.participant.final_round_num = player.round_number
-        player.participant.final_kappa = player.kappa
+        player.participant.final_c_kappa = player.c_kappa
+        player.participant.final_ip_kappa = player.ip_kappa
         player.participant.final_ari = player.ari
         return {"loghtml_list" : player.participant.loghtml_list,}
     
     @staticmethod
     def app_after_this_page(player, upcoming_apps):
-        if player.ari >= Constants.goal_ari:
+        if player.ip_kappa >= Constants.goal_kappa:
             return upcoming_apps[0]
 
 
@@ -756,12 +763,10 @@ class LateFinish(Page):
     @staticmethod
     def vars_for_template(player: Player):
         player.participant.final_round_num = player.round_number
-        player.participant.final_kappa = player.kappa
+        player.participant.final_c_kappa = player.c_kappa
+        player.participant.final_ip_kappa = player.ip_kappa
         player.participant.final_ari = player.ari
         return {"loghtml_list" : player.participant.loghtml_list,}
-    
-    def app_after_this_page(player, upcoming_apps):
-        return upcoming_apps[0]
 
 
 page_sequence = [

@@ -3,26 +3,26 @@
 {{ endblock }}
 
 {{ block content }}
-<p>実験が終わるまでにかかったラウンド数は{{ final_round_num }}ラウンドでした。</p>
+<p>実験が終わるまでにかかったラウンド数は<b>{{ final_round_num }}ラウンド</b>でした。</p>
 <p>実験が終わった時点で、あなたと相手プレイヤーの分類の仕方は</p>
-{{ if ari <= 0.4 }}
+{{ if ip_kappa <= 0.4 }}
 <p style="color: red;">ほとんど一致していませんでした。</p>
-{{ elif ari <= 0.6 }}
+{{ elif ip_kappa <= 0.6 }}
 <p style="color: orange;">あまり一致していませんでした。</p>
-{{ elif ari <= 0.8 }}
+{{ elif ip_kappa <= 0.8 }}
 <p style="color: blue;">それなりに一致していました。</p>
-{{ elif ari > 0.8 }}
+{{ elif ip_kappa > 0.8 }}
 <p style="color: green;">かなり一致していました。</p>
 {{ endif }}
 <br>
 <p>また、あなたのカテゴリー分類は</p>
-{{ if kappa <= 0.4 }}
+{{ if c_kappa <= 0.4 }}
 <p style="color: red;">正解のものとはほとんど一致していませんでした。</p>
-{{ elif kappa <= 0.6 }}
+{{ elif c_kappa <= 0.6 }}
 <p style="color: orange;">正解のものとはあまり一致していませんでした。</p>
-{{ elif kappa <= 0.8 }}
+{{ elif c_kappa <= 0.8 }}
 <p style="color: blue;">正解のものとそれなりに一致していました。</p>
-{{ elif kappa > 0.8 }}
+{{ elif c_kappa > 0.8 }}
 <p style="color: green;">正解のものとかなり一致していました。</p>
 {{ endif }}
 <br>

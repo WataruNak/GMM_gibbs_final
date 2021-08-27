@@ -198,7 +198,7 @@ def custom_export(players):
         yield [
             session.code,
             participant.code,
-            p.id_in_group, p._c_kappa, p._ip_kappa, p.ari,
+            p.id_in_group, p.c_kappa, p.ip_kappa, p.ari,
             p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
             p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
             p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,

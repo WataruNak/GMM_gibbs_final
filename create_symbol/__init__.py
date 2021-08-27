@@ -264,7 +264,6 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        img_choice = random.sample(range(0,40,1), k=(5))
         player.participant.img_choice = []
         player.participant.showed_imgs = []
         player.participant.showed_imgs4log = []
@@ -279,6 +278,13 @@ class Speaker(Page):
                 default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
 
         if player.role() == "speaker":
+            if player.round_number % 8 == 1:
+                player.session.cs_imgorder = list(range(40))
+                random.shuffle(player.session.cs_imgorder)
+            img_choice = []
+            for _ in range(5):
+                num = player.session.cs_imgorder.pop(0)
+                img_choice.append(num)
             for id in img_choice:
                 player.participant.img_choice.append(id)
                 player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])

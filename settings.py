@@ -35,7 +35,7 @@ PARTICIPANT_FIELDS = [
     "img_choice", "showed_imgs", "showed_imgs4log", "stimuli_img_order", "loghtml_list",
     "final_round_num", "final_ip_kappa", "final_c_kappa", "final_ari",
     ]
-SESSION_FIELDS = []
+SESSION_FIELDS = ["cs_imgorder"]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

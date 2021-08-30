@@ -289,22 +289,32 @@ class Speaker(Page):
                 default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
 
         if player.role() == "speaker":
+            img_choice = []
             if player.round_number % 8 == 1:
-                img_choice = player.session.img_choice1
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice1[_])
             elif player.round_number % 8 == 2:
-                img_choice = player.session.img_choice2
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice2[_])
             elif player.round_number % 8 == 3:
-                img_choice = player.session.img_choice3
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice3[_])
             elif player.round_number % 8 == 4:
-                img_choice = player.session.img_choice4
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice4[_])
             elif player.round_number % 8 == 5:
-                img_choice = player.session.img_choice5
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice5[_])
             elif player.round_number % 8 == 6:
-                img_choice = player.session.img_choice6
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice6[_])
             elif player.round_number % 8 == 7:
-                img_choice = player.session.img_choice7
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice7[_])
             elif player.round_number % 8 == 0:
-                img_choice = player.session.img_choice0
+                for _ in range(5):
+                    img_choice.append(player.session.img_choice0[_])
+
             for id in img_choice:
                 player.participant.img_choice.append(id)
                 player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])

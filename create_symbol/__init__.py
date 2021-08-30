@@ -234,6 +234,18 @@ class ShowRole(Page):
             logbar = "<p>------------------------------------------------------------</p>"
             player.participant.loghtml_list.append(logstart)
             player.participant.loghtml_list.append(logbar)
+
+        if player.round_number % 8 == 1:
+            cs_imgorder = list(range(40))
+            random.shuffle(cs_imgorder)
+            player.session.img_choice1 = cs_imgorder[0:5]
+            player.session.img_choice2 = cs_imgorder[5:10]
+            player.session.img_choice3 = cs_imgorder[10:15]
+            player.session.img_choice4 = cs_imgorder[15:20]
+            player.session.img_choice5 = cs_imgorder[20:25]
+            player.session.img_choice6 = cs_imgorder[25:30]
+            player.session.img_choice7 = cs_imgorder[30:35]
+            player.session.img_choice0 = cs_imgorder[35:]
         return {
             "round_num" : player.round_number,
             "role" : player.role(),
@@ -264,7 +276,6 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        player.participant.img_choice = []
         player.participant.showed_imgs = []
         player.participant.showed_imgs4log = []
         box0_defaultimgs = []
@@ -279,12 +290,21 @@ class Speaker(Page):
 
         if player.role() == "speaker":
             if player.round_number % 8 == 1:
-                player.session.cs_imgorder = list(range(40))
-                random.shuffle(player.session.cs_imgorder)
-            img_choice = []
-            for _ in range(5):
-                num = player.session.cs_imgorder.pop(0)
-                img_choice.append(num)
+                img_choice = player.session.img_choice1
+            elif player.round_number % 8 == 2:
+                img_choice = player.session.img_choice2
+            elif player.round_number % 8 == 3:
+                img_choice = player.session.img_choice3
+            elif player.round_number % 8 == 4:
+                img_choice = player.session.img_choice4
+            elif player.round_number % 8 == 5:
+                img_choice = player.session.img_choice5
+            elif player.round_number % 8 == 6:
+                img_choice = player.session.img_choice6
+            elif player.round_number % 8 == 7:
+                img_choice = player.session.img_choice7
+            elif player.round_number % 8 == 0:
+                img_choice = player.session.img_choice0
             for id in img_choice:
                 player.participant.img_choice.append(id)
                 player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
@@ -337,8 +357,7 @@ class Speaker(Page):
             "box4_defaultimgs" : box4_defaultimgs,
             "box5_defaultimgs" : box5_defaultimgs,
             "img_category_list" : player.participant.img_category_list,
-            "loghtml_list" : player.participant.loghtml_list,
-            "cs_imgorder" : player.session.cs_imgorder,           
+            "loghtml_list" : player.participant.loghtml_list,           
         }
     
     @staticmethod

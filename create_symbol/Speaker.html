@@ -4,9 +4,16 @@
  
 {{ block content }}
 <div style="width: 800px; text-align: left;"><span>
-<p>「次へ」ボタンを押した時点で、以下に表示されている5つの画像が配置されている欄の記号が、あなたが選択したカテゴリーとしてそれぞれ「聞き手」に提案されます。</p>
+<p>「次へ」ボタンを押した時点で、以下に表示されている5つの画像がどの欄に配置されているかが、それぞれ「聞き手」に提案されます。</p>
 <p>画像を移動させる必要がなければそのままで構いませんし、何か移動させたいものがあれば制限時間内に移動させ、「次へ」ボタンを押してください。</p>
 <p>「次へ」ボタンを押すまでは、以下の5つの画像だけでなく、他の画像や記号を動かすこともできます。</p>
+<p>なお、これら5つの画像はドラッグできませんので、画像のカテゴリーを変更したい場合は、下の表の中にある対応する画像の方を動かしてください。対応する画像は、左から
+1番目の画像が<span style="color: red;">赤</span>、
+2番目の画像が<span style="color: orange;">オレンジ</span>、
+3番目の画像が<span style="color: blue;">青</span>、
+4番目の画像が<span style="color: green;">緑</span>、
+5番目の画像が<span style="color: purple;">紫</span>
+の枠で囲われています。</p>
 </span></div>
 <br>
 <div style="display: flex;">
@@ -14,13 +21,6 @@
 {{ showed_img }}
 {{ endfor }}
 </div>
-<p>※この上に表示されている画像はドラッグできません。対応する画像は、左から
-1番目の画像が<span style="color: red;">赤</span>、
-2番目の画像が<span style="color: orange;">オレンジ</span>、
-3番目の画像が<span style="color: blue;">青</span>、
-4番目の画像が<span style="color: green;">緑</span>、
-5番目の画像が<span style="color: purple;">紫</span>
-の枠でそれぞれ囲われていますので、表の中のそれらの画像をドラッグして分類を変更してください。</p>
 <br>
 <p>この状態でよければ、「次へ」ボタンを押してください。</p>
     {{ next_button }}

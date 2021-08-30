@@ -9,7 +9,7 @@ def make_html_list(img_num, path_list, height, width):
     img_html_list = []
     for a in range(img_num):
         img_html_list.append(
-            "<img src=\"{}\" height=\"{}px\" width=\"{}px\">".format(path_list[a], height, width)
+            "<img src=\"{}\" draggable=\"false\" height=\"{}px\" width=\"{}px\">".format(path_list[a], height, width)
         )
     return img_html_list
 

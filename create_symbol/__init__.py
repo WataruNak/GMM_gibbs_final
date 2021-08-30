@@ -38,7 +38,7 @@ def make_img_html_list(img_num, path_list, height, width, id_name):
     img_html_list = []
     for a in range(img_num):
         img_html_list.append(
-            "<img src = \"{}\" height=\"{}px\" width=\"{}px\" id=\"{}{}\"/>".format(path_list[a], height, width, id_name, a)
+            "<img src = \"{}\" draggable=\"false\" height=\"{}px\" width=\"{}px\" id=\"{}{}\"/>".format(path_list[a], height, width, id_name, a)
         )
     return img_html_list
 
@@ -55,7 +55,7 @@ def make_name_html_list(name_num, path_list, height, width):
     img_html_list = []
     for b in range(name_num):
         img_html_list.append(
-            "<img src=\"{}\" height=\"{}px\" width=\"{}px\">".format(path_list[b], height, width)
+            "<img src=\"{}\" draggable=\"false\" height=\"{}px\" width=\"{}px\">".format(path_list[b], height, width)
         )
     return img_html_list
 
@@ -337,7 +337,8 @@ class Speaker(Page):
             "box4_defaultimgs" : box4_defaultimgs,
             "box5_defaultimgs" : box5_defaultimgs,
             "img_category_list" : player.participant.img_category_list,
-            "loghtml_list" : player.participant.loghtml_list,           
+            "loghtml_list" : player.participant.loghtml_list,
+            "cs_imgorder" : player.session.cs_imgorder,           
         }
     
     @staticmethod

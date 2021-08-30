@@ -276,6 +276,7 @@ class Speaker(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
+        player.participant.img_choice = []
         player.participant.showed_imgs = []
         player.participant.showed_imgs4log = []
         box0_defaultimgs = []
@@ -289,31 +290,22 @@ class Speaker(Page):
                 default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
 
         if player.role() == "speaker":
-            img_choice = []
             if player.round_number % 8 == 1:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice1[_])
+                img_choice = player.session.img_choice1
             elif player.round_number % 8 == 2:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice2[_])
+                img_choice = player.session.img_choice2
             elif player.round_number % 8 == 3:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice3[_])
+                img_choice = player.session.img_choice3
             elif player.round_number % 8 == 4:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice4[_])
+                img_choice = player.session.img_choice4
             elif player.round_number % 8 == 5:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice5[_])
+                img_choice = player.session.img_choice5
             elif player.round_number % 8 == 6:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice6[_])
+                img_choice = player.session.img_choice6
             elif player.round_number % 8 == 7:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice7[_])
+                img_choice = player.session.img_choice7
             elif player.round_number % 8 == 0:
-                for _ in range(5):
-                    img_choice.append(player.session.img_choice0[_])
+                img_choice = player.session.img_choice0
 
             for id in img_choice:
                 player.participant.img_choice.append(id)

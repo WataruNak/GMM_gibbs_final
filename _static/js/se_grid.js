@@ -4,22 +4,30 @@ let img_category_list = js_vars.img_category_list;
 let imgcatpath_list = js_vars.imgcatpath_list;
 let default_name_value = js_vars.default_name_value;
 let img_choice = js_vars.img_choice;
+let namepath_list = js_vars.namepath_list;
+let selected_symbols = [
+  document.getElementById("choice0"),
+  document.getElementById("choice1"),
+  document.getElementById("choice2"),
+  document.getElementById("choice3"),
+  document.getElementById("choice4"),
+];
 let choice_cat_fields = [
   document.getElementById("s_choice0"),
   document.getElementById("s_choice1"),
   document.getElementById("s_choice2"),
   document.getElementById("s_choice3"),
   document.getElementById("s_choice4"), 
-]
-let stimuli_img_id_list = []
+];
+let stimuli_img_id_list = [];
 for (let d=0; d<40; d++) {
   stimuli_img_id_list.push("stimuli" + d) 
-}
+};
 
 let choice_img_class_list = [
   "selected0", "selected1", "selected2", "selected3", "selected4"
-]
-let role = js_vars.role
+];
+let role = js_vars.role;
 
 let img_cat_list = new Array(40);
   for (let n=0; n<40; n++) {
@@ -94,7 +102,10 @@ let sortablename = Sortable.create(el, {
             choice_cat_fields[l].value = img_cat_list[img_choice[l]].value
           };
         };
-    }
+      }
+    for (let o=0; o<5; o++) {
+      selected_symbols[o].src = namepath_list[Number(img_cat_list[img_choice[o]].value)]
+    };
   }
 });
 
@@ -184,7 +195,10 @@ const handleDrop = (e) => {
           choice_cat_fields[m].value = img_cat_list[img_choice[m]].value
         };
       };
-  }
+  };
+  for (let q=0; q<5; q++) {
+    selected_symbols[q].src = namepath_list[Number(img_cat_list[img_choice[q]].value)]
+  };
 }
 
 // ドロップ先のリストを取得

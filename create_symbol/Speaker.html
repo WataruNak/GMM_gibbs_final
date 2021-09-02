@@ -21,11 +21,14 @@
 {{ showed_img }}
 {{ endfor }}
 </div>
+<div style="display: flex;">
+{{ for choice in choicehtml_list }}
+{{ choice }}
+{{ endfor }}
+</div>
 <br>
-<p>この状態でよければ、「次へ」ボタンを押してください。</p>
+<p>現在それぞれの画像は上記の分類になっています。これで提案してよければ、「次へ」ボタンを押してください。</p>
     {{ next_button }}
-<br>
-<br>
 <div class="area">
     <ul id="names" class="name-list">
         {{ for namehtml in default_name_list }}
@@ -231,6 +234,9 @@
         }
         .selected4 {
             border: 3px solid purple;
+        }
+        .otree-timer {
+            font-size: 30px;
         }
     </style>
 {% endblock %}

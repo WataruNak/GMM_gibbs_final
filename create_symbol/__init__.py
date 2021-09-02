@@ -51,11 +51,11 @@ def make_draggablename_html_list(name_num, path_list, height, width):
         )
     return img_html_list
 
-def make_name_html_list(name_num, path_list, height, width):
+def make_name_html_list(name_num, path_list, height, width, id_name):
     img_html_list = []
     for b in range(name_num):
         img_html_list.append(
-            "<img src=\"{}\" draggable=\"false\" height=\"{}px\" width=\"{}px\">".format(path_list[b], height, width)
+            "<img src=\"{}\" draggable=\"false\" height=\"{}px\" width=\"{}px\" id=\"{}{}\">".format(path_list[b], height, width, id_name, b)
         )
     return img_html_list
 
@@ -87,8 +87,8 @@ class Constants(BaseConstants):
 
     stimuliimg_html_list = make_img_html_list(40, imgpath_list, 70, 70, "stimuli")
     logimg_html_list = make_img_html_list(40, imgpath_list, 30, 30, "logimg")
-    choicename_html_list = make_name_html_list(6, namepath_list, 70, 70)
-    logname_html_list = make_name_html_list(6, namepath_list, 30, 30)
+    choicename_html_list = make_name_html_list(6, namepath_list, 70, 70, "choicename")
+    logname_html_list = make_name_html_list(6, namepath_list, 30, 30, "log")
 
     imgcatpath_list = make_imgcat_path(40)
     accept_choice = ["×", "○"]
@@ -279,6 +279,7 @@ class Speaker(Page):
         player.participant.img_choice = []
         player.participant.showed_imgs = []
         player.participant.showed_imgs4log = []
+        choicepath_list = []
         box0_defaultimgs = []
         box1_defaultimgs = []
         box2_defaultimgs = []
@@ -311,6 +312,8 @@ class Speaker(Page):
                 player.participant.img_choice.append(id)
                 player.participant.showed_imgs.append(Constants.stimuliimg_html_list[id])
                 player.participant.showed_imgs4log.append(Constants.logimg_html_list[id])
+                choicepath_list.append(Constants.namepath_list[player.participant.img_category_list[id]])
+            choicehtml_list = make_name_html_list(5, choicepath_list, 70, 70, "choice")
 
             if player.participant.box0_items[0] == 999:
                 box0_defaultimgs.append("999")
@@ -347,10 +350,10 @@ class Speaker(Page):
             else:
                 for o in range(len(player.participant.box5_items)):
                     box5_defaultimgs.append(Constants.imghtml_list[player.participant.box5_items[o]])
-           
+   
         return {
             "showed_imgs" : player.participant.showed_imgs,
-            "choice_names" : Constants.choicename_html_list,
+            "choicehtml_list" : choicehtml_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
             "box1_defaultimgs" : box1_defaultimgs,
@@ -379,6 +382,7 @@ class Speaker(Page):
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
+            namepath_list=Constants.namepath_list,
             default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
             img_choice=img_choice,
@@ -477,6 +481,7 @@ class Listener(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
+        choicepath_list = []
         box0_defaultimgs = []
         box1_defaultimgs = []
         box2_defaultimgs = []
@@ -489,6 +494,10 @@ class Listener(Page):
         if player.role() == "listener":
             other_player = player.get_others_in_group()[0]
             showed_imgs = other_player.participant.showed_imgs
+
+            for id in other_player.participant.img_choice:
+                choicepath_list.append(Constants.namepath_list[player.participant.img_category_list[id]])
+            choicehtml_list = make_name_html_list(5, choicepath_list, 70, 70, "choice")
 
             if player.participant.box0_items[0] == 999:
                 box0_defaultimgs.append("999")
@@ -543,10 +552,12 @@ class Listener(Page):
                 Constants.choicename_html_list[int(player.s_choice3)],
                 Constants.choicename_html_list[int(player.s_choice4)],
             ]
+            choicehtml_list = []
         
         return {
             "showed_imgs" : showed_imgs,
             "others_choice_list" : others_choice_list,
+            "choicehtml_list" : choicehtml_list,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
             "box1_defaultimgs" : box1_defaultimgs,
@@ -576,6 +587,7 @@ class Listener(Page):
         return dict(
             img_category_list=player.participant.img_category_list,
             imgcatpath_list=Constants.imgcatpath_list,
+            namepath_list=Constants.namepath_list,
             default_name_list=player.participant.default_nameorder,
             default_name_value=default_name_value,
             img_choice=img_choice,

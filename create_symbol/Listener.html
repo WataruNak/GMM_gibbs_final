@@ -4,7 +4,6 @@
 
 {{ block content }}
 <p>今回表示された画像と、それらに対して「話し手」がつけた記号は以下の通りです。</p>
-<p>これを参考に下にある分類表を調整し、終わったら「次へ」を押してください。</p>
 <p>この提案通りになるように動かしても構いませんし、「話し手」の提案は変だと思ったら何も移動させなくても構いません。</p>
 <p>「次へ」ボタンを押すまでは、上の5つ以外の画像や記号の欄も動かすことができます。</p>
 <p>あなたの付けた記号が「話し手」の提案と同じだった場合は「提案を受け入れた」、違った場合は「提案を受け入れなかった」と、それぞれの画像について「話し手」に伝えられます。</p>
@@ -28,9 +27,14 @@
 {{ name }}
 {{ endfor }}
 </div>
+<br>
+<p>現在それぞれの画像にあなたがつけた記号は、以下の通りです。これでよければ「次へ」を押してください。</p>
+<div style="display: flex;">
+{{ for choice in choicehtml_list }}
+{{ choice }}
+{{ endfor }}
+</div>
     {{ next_button }}
-<br>
-<br>
 <div class="area">
     <ul id="names" class="name-list">
         {{ for namehtml in default_name_list }}
@@ -231,6 +235,9 @@
         }
         .selected4 {
             border: 3px solid purple;
+        }
+        .otree-timer {
+            font-size: 30px;
         }
     </style>
 {% endblock %}

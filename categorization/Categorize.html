@@ -3,23 +3,19 @@
 {{ endblock }}
  
 {{ block content }}
-<p>表の中に画像をドラッグし、全ての画像をどれかの記号のカテゴリーに分類して下さい。</p>
-<p>左側の記号もドラッグすることで入れ替えることができます。</p>
-<p>全ての画像を表のどこかに入れ終えると「次へ」ボタンが表示されますので、それを押して次のステップに移動して下さい。</p>
-<p>「次へ」ボタンが表示された後も、制限時間内であれば画像を移動させることができます。</p>
+<p>表の中に画像をドラッグして、画像をどれかのカテゴリーに分類して下さい。</p>
+<p>すでに表の中にある画像や、左側の記号もドラッグすることで入れ替えることができます。</p>
+<p>画像を表のどこかに入れると「次へ」ボタンが表示されますので、それを押すと次の画像が表示されます。</p>
+<p>「次へ」ボタンが表示された後も、画像をドラッグして移動させることができます。</p>
 <br>
 <br>
-<div style="display: flex; flex-wrap: wrap;">
-{{ for imghtml in imghtml_order }}
-{{ imghtml }}
-{{ endfor }}
-</div>
+{{ showed_img }}
 <div id="button_to_se" style="visibility: hidden">
     {{ next_button }}
 </div>
 <div class="area">
     <ul id="names" class="name-list">
-        {{ for namehtml in namehtml_list }}
+        {{ for namehtml in default_name_list }}
         {{ namehtml }}
         {{ endfor }}
     </ul>
@@ -31,16 +27,10 @@
     </div>
     <div class="box box2" id="box2">
     </div>
-    <div class="box box3" id="box3">
-    </div>
-    <div class="box box4" id="box4">
-    </div>
-    <div class="box box5" id="box5">
-    </div>
 </div>
 </div>
 
-<input type="hidden" name="name_order" id="name_order" value="sym0,sym1,sym2,sym3,sym4,sym5"/>
+<input type="hidden" name="name_order" id="name_order" value="sym0,sym1,sym2"/>
 {{ formfield_errors 'name_order' }}
 <input type="hidden" name="img0_cat" id="img0_cat" value="99"/>
 <input type="hidden" name="img1_cat" id="img1_cat" value="99"/>
@@ -82,13 +72,30 @@
 <input type="hidden" name="img37_cat" id="img37_cat" value="99"/>
 <input type="hidden" name="img38_cat" id="img38_cat" value="99"/>
 <input type="hidden" name="img39_cat" id="img39_cat" value="99"/>
+<input type="hidden" name="img40_cat" id="img40_cat" value="99"/>
+<input type="hidden" name="img41_cat" id="img41_cat" value="99"/>
+<input type="hidden" name="img42_cat" id="img42_cat" value="99"/>
+<input type="hidden" name="img43_cat" id="img43_cat" value="99"/>
+<input type="hidden" name="img44_cat" id="img44_cat" value="99"/>
+<input type="hidden" name="img45_cat" id="img45_cat" value="99"/>
+<input type="hidden" name="img46_cat" id="img46_cat" value="99"/>
+<input type="hidden" name="img47_cat" id="img47_cat" value="99"/>
+<input type="hidden" name="img48_cat" id="img48_cat" value="99"/>
+<input type="hidden" name="img49_cat" id="img49_cat" value="99"/>
+<input type="hidden" name="img50_cat" id="img50_cat" value="99"/>
+<input type="hidden" name="img51_cat" id="img51_cat" value="99"/>
+<input type="hidden" name="img52_cat" id="img52_cat" value="99"/>
+<input type="hidden" name="img53_cat" id="img53_cat" value="99"/>
+<input type="hidden" name="img54_cat" id="img54_cat" value="99"/>
+<input type="hidden" name="img55_cat" id="img55_cat" value="99"/>
+<input type="hidden" name="img56_cat" id="img56_cat" value="99"/>
+<input type="hidden" name="img57_cat" id="img57_cat" value="99"/>
+<input type="hidden" name="img58_cat" id="img58_cat" value="99"/>
+<input type="hidden" name="img59_cat" id="img59_cat" value="99"/>
 
 <input type="hidden" name="box0_children" id="box0_children"/>
 <input type="hidden" name="box1_children" id="box1_children"/>
 <input type="hidden" name="box2_children" id="box2_children"/>
-<input type="hidden" name="box3_children" id="box3_children"/>
-<input type="hidden" name="box4_children" id="box4_children"/>
-<input type="hidden" name="box5_children" id="box5_children"/>
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script type="text/javascript" src="{% static "js/img_grid.js" %}"></script>
@@ -108,7 +115,7 @@
         .grid {
           display: grid;
           grid-template-columns: 900px;
-          grid-template-rows: 100px 100px 100px 100px 100px 100px;
+          grid-template-rows: 100px 100px 100px;
         }
 
         .box {
@@ -130,21 +137,6 @@
             border: 1px solid black;
             grid-row: 3/4;
            }
-
-        .box3 {
-            border: 1px solid black;
-            grid-row: 4/5;
-        }
-
-        .box4 {
-            border: 1px solid black;
-            grid-row: 5/6;
-        }
-
-        .box5 {
-            border: 1px solid black;
-            grid-row: 6/7;
-        }
 
         .item {
           width: 50px;

@@ -31,7 +31,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = [
     "img_category_list", "stimuli_id_list", "default_nameorder", "imghtml_order",
-    "box0_items", "box1_items", "box2_items", "box3_items", "box4_items", "box5_items",
+    "box0_items", "box1_items", "box2_items",
     "img_choice", "showed_imgs", "showed_imgs4log", "stimuli_img_order", "loghtml_list",
     "final_round_num", "final_ip_kappa", "final_c_kappa", "final_ari",
     ]

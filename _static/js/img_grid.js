@@ -68,7 +68,7 @@ let sortablename = Sortable.create(el, {
 // ドラッグ開始イベントを定義
 const handleDragStart = (e) => {
   e.currentTarget.classList.add("dragging");
-  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.effectAllowed = "copy";
   let { id } = e.currentTarget;
   e.dataTransfer.setData("application/json", JSON.stringify({ id }));
   console.log(e.dataTransfer.effectAllowed)
@@ -111,7 +111,7 @@ const handleDragOver = (e) => {
     return;
   };
   // ドロップ効果の設定
-  e.dataTransfer.dropEffect = "move";
+  e.dataTransfer.dropEffect = "copy";
   console.log(e.currentTarget)
   console.log(e.dataTransfer.dropEffect)
 };
@@ -121,12 +121,12 @@ const handleDrop = (e) => {
   // 要素がドロップされた際のブラウザ既定の処理を変更
   e.preventDefault();
   e.stopPropagation();
+  console.log("drop")
   e.currentTarget.classList.remove("over");
   // ブラウザ外からのファイルドロップを制限
   if (e.dataTransfer.files.length > 0) {
     return;
   };
-  console.log("drop")
   // 転送データの取得
   let { id } = JSON.parse(e.dataTransfer.getData("application/json"));
   // ドロップ先に要素を追加する

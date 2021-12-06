@@ -32,7 +32,7 @@ def make_draggableimg_html_list(img_num, path_list, height, width):
     img_html_list = []
     for da in range(img_num):
         img_html_list.append(
-            "<img src = \"{}\" class=\"item\" draggable=\"true\" id=\"{}\" height=\"{}px\" width=\"{}px\"/>".format(path_list[da], da, height, width)
+            "<img src = \"{}\" class=\"item\" draggable=\"true\" id=\"{}\" height=\"{}px\" width=\"{}px\">".format(path_list[da], da, height, width)
         )
     return img_html_list
 
@@ -200,6 +200,9 @@ class Introduction(Page):
 class Instruction(Page):
     pass
 
+class ddtest(Page):
+    pass
+
 class Categorize(Page):
     form_model = 'player'
     form_fields = [
@@ -355,6 +358,7 @@ class Results(Page):
 page_sequence = [
     Introduction,
     Instruction,
+    ddtest,
     Categorize,
     ResultsWaitPage,
     Results

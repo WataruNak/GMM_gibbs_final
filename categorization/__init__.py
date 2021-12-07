@@ -9,6 +9,10 @@ https://www.otreehub.com/projects/otree-snippets/ otree sortable_example
 https://qiita.com/AVELWP/items/536c797a63c081cf7bc0 sortable document ja
 https://github.com/SortableJS/Sortable sortable git
 https://qiita.com/t-iguchi/items/20dc31d5e004d7145634 js in django
+git push -u origin main or heroku main
+heroku create app-name
+heroku addons:create heroku-postgresql:hobby-dev
+heroku run "otree resetdb"
 """
 
 def make_imgcat_path(num):

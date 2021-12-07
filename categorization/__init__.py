@@ -363,7 +363,6 @@ class Results(Page):
 
 
 page_sequence = [
-    Introduction,
     Instruction,
     Categorize,
     Results

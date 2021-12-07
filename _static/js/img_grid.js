@@ -4,6 +4,7 @@ const imgorder = js_vars.id_order;
 const imgcatpath_list = js_vars.imgcatpath_list;
 let default_name_value = js_vars.default_name_value;
 let showed_img_id = js_vars.showed_img_id
+let img_category_list = js_vars.img_category_list
 
 let img_cat_list = new Array(60);
   for (let n=0; n<60; n++) {
@@ -24,7 +25,11 @@ let boxchildren_list = new Array(3);
 
   window.onload = function() {  
     for (let a=0; a<60; a++) {
-      img_cat_list[a].value = "99";
+      if (img_category_list[a] == "99") {
+        img_cat_list[a].value = "99";
+      } else {
+        img_cat_list[a].value = img_category_list[a]
+      }
     };
     document.getElementById("name_order").value = default_name_value;
     for (let d=0; d<3; d++) {
@@ -67,15 +72,15 @@ let sortablename = Sortable.create(el, {
 
 // ドラッグ開始イベントを定義
 const handleDragStart = (e) => {
-  e.currentTarget.classList.add("dragging");
+  e.target.classList.add("dragging");
   e.dataTransfer.effectAllowed = "copy";
-  let { id } = e.currentTarget;
+  let { id } = e.target;
   e.dataTransfer.setData("application/json", JSON.stringify({ id }));
   console.log(e.dataTransfer.effectAllowed)
 };
 
 // ドラッグ終了イベントを定義
-const handleDragEnd = (e) => e.currentTarget.classList.remove("dragging");
+const handleDragEnd = (e) => e.target.classList.remove("dragging");
 
 // アイテムにイベントを登録
 for (const item of items) {
@@ -87,15 +92,15 @@ for (const item of items) {
 const handleDragEnter = (e) => {
   // 子要素へのドラッグを制限
   if (
-    [...e.currentTarget.classList].includes("item")    
+    [...e.target.classList].includes("item")    
     ) {
     return;
   };
-  e.currentTarget.classList.add("over");
+  e.target.classList.add("over");
 };
 
 // 要素が離れた際のイベントを定義
-const handleDragLeave = (e) => e.currentTarget.classList.remove("over");
+const handleDragLeave = (e) => e.target.classList.remove("over");
 
 // 要素が重なっている最中のイベントを定義
 const handleDragOver = (e) => {
@@ -105,15 +110,13 @@ const handleDragOver = (e) => {
 
   // 子要素へのドラッグを制限
   if (
-    [...e.currentTarget.classList].includes("item") 
+    [...e.target.classList].includes("item") 
     ) {
     e.dataTransfer.dropEffect = "none";
     return;
   };
   // ドロップ効果の設定
   e.dataTransfer.dropEffect = "copy";
-  console.log(e.currentTarget)
-  console.log(e.dataTransfer.dropEffect)
 };
 
 // 要素がドロップされた際のイベントを定義
@@ -121,8 +124,7 @@ const handleDrop = (e) => {
   // 要素がドロップされた際のブラウザ既定の処理を変更
   e.preventDefault();
   e.stopPropagation();
-  console.log("drop")
-  e.currentTarget.classList.remove("over");
+  e.target.classList.remove("over");
   // ブラウザ外からのファイルドロップを制限
   if (e.dataTransfer.files.length > 0) {
     return;
@@ -130,10 +132,10 @@ const handleDrop = (e) => {
   // 転送データの取得
   let { id } = JSON.parse(e.dataTransfer.getData("application/json"));
   // ドロップ先に要素を追加する
-   e.currentTarget.appendChild(document.getElementById(id));
+   e.target.appendChild(document.getElementById(id));
   let imgid4cat = Number(document.getElementById(id).id);
   let categoryorder = document.getElementById("name_order").value.split(',');
-  img_cat_list[imgid4cat].value = categoryorder[Number(e.currentTarget.id.substr(-1))].substr(-1);
+  img_cat_list[imgid4cat].value = categoryorder[Number(e.target.id.substr(-1))].substr(-1);
   for (let k=0; k<3; k++) {
     if (box_list[k].childElementCount>0) {
       let childidlist2 = [];

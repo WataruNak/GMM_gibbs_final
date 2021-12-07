@@ -48,7 +48,7 @@ def make_draggablename_html_list(name_num, path_list, height, width):
 
 class Constants(BaseConstants):
     name_in_url = 'categorization'
-    players_per_group = None
+    players_per_group = 2
     num_rounds = 60
     imgpath_list = [
         "https://imgur.com/c27avQk.jpg","https://imgur.com/WWwUJ3H.jpg","https://imgur.com/smEbdXU.jpg","https://imgur.com/BIBHIx8.jpg",
@@ -69,8 +69,8 @@ class Constants(BaseConstants):
         ]
 
     namepath_list = [
-        "https://imgur.com/a1HYfcA.png","https://imgur.com/xMBZ0Dg.png","https://imgur.com/Xh5Scyo.png",
-        ]
+    "https://imgur.com/a2Q74iy.png","https://imgur.com/k9q8sBE.png","https://imgur.com/GWYaBNN.png",
+    ]
     
     imgcatpath_list = make_imgcat_path(60)
     imghtml_list = make_draggableimg_html_list(60, imgpath_list, 50, 50)
@@ -151,7 +151,7 @@ class Player(BasePlayer):
     box1_children = models.StringField(default="999")
     box2_children = models.StringField(default="999")
 
-    ari = models.FloatField()
+    c_kappa = models.FloatField()
 
 
 def custom_export(players):
@@ -195,10 +195,14 @@ def custom_export(players):
 
 # PAGES
 class Introduction(Page):
-    pass
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 1
 
 class Instruction(Page):
-    pass
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 1
 
 class ddtest(Page):
     pass
@@ -272,18 +276,22 @@ class Categorize(Page):
             "name_order" : player.name_order,
             "imghtml_order" : player.participant.imghtml_order,
             "default_name_list" : default_name_list,
+            "box0_defaultimgs" : box0_defaultimgs,
+            "box1_defaultimgs" : box1_defaultimgs,
+            "box2_defaultimgs" : box2_defaultimgs,
         }
     
     @staticmethod
     def js_vars(player):
         default_name_value = "sym" + str(player.participant.default_nameorder[0]) + "," +\
             "sym" + str(player.participant.default_nameorder[1]) + "," +\
-                "sym" + str(player.participant.default_nameorder[2]) + ","
+                "sym" + str(player.participant.default_nameorder[2])
         return dict(
             id_order=player.participant.stimuli_id_list,
             showed_img_id=player.participant.stimuli_id_list[player.round_number-1],
             default_name_value=default_name_value,
             imgcatpath_list=Constants.imgcatpath_list,
+            img_category_list=player.participant.img_category_list,
         )
 
     @staticmethod
@@ -327,13 +335,10 @@ class Categorize(Page):
             player.participant.box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
 
 
-class ResultsWaitPage(WaitPage):
-    pass        
-
 class Results(Page):
     @staticmethod
     def is_displayed(player: Player):
-        player.round_number == Constants.num_rounds
+        return player.round_number == Constants.num_rounds
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -343,9 +348,7 @@ class Results(Page):
         return {
             "c_kappa" : player.c_kappa,
             "name_order" : player.name_order,
-            "img0_cat" : player.img0_cat,
-            "img1_cat" : player.img1_cat,
-            "img39_cat" : player.img39_cat,
+            "cats" : player.participant.img_category_list,
             "box0_children" : player.box0_children,
             "box1_children" : player.box1_children,
             "box2_children" : player.box2_children,
@@ -358,8 +361,6 @@ class Results(Page):
 page_sequence = [
     Introduction,
     Instruction,
-    ddtest,
     Categorize,
-    ResultsWaitPage,
     Results
     ]

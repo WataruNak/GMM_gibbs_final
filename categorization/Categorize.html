@@ -22,10 +22,25 @@
 
 <div class="grid">
     <div class="box box0" id="box0">
+    {{ if "999" not in box0_defaultimgs }}
+    {{ for b0i in box0_defaultimgs }}
+    {{ b0i }}
+    {{ endfor }}
+    {{ endif }}
     </div>
     <div class="box box1" id="box1">
+    {{ if "999" not in box1_defaultimgs }}
+    {{ for b1i in box1_defaultimgs }}
+    {{ b1i }}
+    {{ endfor }}
+    {{ endif }}
     </div>
     <div class="box box2" id="box2">
+    {{ if "999" not in box2_defaultimgs }}
+    {{ for b2i in box2_defaultimgs }}
+    {{ b2i }}
+    {{ endfor }}
+    {{ endif }}
     </div>
 </div>
 </div>

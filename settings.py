@@ -8,6 +8,12 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
     ),
     dict(
+        name='CategorizeGame_3levels_1prop',
+        display_name="CategorizeGame_3levels_show1",
+        app_sequence=['categorization'],
+        num_demo_participants=10,
+    ),
+    dict(
         name='naminggame_one_feature',
         display_name="Naming-game One feature",
         app_sequence=['categorization', 'create_symbol', 'final_result'],

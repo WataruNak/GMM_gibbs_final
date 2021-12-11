@@ -2,12 +2,13 @@
 const items = [...document.querySelectorAll(".item")];
 const imgorder = js_vars.id_order;
 const imgcatpath_list = js_vars.imgcatpath_list;
+const num_rounds = js_vars.num_rounds
 let default_name_value = js_vars.default_name_value;
 let showed_img_id = js_vars.showed_img_id
 let img_category_list = js_vars.img_category_list
 
-let img_cat_list = new Array(60);
-  for (let n=0; n<60; n++) {
+let img_cat_list = new Array(num_rounds);
+  for (let n=0; n<num_rounds; n++) {
     img_cat_list[n] = document.getElementById(imgcatpath_list[n]);
   };
 
@@ -24,7 +25,7 @@ let boxchildren_list = new Array(3);
   };
 
   window.onload = function() {  
-    for (let a=0; a<60; a++) {
+    for (let a=0; a<num_rounds; a++) {
       if (img_category_list[a] == "99") {
         img_cat_list[a].value = "99";
       } else {

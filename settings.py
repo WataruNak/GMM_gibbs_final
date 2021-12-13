@@ -2,21 +2,21 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='categorization',
-        display_name="categorization",
-        app_sequence=['categorization'],
+        name='categorization_easy',
+        display_name="categorization_easy",
+        app_sequence=['categorization_easy'],
         num_demo_participants=2,
     ),
     dict(
         name='CategorizeGame_3levels_1prop',
         display_name="CategorizeGame_3levels_show1",
-        app_sequence=['categorization'],
+        app_sequence=['categorization_easy', 'categorization_mid', 'categorization_difficult'],
         num_demo_participants=10,
     ),
     dict(
         name='naminggame_one_feature',
         display_name="Naming-game One feature",
-        app_sequence=['categorization', 'create_symbol', 'final_result'],
+        app_sequence=['categorization_easy', 'create_symbol', 'final_result'],
         num_demo_participants=2,
     ),
     # dict(

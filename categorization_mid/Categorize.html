@@ -1,0 +1,144 @@
+{{ block title }}
+    カテゴリー分類
+{{ endblock }}
+ 
+{{ block content }}
+<p>表の中に画像をドラッグして、画像をどれかのカテゴリーに分類して下さい。</p>
+<p>すでに表の中にある画像や、左側の記号もドラッグすることで入れ替えることができます。</p>
+<p>画像を表のどこかに入れると「次へ」ボタンが表示されますので、それを押すと次の画像が表示されます。</p>
+<p>「次へ」ボタンが表示された後も、画像をドラッグして移動させることができます。</p>
+<br>
+<br>
+{{ showed_img }}
+<div id="button_to_se" style="visibility: hidden">
+    {{ next_button }}
+</div>
+<div class="area">
+    <ul id="names" class="name-list">
+        {{ for namehtml in default_name_list }}
+        {{ namehtml }}
+        {{ endfor }}
+    </ul>
+
+<div class="grid">
+    <div class="box box0" id="box0">
+    {{ if "999" not in box0_defaultimgs }}
+    {{ for b0i in box0_defaultimgs }}
+    {{ b0i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
+    <div class="box box1" id="box1">
+    {{ if "999" not in box1_defaultimgs }}
+    {{ for b1i in box1_defaultimgs }}
+    {{ b1i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
+    <div class="box box2" id="box2">
+    {{ if "999" not in box2_defaultimgs }}
+    {{ for b2i in box2_defaultimgs }}
+    {{ b2i }}
+    {{ endfor }}
+    {{ endif }}
+    </div>
+</div>
+</div>
+
+<input type="hidden" name="name_order" id="name_order" value="sym0,sym1,sym2"/>
+{{ formfield_errors 'name_order' }}
+<input type="hidden" name="img0_cat" id="img0_cat" value="99"/>
+<input type="hidden" name="img1_cat" id="img1_cat" value="99"/>
+<input type="hidden" name="img2_cat" id="img2_cat" value="99"/>
+<input type="hidden" name="img3_cat" id="img3_cat" value="99"/>
+<input type="hidden" name="img4_cat" id="img4_cat" value="99"/>
+<input type="hidden" name="img5_cat" id="img5_cat" value="99"/>
+<input type="hidden" name="img6_cat" id="img6_cat" value="99"/>
+<input type="hidden" name="img7_cat" id="img7_cat" value="99"/>
+<input type="hidden" name="img8_cat" id="img8_cat" value="99"/>
+<input type="hidden" name="img9_cat" id="img9_cat" value="99"/>
+<input type="hidden" name="img10_cat" id="img10_cat" value="99"/>
+<input type="hidden" name="img11_cat" id="img11_cat" value="99"/>
+<input type="hidden" name="img12_cat" id="img12_cat" value="99"/>
+<input type="hidden" name="img13_cat" id="img13_cat" value="99"/>
+<input type="hidden" name="img14_cat" id="img14_cat" value="99"/>
+<input type="hidden" name="img15_cat" id="img15_cat" value="99"/>
+<input type="hidden" name="img16_cat" id="img16_cat" value="99"/>
+<input type="hidden" name="img17_cat" id="img17_cat" value="99"/>
+<input type="hidden" name="img18_cat" id="img18_cat" value="99"/>
+<input type="hidden" name="img19_cat" id="img19_cat" value="99"/>
+<input type="hidden" name="img20_cat" id="img20_cat" value="99"/>
+<input type="hidden" name="img21_cat" id="img21_cat" value="99"/>
+<input type="hidden" name="img22_cat" id="img22_cat" value="99"/>
+<input type="hidden" name="img23_cat" id="img23_cat" value="99"/>
+<input type="hidden" name="img24_cat" id="img24_cat" value="99"/>
+<input type="hidden" name="img25_cat" id="img25_cat" value="99"/>
+<input type="hidden" name="img26_cat" id="img26_cat" value="99"/>
+<input type="hidden" name="img27_cat" id="img27_cat" value="99"/>
+<input type="hidden" name="img28_cat" id="img28_cat" value="99"/>
+<input type="hidden" name="img29_cat" id="img29_cat" value="99"/>
+
+<input type="hidden" name="box0_children" id="box0_children"/>
+<input type="hidden" name="box1_children" id="box1_children"/>
+<input type="hidden" name="box2_children" id="box2_children"/>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script type="text/javascript" src="{% static "js/img_grid.js" %}"></script>
+
+{{ endblock }}
+
+{% block app_styles %}
+    <style>
+        .area {
+            display: flex;
+        }
+
+        .name-list {
+            list-style: none;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: 900px;
+          grid-template-rows: 100px 100px 100px;
+        }
+
+        .box {
+          display: flex;
+          flex-flow: row wrap;
+        }
+
+        .box0 {
+            border: 1px solid black;
+            grid-row: 1/2;
+        }
+
+        .box1 {
+            border: 1px solid black;
+            grid-row: 2/3;
+        }
+
+        .box2 {
+            border: 1px solid black;
+            grid-row: 3/4;
+           }
+
+        .item {
+          width: 50px;
+          height: 50px;
+        }
+        
+        .dragging {
+          opacity: 0.5;
+        }
+
+        .over {
+          background-color: rgba(255, 255, 0, 0.3);
+        }
+
+        .otree-timer {
+            font-size: 30px;
+        }
+
+    </style>
+{% endblock %}

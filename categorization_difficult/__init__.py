@@ -49,7 +49,7 @@ def make_draggablename_html_list(name_num, path_list, height, width):
 
 class Constants(BaseConstants):
     name_in_url = 'categorization_difficult'
-    players_per_group = 2
+    players_per_group = None
     num_rounds = 30
     imgpath_list = [
         "https://imgur.com/f7SqLNo.jpg","https://imgur.com/rBlF4mu.jpg","https://imgur.com/0WqM7kB.jpg","https://imgur.com/27A6jU2.jpg",
@@ -211,11 +211,6 @@ class Introduction(Page):
     def is_displayed(player: Player):
         return player.round_number == 1
 
-class Instruction(Page):
-    @staticmethod
-    def is_displayed(player: Player):
-        return player.round_number == 1
-
 class ddtest(Page):
     pass
 
@@ -235,53 +230,53 @@ class Categorize(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if player.round_number == 1:
-            player.participant.stimuli_id_list = []
-            player.participant.imghtml_order = []
+            player.participant.d_stimuli_id_list = []
+            player.participant.d_imghtml_order = []
             for n in range(Constants.num_rounds):
-                player.participant.stimuli_id_list.append(n)
+                player.participant.d_stimuli_id_list.append(n)
             random.seed(21)
-            random.shuffle(player.participant.stimuli_id_list)
+            random.shuffle(player.participant.d_stimuli_id_list)
             for j in range(Constants.num_rounds):
-                player.participant.imghtml_order.append(Constants.imghtml_list[player.participant.stimuli_id_list[j]])
-            player.participant.box0_items = [999]
-            player.participant.box1_items = [999]
-            player.participant.box2_items = [999]
-            player.participant.default_nameorder = [0,1,2]
-            player.participant.img_category_list = []
+                player.participant.d_imghtml_order.append(Constants.imghtml_list[player.participant.d_stimuli_id_list[j]])
+            player.participant.d_box0_items = [999]
+            player.participant.d_box1_items = [999]
+            player.participant.d_box2_items = [999]
+            player.participant.d_default_nameorder = [0,1,2]
+            player.participant.d_img_category_list = []
             for _ in range(Constants.num_rounds):
-                player.participant.img_category_list.append(99)
+                player.participant.d_img_category_list.append(99)
         
-        showed_img = player.participant.imghtml_order[player.round_number-1]
+        showed_img = player.participant.d_imghtml_order[player.round_number-1]
 
         box0_defaultimgs = []
         box1_defaultimgs = []
         box2_defaultimgs = []
-        if player.participant.box0_items[0] == 999:
+        if player.participant.d_box0_items[0] == 999:
             box0_defaultimgs.append("999")
         else:
-            for j in range(len(player.participant.box0_items)):
-                box0_defaultimgs.append(Constants.imghtml_list[player.participant.box0_items[j]])
+            for j in range(len(player.participant.d_box0_items)):
+                box0_defaultimgs.append(Constants.imghtml_list[player.participant.d_box0_items[j]])
                     
-        if player.participant.box1_items[0] == 999:
+        if player.participant.d_box1_items[0] == 999:
             box1_defaultimgs.append("999")
         else:
-            for k in range(len(player.participant.box1_items)):
-                box1_defaultimgs.append(Constants.imghtml_list[player.participant.box1_items[k]])
+            for k in range(len(player.participant.d_box1_items)):
+                box1_defaultimgs.append(Constants.imghtml_list[player.participant.d_box1_items[k]])
         
-        if player.participant.box2_items[0] == 999:
+        if player.participant.d_box2_items[0] == 999:
             box2_defaultimgs.append("999")
         else:
-            for l in range(len(player.participant.box2_items)):
-                box2_defaultimgs.append(Constants.imghtml_list[player.participant.box2_items[l]])
+            for l in range(len(player.participant.d_box2_items)):
+                box2_defaultimgs.append(Constants.imghtml_list[player.participant.d_box2_items[l]])
 
         default_name_list = []
-        for p in range(len(player.participant.default_nameorder)):
-                default_name_list.append(Constants.namehtml_list[player.participant.default_nameorder[p]])
+        for p in range(len(player.participant.d_default_nameorder)):
+                default_name_list.append(Constants.namehtml_list[player.participant.d_default_nameorder[p]])
 
         return {
             "showed_img" : showed_img,
             "name_order" : player.name_order,
-            "imghtml_order" : player.participant.imghtml_order,
+            "imghtml_order" : player.participant.d_imghtml_order,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
             "box1_defaultimgs" : box1_defaultimgs,
@@ -290,16 +285,16 @@ class Categorize(Page):
     
     @staticmethod
     def js_vars(player):
-        default_name_value = "sym" + str(player.participant.default_nameorder[0]) + "," +\
-            "sym" + str(player.participant.default_nameorder[1]) + "," +\
-                "sym" + str(player.participant.default_nameorder[2])
+        default_name_value = "sym" + str(player.participant.d_default_nameorder[0]) + "," +\
+            "sym" + str(player.participant.d_default_nameorder[1]) + "," +\
+                "sym" + str(player.participant.d_default_nameorder[2])
         return dict(
             num_rounds=Constants.num_rounds,
-            id_order=player.participant.stimuli_id_list,
-            showed_img_id=player.participant.stimuli_id_list[player.round_number-1],
+            id_order=player.participant.d_stimuli_id_list,
+            showed_img_id=player.participant.d_stimuli_id_list[player.round_number-1],
             default_name_value=default_name_value,
             imgcatpath_list=Constants.imgcatpath_list,
-            img_category_list=player.participant.img_category_list,
+            img_category_list=player.participant.d_img_category_list,
         )
 
     @staticmethod
@@ -313,28 +308,28 @@ class Categorize(Page):
             player.img25_cat, player.img26_cat, player.img27_cat, player.img28_cat, player.img29_cat,
         ]
 
-        player.participant.img_category_list = []
+        player.participant.d_img_category_list = []
         for imc in cat_list:
-            player.participant.img_category_list.append(int(imc))
-        player.participant.default_nameorder = []
+            player.participant.d_img_category_list.append(int(imc))
+        player.participant.d_default_nameorder = []
         n_list = player.name_order.split(",")
         for name in n_list:
-            player.participant.default_nameorder.append(int(name[-1]))
+            player.participant.d_default_nameorder.append(int(name[-1]))
       
         if player.box0_children == "999":
-            player.participant.box0_items = [999,]
+            player.participant.d_box0_items = [999,]
         else:
-            player.participant.box0_items = [int(b0i) for b0i in player.box0_children.split(",")]
+            player.participant.d_box0_items = [int(b0i) for b0i in player.box0_children.split(",")]
 
         if player.box1_children == "999":
-           player.participant.box1_items = [999,]
+           player.participant.d_box1_items = [999,]
         else:
-            player.participant.box1_items = [int(b1i) for b1i in player.box1_children.split(",")]
+            player.participant.d_box1_items = [int(b1i) for b1i in player.box1_children.split(",")]
         
         if player.box2_children == "999":
-            player.participant.box2_items = [999,]
+            player.participant.d_box2_items = [999,]
         else:
-            player.participant.box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
+            player.participant.d_box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
 
 
 class Results(Page):
@@ -344,24 +339,25 @@ class Results(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        player.c_ari = adjusted_rand_score(Constants.correct_cat_list, player.participant.img_category_list)
+        player.c_ari = adjusted_rand_score(Constants.correct_cat_list, player.participant.d_img_category_list)
+        player.participant.d_ari = player.c_ari
         score = int(player.c_ari * 100)
         return {
             "c_ari" : player.c_ari,
             "score" : score,
             "name_order" : player.name_order,
-            "cats" : player.participant.img_category_list,
+            "cats" : player.participant.d_img_category_list,
             "box0_children" : player.box0_children,
             "box1_children" : player.box1_children,
             "box2_children" : player.box2_children,
-            "box0_items" : player.participant.box0_items,
-            "box1_items" : player.participant.box1_items,
-            "box2_items" : player.participant.box2_items,
+            "box0_items" : player.participant.d_box0_items,
+            "box1_items" : player.participant.d_box1_items,
+            "box2_items" : player.participant.d_box2_items,
         }
 
 
 page_sequence = [
-    Instruction,
+    Introduction,
     Categorize,
     Results
     ]

@@ -3,40 +3,23 @@
 {{ endblock }}
 
 {{ block content }}
-<p>実験が終わるまでにかかったラウンド数は<b>{{ final_round_num }}ラウンド</b>でした。</p>
-<p>実験が終わった時点で、あなたと相手プレイヤーの分類の仕方は</p>
-{{ if ip_kappa <= 0.4 }}
-<p style="color: red;">ほとんど一致していませんでした。</p>
-{{ elif ip_kappa <= 0.6 }}
-<p style="color: orange;">あまり一致していませんでした。</p>
-{{ elif ip_kappa <= 0.8 }}
-<p style="color: blue;">それなりに一致していました。</p>
-{{ elif ip_kappa > 0.8 }}
-<p style="color: green;">かなり一致していました。</p>
-{{ endif }}
+<p>それぞれのテストでのあなたの点数は、</p>
+<p>テスト1（難易度：低）：<span style="color: green;">{{ e_score }}</span></p>
+<p>テスト2（難易度：中）：<span style="color: orange;">{{ m_score }}</span></p>
+<p>テスト3（難易度：高）：<span style="color: red;">{{ d_score }}</span></p>
+<p>でした。</p>
 <br>
-<p>また、あなたのカテゴリー分類は</p>
-{{ if c_kappa <= 0.4 }}
-<p style="color: red;">正解のものとはほとんど一致していませんでした。</p>
-{{ elif c_kappa <= 0.6 }}
-<p style="color: orange;">正解のものとはあまり一致していませんでした。</p>
-{{ elif c_kappa <= 0.8 }}
-<p style="color: blue;">正解のものとそれなりに一致していました。</p>
-{{ elif c_kappa > 0.8 }}
-<p style="color: green;">正解のものとかなり一致していました。</p>
-{{ endif }}
-<br>
-<p>下に表示されているのは、あなたと相手プレイヤーの最終的なカテゴリー分類の一覧です。</p>
+<p>下に表示されているのは、それぞれのテストでの分類結果です。</p>
 <br>
 <p>これで実験は終了です。長い時間お付き合い頂き、ありがとうございました。</p>
 <p>画面を閉じていただいて結構です。</p>
 <br>
 <br>
-<p>あなたのカテゴリー分類の一覧</p>
+<p>テスト1でのカテゴリー分類の一覧</p>
 <div class = "box">
 <div class = "box0">
 {{ name0 }}
-{{ for k, v in my_dict.items() }}
+{{ for k, v in e_dict.items() }}
 {{ if v == 0 }}
 {{ k }}
 {{ endif }}
@@ -44,7 +27,7 @@
 </div>
 <div class = "box1">
 {{ name1 }}
-{{ for k, v in my_dict.items() }}
+{{ for k, v in e_dict.items() }}
 {{ if v == 1 }}
 {{ k }}
 {{ endif }}
@@ -52,43 +35,19 @@
 </div>
 <div class = "box2">
 {{ name2 }}
-{{ for k, v in my_dict.items() }}
+{{ for k, v in e_dict.items() }}
 {{ if v == 2 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<div class = "box3">
-{{ name3 }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 3 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<div class = "box4">
-{{ name4 }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 4 }}
-{{ k }}
-{{ endif }}
-{{ endfor }}
-</div>
-<div class = "box5">
-{{ name5 }}
-{{ for k, v in my_dict.items() }}
-{{ if v == 5 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
 </div>
 <br>
-<p>相手プレイヤーのカテゴリー分類の一覧</p>
+<p>テスト2でのカテゴリー分類の一覧</p>
 <div class = "box">
 <div class = "box0">
 {{ name0 }}
-{{ for k, v in others_dict.items() }}
+{{ for k, v in m_dict.items() }}
 {{ if v == 0 }}
 {{ k }}
 {{ endif }}
@@ -96,7 +55,7 @@
 </div>
 <div class = "box1">
 {{ name1 }}
-{{ for k, v in others_dict.items() }}
+{{ for k, v in m_dict.items() }}
 {{ if v == 1 }}
 {{ k }}
 {{ endif }}
@@ -104,32 +63,36 @@
 </div>
 <div class = "box2">
 {{ name2 }}
-{{ for k, v in others_dict.items() }}
+{{ for k, v in m_dict.items() }}
 {{ if v == 2 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<div class = "box3">
-{{ name3 }}
-{{ for k, v in others_dict.items() }}
-{{ if v == 3 }}
+</div>
+<br>
+<p>テスト3でのカテゴリー分類の一覧</p>
+<div class = "box">
+<div class = "box0">
+{{ name0 }}
+{{ for k, v in d_dict.items() }}
+{{ if v == 0 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<div class = "box4">
-{{ name4 }}
-{{ for k, v in others_dict.items() }}
-{{ if v == 4 }}
+<div class = "box1">
+{{ name1 }}
+{{ for k, v in d_dict.items() }}
+{{ if v == 1 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
 </div>
-<div class = "box5">
-{{ name5 }}
-{{ for k, v in others_dict.items() }}
-{{ if v == 5 }}
+<div class = "box2">
+{{ name2 }}
+{{ for k, v in d_dict.items() }}
+{{ if v == 2 }}
 {{ k }}
 {{ endif }}
 {{ endfor }}
@@ -142,7 +105,7 @@
         div.box {
             display: grid;
             grid-template-columns: 900px;
-            grid-template-rows: 100px 100px 100px 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
         }
 
         .box0 {
@@ -165,26 +128,5 @@
             border: 1px solid black;
             grid-row: 3/4;
            }
-
-        .box3 {
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid black;
-            grid-row: 4/5;
-        }
-
-        .box4 {
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid black;
-            grid-row: 5/6;
-        }
-
-        .box5 {
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid black;
-            grid-row: 6/7;
-        }
     </style>
 {% endblock %}

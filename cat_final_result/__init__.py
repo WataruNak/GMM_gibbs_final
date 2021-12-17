@@ -14,32 +14,8 @@ def make_html_list(img_num, path_list, height, width):
     return img_html_list
 
 
-def custom_export(players):
-    yield [
-        "session",
-        "participant_code",
-        "id_in_group",
-        "final_round_num",
-        "final_c_kappa,",
-        "final_ip_kappa",
-        "final_ari"
-        ]
-    for p in players:
-        participant = p.participant
-        session = p.session
-        yield [
-            session.code,
-            participant.code,
-            p.id_in_group,
-            p.final_round_num,
-            p.final_c_kappa,
-            p.final_ip_kappa,
-            p.final_ari,
-            ]
-
-
 class Constants(BaseConstants):
-    name_in_url = 'final_result'
+    name_in_url = 'cat_final_result'
     players_per_group = None
     num_rounds = 1
     easy_dataset = [
@@ -63,7 +39,7 @@ class Constants(BaseConstants):
         "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
         "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
         "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S"
+        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
         ]
 
     difficult_dataset = [

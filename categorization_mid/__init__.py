@@ -25,8 +25,8 @@ def make_imgcat_path(num):
 def make_correct_list(item_num_list):
     correct_lists = []
     for ln in range(3):
-        numlist = [ln] * item_num_list[ln]
-        correct_lists.append(numlist)
+        for _ in range(item_num_list[ln]):
+            correct_lists.append(ln)
     return correct_lists
 
 def make_draggableimg_html_list(img_num, path_list, height, width):
@@ -60,7 +60,7 @@ class Constants(BaseConstants):
         "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
         "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
         "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S"
+        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
         ]
     namepath_list = [
     "https://imgur.com/a2Q74iy.png","https://imgur.com/k9q8sBE.png","https://imgur.com/GWYaBNN.png",
@@ -112,7 +112,7 @@ medium_dataset = [
     "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
     "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
     "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-    "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S"
+    "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
     ]
 
 6,15,9

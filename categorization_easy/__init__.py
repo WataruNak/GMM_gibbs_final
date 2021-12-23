@@ -363,7 +363,6 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
-    jquerytest,
     Categorize,
     Results
     ]

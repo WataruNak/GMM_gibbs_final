@@ -24,6 +24,8 @@ let boxchildren_list = new Array(3);
     boxchildren_list[mc] = document.getElementById(boxchildrenpath);
   };
 
+let movingimg_id;
+
   window.onload = function() {  
     for (let a=0; a<num_rounds; a++) {
       if (img_category_list[a] == "99") {
@@ -75,7 +77,7 @@ let sortablename = Sortable.create(el, {
 $(".item").draggable({
   revert: "invalid",
   start: function(e, ui) {
-    console.log(e.target)
+    movingimg_id = e.target.id;
   }
 })
 
@@ -83,7 +85,22 @@ $(".box").droppable({
   accept: ".item",
   activeclass: "over",
   drop: function(e, ui) {
-    console.log(e.target)
+    document.getElementById(movingimg_id).style = "position: relative"
+    e.target.appendChild(document.getElementById(movingimg_id))
+    let categoryorder = document.getElementById("name_order").value.split(',');
+    img_cat_list[movingimg_id].value = categoryorder[Number(e.target.id.substr(-1))].substr(-1);
+    for (let k=0; k<3; k++) {
+      if (box_list[k].childElementCount>0) {
+        let childidlist2 = [];
+        for (let kk=0; kk<box_list[k].childElementCount; kk++) {
+          let stimid2 = Number(box_list[k].children[kk].id);
+          childidlist2.push(String(stimid2));
+        };
+        boxchildren_list[k].value = childidlist2.join(",");
+      } else {
+        boxchildren_list[k].value = "999"
+      };
+    }
     if (
       document.getElementById(imgcatpath_list[showed_img_id]).value != "99") {
       document.getElementById("button_to_se").style.visibility = "visible"

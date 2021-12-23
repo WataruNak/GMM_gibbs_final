@@ -10,6 +10,7 @@ const handleDragStart = (e) => {
 
   // 転送するデータの設定
   const { id } = e.target;
+  console.log(e.target);
   e.dataTransfer.setData("application/json", JSON.stringify({ id }));
 };
 

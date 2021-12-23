@@ -212,7 +212,12 @@ class Introduction(Page):
         return player.round_number == 1
 
 class ddtest(Page):
-    pass
+    def vars_for_template(player: Player):
+        return {"imghtml_list" : Constants.imghtml_list}
+
+class jquerytest(Page):
+    def vars_for_template(player: Player):
+        return {"imghtml_list" : Constants.imghtml_list}
 
 class Categorize(Page):
     form_model = 'player'
@@ -358,7 +363,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
-    ddtest,
+    jquerytest,
     Categorize,
     Results
     ]

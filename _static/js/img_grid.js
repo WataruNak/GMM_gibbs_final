@@ -47,7 +47,6 @@ let movingimg_id;
         boxchildren_list[d].value = "999"
       };
     };
-    alert('ページの読み込みが完了しました。「OK」ボタンを押して操作を開始してください。');
   };  
 
 

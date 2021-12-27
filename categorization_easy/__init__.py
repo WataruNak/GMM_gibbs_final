@@ -280,6 +280,7 @@ class Categorize(Page):
 
         return {
             "showed_img" : showed_img,
+            "round_num" : player.round_number,
             "name_order" : player.name_order,
             "imghtml_order" : player.participant.e_imghtml_order,
             "default_name_list" : default_name_list,

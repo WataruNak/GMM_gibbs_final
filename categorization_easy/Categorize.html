@@ -3,14 +3,13 @@
 {{ endblock }}
  
 {{ block content }}
+<progress id="prog" min="0" max="30" value="0"></progress>
 <p>現在の進行度：{{ round_num }}/30</p>
 <br>
 <p>表の中に画像をドラッグして、画像をどれかのカテゴリーに分類して下さい。</p>
 <p>すでに表の中にある画像や、左側の記号もドラッグすることで入れ替えることができます。</p>
 <p>画像を表のどこかに入れると「次へ」ボタンが表示されますので、それを押すと次の画像が表示されます。</p>
 <p>「次へ」ボタンが表示された後も、画像をドラッグして移動させることができます。</p>
-<br>
-<br>
 {{ showed_img }}
 <div id="button_to_se" style="visibility: hidden">
     {{ next_button }}

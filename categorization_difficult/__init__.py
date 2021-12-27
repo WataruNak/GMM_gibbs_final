@@ -276,6 +276,7 @@ class Categorize(Page):
         return {
             "showed_img" : showed_img,
             "name_order" : player.name_order,
+            "round_num" : player.round_number,
             "imghtml_order" : player.participant.d_imghtml_order,
             "default_name_list" : default_name_list,
             "box0_defaultimgs" : box0_defaultimgs,
@@ -290,6 +291,7 @@ class Categorize(Page):
                 "sym" + str(player.participant.d_default_nameorder[2])
         return dict(
             num_rounds=Constants.num_rounds,
+            this_roundnum = player.round_number,
             id_order=player.participant.d_stimuli_id_list,
             showed_img_id=player.participant.d_stimuli_id_list[player.round_number-1],
             default_name_value=default_name_value,

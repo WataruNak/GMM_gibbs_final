@@ -2,7 +2,8 @@
 const items = [...document.querySelectorAll(".item")];
 const imgorder = js_vars.id_order;
 const imgcatpath_list = js_vars.imgcatpath_list;
-const num_rounds = js_vars.num_rounds
+const num_rounds = js_vars.num_rounds;
+const this_roundnum = js_vars.this_roundnum
 let default_name_value = js_vars.default_name_value;
 let showed_img_id = js_vars.showed_img_id
 let img_category_list = js_vars.img_category_list
@@ -47,6 +48,7 @@ let movingimg_id;
         boxchildren_list[d].value = "999"
       };
     };
+    document.getElementById("prog").value = String(this_roundnum - 1);
   };  
 
 

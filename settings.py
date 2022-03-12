@@ -8,8 +8,8 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
     ),
     dict(
-        name='CategorizeGame_3levels_1prop',
-        display_name="CategorizeGame_3levels_show1",
+        name='CategorizeGame_1prop_final',
+        display_name="CategorizeGame_show1_final",
         app_sequence=[
             'introduction_only',
             'categorization_easy',
@@ -73,7 +73,7 @@ SECRET_KEY = '3953047406988'
 
 ROOMS = [
     dict(
-        name='naming_game_revise',
-        display_name='Naming-Game Revise1'
+        name='Categorize_show1',
+        display_name='待機ページ'
     ),
 ]

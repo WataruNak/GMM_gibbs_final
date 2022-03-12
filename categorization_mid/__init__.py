@@ -14,6 +14,8 @@ git push -u origin main or heroku main
 heroku create app-name
 heroku addons:create heroku-postgresql:hobby-dev
 heroku run "otree resetdb"
+
+draggable_name : false
 """
 
 def make_imgcat_path(num):
@@ -41,7 +43,7 @@ def make_draggablename_html_list(name_num, path_list, height, width):
     img_html_list = []
     for db in range(name_num):
         img_html_list.append(
-            "<li draggable=\"true\" id=\"name{}\" data-id=\"sym{}\"><img src=\"{}\" height=\"{}px\" width=\"{}px\"></li>".format(
+            "<li draggable=\"false\" id=\"name{}\" data-id=\"sym{}\"><img src=\"{}\" height=\"{}px\" width=\"{}px\"></li>".format(
                 db, db, path_list[db], height, width)
         )
     return img_html_list
@@ -52,15 +54,15 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 30
     imgpath_list = [
-        "https://imgur.com/oVrfxZw.jpg","https://imgur.com/TkW80Ck.jpg","https://imgur.com/GtymY98.jpg","https://imgur.com/7FGU28E.jpg",
-        "https://imgur.com/3g3TFbH.jpg","https://imgur.com/YLcHzhf.jpg","https://imgur.com/erk07Pi.jpg","https://imgur.com/y9FXwvs.jpg",
-        "https://imgur.com/aXt6xf1.jpg","https://imgur.com/LScSBWQ.jpg",
-        "https://imgur.com/uZrmYFn.jpg","https://imgur.com/Zgsza4K.jpg","https://imgur.com/VhXqX1n.jpg","https://imgur.com/tYhIHr1.jpg",
-        "https://imgur.com/bu5P0gG.jpg","https://imgur.com/tdUO3lT.jpg","https://imgur.com/RIe5q7d.jpg","https://imgur.com/yCAO7Ro.jpg",
-        "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
-        "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
-        "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
+        "https://imgur.com/2v96Nsz.jpg","https://imgur.com/o00ZR5n.jpg","https://imgur.com/gN8wVFP.jpg","https://imgur.com/CFnriY9.jpg",
+        "https://imgur.com/eOykFKN.jpg","https://imgur.com/v7CrjSU.jpg","https://imgur.com/RWQm2rR.jpg","https://imgur.com/UrHdEWO.jpg",
+        "https://imgur.com/UrHdEWO.jpg","https://imgur.com/9iu6bEv.jpg",
+        "https://imgur.com/oFhKVpB.jpg","https://imgur.com/RhjO157.jpg","https://imgur.com/AU809mF.jpg","https://imgur.com/NgkPdaz.jpg",
+        "https://imgur.com/h5E1W8L.jpg","https://imgur.com/cS75xgN.jpg","https://imgur.com/795sB1f.jpg","https://imgur.com/dZAsMeP.jpg",
+        "https://imgur.com/46uFVaN.jpg","https://imgur.com/8053M8w.jpg",
+        "https://imgur.com/FSbrUrq.jpg","https://imgur.com/Cdo4t1e.jpg","https://imgur.com/IZr4MNc.jpg","https://imgur.com/Q1GUep3.jpg",
+        "https://imgur.com/Jv5lEGD.jpg","https://imgur.com/Uu39IuD.jpg","https://imgur.com/m3CosMY.jpg","https://imgur.com/NoMBW1m.jpg",
+        "https://imgur.com/o6xLXDK.jpg","https://imgur.com/EFR9FgA.jpg"
         ]
     namepath_list = [
     "https://imgur.com/a2Q74iy.png","https://imgur.com/k9q8sBE.png","https://imgur.com/GWYaBNN.png",

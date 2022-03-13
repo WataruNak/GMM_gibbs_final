@@ -119,9 +119,9 @@ level2 = [
     "https://imgur.com/yRlUQR9.jpg","https://imgur.com/xAkNIXr.jpg"
     ]
 
-easy_order = seed(10)
-circle_order = 
-level2_order = 
+easy_id_list = [10,11,27,14,15,0,3,6,16,17,19,1,8,7,25,24,26,18,2,4,20,22,9,28,29,13,21,5,23,12]
+circle_id_list = [10,11,27,14,15,0,3,6,16,17,19,1,8,7,25,24,26,18,2,4,20,22,9,28,29,13,21,5,23,12]
+level2_id_list = [12,22,26,17,10,7,5,2,24,21,3,4,15,11,6,0,25,29,27,1,9,8,28,20,23,14,19,16,18,13]
 
 """
 
@@ -229,12 +229,8 @@ class Categorize(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if player.round_number == 1:
-            player.participant.e_stimuli_id_list = []
+            player.participant.e_stimuli_id_list = [10,11,27,14,15,0,3,6,16,17,19,1,8,7,25,24,26,18,2,4,20,22,9,28,29,13,21,5,23,12]
             player.participant.e_imghtml_order = []
-            for n in range(Constants.num_rounds):
-                player.participant.e_stimuli_id_list.append(n)
-            random.seed(10)
-            random.shuffle(player.participant.e_stimuli_id_list)
             for j in range(Constants.num_rounds):
                 player.participant.e_imghtml_order.append(Constants.imghtml_list[player.participant.e_stimuli_id_list[j]])
             player.participant.e_box0_items = [999]

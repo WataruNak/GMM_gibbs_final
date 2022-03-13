@@ -75,61 +75,7 @@ class Constants(BaseConstants):
     correct_cat_list = make_correct_list([10, 10, 10])
 
 """
-set_60 = [
-        "https://imgur.com/c27avQk.jpg","https://imgur.com/WWwUJ3H.jpg","https://imgur.com/smEbdXU.jpg","https://imgur.com/BIBHIx8.jpg",
-        "https://imgur.com/8dUYe80.jpg","https://imgur.com/WQb3adx.jpg","https://imgur.com/4YoAZKD.jpg","https://imgur.com/FK3nedQ.jpg",
-        "https://imgur.com/UXUe1P5.jpg","https://imgur.com/YF7pyfv.jpg","https://imgur.com/pI7e19V.jpg","https://imgur.com/wQQS0vp.jpg",
-        "https://imgur.com/2mzG1Z4.jpg","https://imgur.com/wBlXTXe.jpg","https://imgur.com/yRvUFc2.jpg","https://imgur.com/QnTabih.jpg",
-        "https://imgur.com/P0lS9Rt.jpg","https://imgur.com/5Tq3F9y.jpg","https://imgur.com/uVbdt9m.jpg","https://imgur.com/0vcyIVT.jpg",
-        "https://imgur.com/RdnKdk7.jpg","https://imgur.com/DnQ5V0i.jpg","https://imgur.com/CaMFEft.jpg","https://imgur.com/PdlK46v.jpg",
-        "https://imgur.com/fd3wsHj.jpg","https://imgur.com/v8o0KXI.jpg","https://imgur.com/GPuAaQK.jpg","https://imgur.com/h01dH1M.jpg",
-        "https://imgur.com/Lyo5oHo.jpg","https://imgur.com/0oIZVUQ.jpg","https://imgur.com/CRafgcZ.jpg","https://imgur.com/wzorH2u.jpg",
-        "https://imgur.com/xMpP47O.jpg","https://imgur.com/IdmTxuR.jpg","https://imgur.com/irNZoWH.jpg","https://imgur.com/ramZYq9.jpg",
-        "https://imgur.com/A5BIv1n.jpg","https://imgur.com/fJqy1Vw.jpg","https://imgur.com/2dLFQW5.jpg","https://imgur.com/60A8YR8.jpg",
-        "https://imgur.com/TTLMf8j.jpg","https://imgur.com/eSdxiLg.jpg","https://imgur.com/u4digfM.jpg","https://imgur.com/FJ5W1oN.jpg",
-        "https://imgur.com/45sKDoN.jpg","https://imgur.com/XC4Z4bB.jpg","https://imgur.com/3efZBys.jpg","https://imgur.com/Ee7SzDc.jpg",
-        "https://imgur.com/5I6U5br.jpg","https://imgur.com/OmKIiqk.jpg","https://imgur.com/q4z3OLw.jpg","https://imgur.com/FICZpGt.jpg",
-        "https://imgur.com/x16qbtH.jpg","https://imgur.com/7xn4I0i.jpg","https://imgur.com/yUYU300.jpg","https://imgur.com/4tY7w92.jpg",
-        "https://imgur.com/mqFMhzF.jpg","https://imgur.com/U16Jxoc.jpg","https://imgur.com/NPVutC3.jpg","https://imgur.com/c033ge1.jpg"
-        ]
-
-easy_dataset = [
-    "https://imgur.com/Ok16AOf.jpg","https://imgur.com/E1tzbHT.jpg","https://imgur.com/TIYwSme.jpg","https://imgur.com/LxXzOcT.jpg",
-    "https://imgur.com/JaIDNbN.jpg","https://imgur.com/HzhseCT.jpg","https://imgur.com/yDAAcfa.jpg","https://imgur.com/0QLNi4i.jpg",
-    "https://imgur.com/u3uGowS.jpg","https://imgur.com/qnRjZh4.jpg",
-    "https://imgur.com/TFK2ZGm.jpg","https://imgur.com/RaeqdvY.jpg","https://imgur.com/O3OebCR.jpg","https://imgur.com/9iWwWM1.jpg",
-    "https://imgur.com/mJbqCYe.jpg","https://imgur.com/AofkRCU.jpg","https://imgur.com/GbqH1rT.jpg","https://imgur.com/14n5Njk.jpg",
-    "https://imgur.com/biwO9BY.jpg","https://imgur.com/oAAjKTi.jpg",
-    "https://imgur.com/aEo3RDS.jpg","https://imgur.com/6DNh3zy.jpg","https://imgur.com/NjIBgAk.jpg","https://imgur.com/J4xYRZl.jpg",
-    "https://imgur.com/QR2edYY.jpg","https://imgur.com/ef6tKlM.jpg","https://imgur.com/K7uRcI7.jpg","https://imgur.com/2J8HGUW.jpg",
-    "https://imgur.com/oePD1MJ.jpg","https://imgur.com/oePD1MJ.jpg"
-    ]
-
-medium_dataset = [
-    "https://imgur.com/oVrfxZw.jpg","https://imgur.com/TkW80Ck.jpg","https://imgur.com/GtymY98.jpg","https://imgur.com/7FGU28E.jpg",
-    "https://imgur.com/3g3TFbH.jpg","https://imgur.com/YLcHzhf.jpg","https://imgur.com/erk07Pi.jpg","https://imgur.com/y9FXwvs.jpg",
-    "https://imgur.com/aXt6xf1.jpg","https://imgur.com/LScSBWQ.jpg",
-    "https://imgur.com/uZrmYFn.jpg","https://imgur.com/Zgsza4K.jpg","https://imgur.com/VhXqX1n.jpg","https://imgur.com/tYhIHr1.jpg",
-    "https://imgur.com/bu5P0gG.jpg","https://imgur.com/tdUO3lT.jpg","https://imgur.com/RIe5q7d.jpg","https://imgur.com/yCAO7Ro.jpg",
-    "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
-    "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
-    "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-    "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
-    ]
-
-6,15,9
-difficult_dataset = [
-    "https://imgur.com/f7SqLNo.jpg","https://imgur.com/rBlF4mu.jpg","https://imgur.com/0WqM7kB.jpg","https://imgur.com/27A6jU2.jpg",
-    "https://imgur.com/e7kfVeV.jpg","https://imgur.com/LUjj2px.jpg",
-    "https://imgur.com/zgHZAP9.jpg","https://imgur.com/X9EE4u0.jpg","https://imgur.com/0PXQXGd.jpg","https://imgur.com/HOMn4V6.jpg",
-    "https://imgur.com/znWBdLv.jpg","https://imgur.com/ZWYsTZP.jpg","https://imgur.com/VKydSuN.jpg","https://imgur.com/75B7TQR.jpg",
-    "https://imgur.com/4dpcXkf.jpg","https://imgur.com/M81tl9O.jpg","https://imgur.com/lM4WQ5p.jpg","https://imgur.com/rRcgod4.jpg",
-    "https://imgur.com/vdaoN97.jpg","https://imgur.com/ZzEYWUp.jpg","https://imgur.com/iwhyjOw.jpg",
-    "https://imgur.com/ajWV0KL.jpg","https://imgur.com/XkUx41x.jpg","https://imgur.com/CB9XFGX.jpg","https://imgur.com/I1hgaCt.jpg",
-    "https://imgur.com/F3EpQIU.jpg","https://imgur.com/RKN9hEI.jpg","https://imgur.com/dGwAswt.jpg","https://imgur.com/tR5f11p.jpg",
-    "https://imgur.com/SsNAYPz.jpg"
-    ]
-
+mid_level circle
 """
 
 
@@ -231,12 +177,8 @@ class Categorize(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if player.round_number == 1:
-            player.participant.m_stimuli_id_list = []
+            player.participant.m_stimuli_id_list = [10,11,27,14,15,0,3,6,16,17,19,1,8,7,25,24,26,18,2,4,20,22,9,28,29,13,21,5,23,12]
             player.participant.m_imghtml_order = []
-            for n in range(Constants.num_rounds):
-                player.participant.m_stimuli_id_list.append(n)
-            random.seed(43)
-            random.shuffle(player.participant.m_stimuli_id_list)
             for j in range(Constants.num_rounds):
                 player.participant.m_imghtml_order.append(Constants.imghtml_list[player.participant.m_stimuli_id_list[j]])
             player.participant.m_box0_items = [999]

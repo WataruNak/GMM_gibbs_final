@@ -53,26 +53,6 @@ let movingimg_id;
 
 
 let el = document.getElementById('names');
-let sortablename = Sortable.create(el, {
-  onChange: function (evt) {
-    let sorted_order = sortablename.toArray()
-    document.getElementById('name_order').value = sortablename.toArray().join(',');
-    for (let j=0; j<3; j++) {
-      if (box_list[j].childElementCount>0) {
-        let childidlist = [];
-        for (let jj=0; jj< box_list[j].childElementCount; jj++) {
-          let stimid = Number(box_list[j].children[jj].id);
-          img_cat_list[stimid].value = sorted_order[j].substr(-1);
-          childidlist.push(String(stimid));
-        };
-        boxchildren_list[j].value = childidlist.join(",");
-      } else {
-        boxchildren_list[j].value = "999"
-      };
-    };
-  }
-});
-
 
 // ドラッグ開始イベントを定義
 $(".item").draggable({

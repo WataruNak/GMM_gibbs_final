@@ -19,39 +19,39 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     easy_dataset = [
-        "https://imgur.com/Ok16AOf.jpg","https://imgur.com/E1tzbHT.jpg","https://imgur.com/TIYwSme.jpg","https://imgur.com/LxXzOcT.jpg",
-        "https://imgur.com/JaIDNbN.jpg","https://imgur.com/HzhseCT.jpg","https://imgur.com/yDAAcfa.jpg","https://imgur.com/0QLNi4i.jpg",
-        "https://imgur.com/u3uGowS.jpg","https://imgur.com/qnRjZh4.jpg",
-        "https://imgur.com/TFK2ZGm.jpg","https://imgur.com/RaeqdvY.jpg","https://imgur.com/O3OebCR.jpg","https://imgur.com/9iWwWM1.jpg",
-        "https://imgur.com/mJbqCYe.jpg","https://imgur.com/AofkRCU.jpg","https://imgur.com/GbqH1rT.jpg","https://imgur.com/14n5Njk.jpg",
-        "https://imgur.com/biwO9BY.jpg","https://imgur.com/oAAjKTi.jpg",
-        "https://imgur.com/aEo3RDS.jpg","https://imgur.com/6DNh3zy.jpg","https://imgur.com/NjIBgAk.jpg","https://imgur.com/J4xYRZl.jpg",
-        "https://imgur.com/QR2edYY.jpg","https://imgur.com/ef6tKlM.jpg","https://imgur.com/K7uRcI7.jpg","https://imgur.com/2J8HGUW.jpg",
-        "https://imgur.com/oePD1MJ.jpg","https://imgur.com/oePD1MJ.jpg"
+        "https://imgur.com/ZZzLzPi.jpg","https://imgur.com/dvXxCel.jpg","https://imgur.com/icA4YgN.jpg","https://imgur.com/54CnHrG.jpg",
+        "https://imgur.com/4B0vzv1.jpg","https://imgur.com/DgifDgs.jpg","https://imgur.com/8VZJBiq.jpg","https://imgur.com/F8V4XM6.jpg",
+        "https://imgur.com/i2OwITT.jpg","https://imgur.com/BfYgkFZ.jpg",
+        "https://imgur.com/ZcPHQV1.jpg","https://imgur.com/MPsWg32.jpg","https://imgur.com/qZXRbyM.jpg","https://imgur.com/pdWD2ah.jpg",
+        "https://imgur.com/0cD8UPF.jpg","https://imgur.com/agMr7gt.jpg","https://imgur.com/V7n1vcD.jpg","https://imgur.com/cd3sVrx.jpg",
+        "https://imgur.com/czNAM1L.jpg","https://imgur.com/4cgc2rK.jpg",
+        "https://imgur.com/7VWclM5.jpg","https://imgur.com/ZT9llfe.jpg","https://imgur.com/9s7WbZX.jpg","https://imgur.com/n1FFbbS.jpg",
+        "https://imgur.com/MqS4s6L.jpg","https://imgur.com/K2r0jrv.jpg","https://imgur.com/yl49vYJ.jpg","https://imgur.com/yXwWV9M.jpg",
+        "https://imgur.com/BvLXAoO.jpg","https://imgur.com/uDQDTOG.jpg"
         ]
 
     medium_dataset = [
-        "https://imgur.com/oVrfxZw.jpg","https://imgur.com/TkW80Ck.jpg","https://imgur.com/GtymY98.jpg","https://imgur.com/7FGU28E.jpg",
-        "https://imgur.com/3g3TFbH.jpg","https://imgur.com/YLcHzhf.jpg","https://imgur.com/erk07Pi.jpg","https://imgur.com/y9FXwvs.jpg",
-        "https://imgur.com/aXt6xf1.jpg","https://imgur.com/LScSBWQ.jpg",
-        "https://imgur.com/uZrmYFn.jpg","https://imgur.com/Zgsza4K.jpg","https://imgur.com/VhXqX1n.jpg","https://imgur.com/tYhIHr1.jpg",
-        "https://imgur.com/bu5P0gG.jpg","https://imgur.com/tdUO3lT.jpg","https://imgur.com/RIe5q7d.jpg","https://imgur.com/yCAO7Ro.jpg",
-        "https://imgur.com/eNdE7J9.jpg","https://imgur.com/1JfUNup.jpg",
-        "https://imgur.com/gEtMtJ0.jpg","https://imgur.com/YfgQPsC.jpg","https://imgur.com/EZbWMPw.jpg","https://imgur.com/h3cBOKh.jpg",
-        "https://imgur.com/sJuxYOJ.jpg","https://imgur.com/kxtLzmv.jpg","https://imgur.com/0x3U7Xj.jpg","https://imgur.com/1af1D9h.jpg",
-        "https://imgur.com/IjzowZ2.jpg","https://imgur.com/K7NcZ3S.jpg"
+        "https://imgur.com/2v96Nsz.jpg","https://imgur.com/o00ZR5n.jpg","https://imgur.com/gN8wVFP.jpg","https://imgur.com/CFnriY9.jpg",
+        "https://imgur.com/eOykFKN.jpg","https://imgur.com/v7CrjSU.jpg","https://imgur.com/RWQm2rR.jpg","https://imgur.com/UrHdEWO.jpg",
+        "https://imgur.com/UrHdEWO.jpg","https://imgur.com/9iu6bEv.jpg",
+        "https://imgur.com/oFhKVpB.jpg","https://imgur.com/RhjO157.jpg","https://imgur.com/AU809mF.jpg","https://imgur.com/NgkPdaz.jpg",
+        "https://imgur.com/h5E1W8L.jpg","https://imgur.com/cS75xgN.jpg","https://imgur.com/795sB1f.jpg","https://imgur.com/dZAsMeP.jpg",
+        "https://imgur.com/46uFVaN.jpg","https://imgur.com/8053M8w.jpg",
+        "https://imgur.com/FSbrUrq.jpg","https://imgur.com/Cdo4t1e.jpg","https://imgur.com/IZr4MNc.jpg","https://imgur.com/Q1GUep3.jpg",
+        "https://imgur.com/Jv5lEGD.jpg","https://imgur.com/Uu39IuD.jpg","https://imgur.com/m3CosMY.jpg","https://imgur.com/NoMBW1m.jpg",
+        "https://imgur.com/o6xLXDK.jpg","https://imgur.com/EFR9FgA.jpg"
         ]
 
     difficult_dataset = [
-        "https://imgur.com/f7SqLNo.jpg","https://imgur.com/rBlF4mu.jpg","https://imgur.com/0WqM7kB.jpg","https://imgur.com/27A6jU2.jpg",
-        "https://imgur.com/e7kfVeV.jpg","https://imgur.com/LUjj2px.jpg",
-        "https://imgur.com/zgHZAP9.jpg","https://imgur.com/X9EE4u0.jpg","https://imgur.com/0PXQXGd.jpg","https://imgur.com/HOMn4V6.jpg",
-        "https://imgur.com/znWBdLv.jpg","https://imgur.com/ZWYsTZP.jpg","https://imgur.com/VKydSuN.jpg","https://imgur.com/75B7TQR.jpg",
-        "https://imgur.com/4dpcXkf.jpg","https://imgur.com/M81tl9O.jpg","https://imgur.com/lM4WQ5p.jpg","https://imgur.com/rRcgod4.jpg",
-        "https://imgur.com/vdaoN97.jpg","https://imgur.com/ZzEYWUp.jpg","https://imgur.com/iwhyjOw.jpg",
-        "https://imgur.com/ajWV0KL.jpg","https://imgur.com/XkUx41x.jpg","https://imgur.com/CB9XFGX.jpg","https://imgur.com/I1hgaCt.jpg",
-        "https://imgur.com/F3EpQIU.jpg","https://imgur.com/RKN9hEI.jpg","https://imgur.com/dGwAswt.jpg","https://imgur.com/tR5f11p.jpg",
-        "https://imgur.com/SsNAYPz.jpg"
+        "https://imgur.com/PL0CoPZ.jpg","https://imgur.com/foh6Ibq.jpg","https://imgur.com/BjD5uEp.jpg","https://imgur.com/z5FTEN3.jpg",
+        "https://imgur.com/RZRUxrT.jpg","https://imgur.com/izXDHXX.jpg","https://imgur.com/dsAQraw.jpg","https://imgur.com/qdzH3Vg.jpg",
+        "https://imgur.com/fFuUJ4v.jpg","https://imgur.com/7vbSeWK.jpg",
+        "https://imgur.com/Sc1Lv0t.jpg","https://imgur.com/m1R1YSU.jpg","https://imgur.com/6PB8fed.jpg","https://imgur.com/9xCx3sn.jpg",
+        "https://imgur.com/55kIIjk.jpg","https://imgur.com/dXOW7el.jpg","https://imgur.com/ZLtz0Fx.jpg","https://imgur.com/W32mzJj.jpg",
+        "https://imgur.com/WzJCz4p.jpg","https://imgur.com/XeRy4wv.jpg",
+        "https://imgur.com/JZYPEOl.jpg","https://imgur.com/rYBg9Cx.jpg","https://imgur.com/2TIu1Q7.jpg","https://imgur.com/6GH1yve.jpg",
+        "https://imgur.com/u7So8Jt.jpg","https://imgur.com/MZpbYY8.jpg","https://imgur.com/1bwVxIx.jpg","https://imgur.com/lH8u5LI.jpg",
+        "https://imgur.com/yRlUQR9.jpg","https://imgur.com/xAkNIXr.jpg"
         ]
     namepath_list = [
     "https://imgur.com/a2Q74iy.png","https://imgur.com/k9q8sBE.png","https://imgur.com/GWYaBNN.png",

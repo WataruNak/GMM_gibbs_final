@@ -2,14 +2,8 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='categorization_easy',
-        display_name="categorization_easy",
-        app_sequence=['categorization_easy'],
-        num_demo_participants=2,
-    ),
-    dict(
-        name='CategorizeGame_1prop_final',
-        display_name="CategorizeGame_show1_final",
+        name='CategorizeGame_only',
+        display_name="CategorizeGame",
         app_sequence=[
             'introduction_only',
             'categorization_easy',
@@ -19,10 +13,24 @@ SESSION_CONFIGS = [
         num_demo_participants=1,
     ),
     dict(
-        name='naminggame_one_feature',
-        display_name="Naming-game One feature",
-        app_sequence=['categorization_easy', 'create_symbol', 'final_result'],
-        num_demo_participants=2,
+        name='Questionnaire_only',
+        display_name="Questionnaire_only",
+        app_sequence=[
+            'questionnnaires'],
+        num_demo_participants=1,
+    ),
+    dict(
+        name='categorize_and_questionnaire',
+        display_name="Game and questionnaire",
+        app_sequence=[
+            'introduction_only',
+            'categorization_easy',
+            'categorization_mid',
+            'categorization_difficult',
+            'cat_final_result',
+            'questionnaires'
+            ],
+        num_demo_participants=1,
     ),
     # dict(
     #     name='public_goods',
@@ -73,7 +81,7 @@ SECRET_KEY = '3953047406988'
 
 ROOMS = [
     dict(
-        name='Categorize_show1',
+        name='categorize_and_questionnaire',
         display_name='待機ページ'
     ),
 ]

@@ -1,0 +1,17 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+<p>アンケート　10/12</p>
+<div style="width: 900px; text-align: left;"><span>
+    <p>各文章を読み、あなたに最も当てはまる表現を一つ選んで、数字に○をつけてください。</p>
+    <p><b>1 = まったくない   2 = たまに   3 = ときどき   4 = しばしば   5 = 非常にひんぱん   6 = いつも</b></p>
+    <br>
+    <p>全ての質問に答えたら、「次へ」ボタンを押してください。</p>
+    <br>
+    {{ formfields }}
+</span></div>
+
+    {{ next_button }}
+
+{{ endblock }}

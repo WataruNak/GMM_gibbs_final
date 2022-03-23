@@ -1,0 +1,17 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+<p>アンケート　4/12</p>
+<div style="width: 900px; text-align: left;"><span>
+    <p>この1週間、次のような問題にどのくらい頻繁（ひんぱん）に悩まされていますか？</p>
+    <p><b>0 = 全くない   1 = 数日   2 = 半分以上   3 = ほとんど毎日</b></p>
+    <br>
+    <p>全ての質問に答えたら、「次へ」ボタンを押してください。</p>
+    <br>
+    {{ formfields }}
+</span></div>
+
+    {{ next_button }}
+
+{{ endblock }}

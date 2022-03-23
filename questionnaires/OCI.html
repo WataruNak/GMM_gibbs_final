@@ -1,0 +1,17 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+<p>アンケート　3/12</p>
+<div style="width: 900px; text-align: left;"><span>
+    <p>以下の項目は、多くの人が<b>日常的に体験すること</b>です。<b>過去1ヶ月を振り返り、</b>これらの体験が<b>どのくらい苦痛だったか、どのくらいあなたを悩ませたか、</b>右側の数字ひとつに○をつけてください</p>
+    <p><b>0 = 全くなかった   1 = 少し   2 = 中程度に   3 = とても   4 = 非常に</b></p>
+    <br>
+    <p>全ての質問に答えたら、「次へ」ボタンを押してください。</p>
+    <br>
+    {{ formfields }}
+</span></div>
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,31 @@
+{{ block title }}
+    Page title
+{{ endblock }}
+{{ block content }}
+<p>アンケート　1/12</p>
+<div style="width: 900px; text-align: left;"><span>
+    <p>以下の質問に回答してください。</p>
+    <p>全ての質問に答えたら、「次へ」ボタンを押してください。</p>
+    <br>
+    {{ formfield 'age' }}
+    {{ formfield 'sex' }}
+    {{ formfield 'education' }}
+    {{ formfield 'profession' }}
+    {{ formfield 'height' }}
+    {{ formfield 'weight' }}
+    {{ formfield 'pmh' }}
+    <div id="what_pmh" style="visibility: hidden">
+    {{ formfield 'what_pmh' }}
+    </div>
+</span></div>
+
+<script>
+    if (
+      document.getElementById("pmh").value == 1) {
+      document.getElementById("what_pmh").style.visibility = "visible"
+    }
+</script>
+
+    {{ next_button }}
+
+{{ endblock }}

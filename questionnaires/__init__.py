@@ -1,5 +1,7 @@
 from random import choices
+from ssl import OP_NO_COMPRESSION
 from matplotlib import widgets
+from GMM_gibbs_final.categorization_mid import Introduction
 from otree.api import *
 
 
@@ -478,200 +480,200 @@ class Player(BasePlayer):
     stai_s_1 = models.IntegerField(
         label="平静である。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_2 = models.IntegerField(
         label="安心している。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_3 = models.IntegerField(
         label="固くなっている。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_4 = models.IntegerField(
         label="後悔している。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_5 = models.IntegerField(
         label="ホッとしている。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_6 = models.IntegerField(
         label="動転している。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_7 = models.IntegerField(
         label="まずいことが起こりそうで心配である。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_8 = models.IntegerField(
         label="ゆったりとした気持ちである。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_9 = models.IntegerField(
         label="不安である。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_10 = models.IntegerField(
         label="気分がよい。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_11 = models.IntegerField(
         label="自信がある。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_12 = models.IntegerField(
         label="ピリピリしている。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_13 = models.IntegerField(
         label="イライラしている。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_14 = models.IntegerField(
         label="緊張している。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_15 = models.IntegerField(
         label="リラックスしている。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_16 = models.IntegerField(
         label="満足している。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_17 = models.IntegerField(
         label="心配している。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_18 = models.IntegerField(
         label="ひどく興奮し，ろうばいしている。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_19 = models.IntegerField(
         label="ウキウキしている。 ",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_s_20 = models.IntegerField(
         label="楽しい。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
@@ -680,200 +682,200 @@ class Player(BasePlayer):
     stai_t_1 = models.IntegerField(
         label="楽しい。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_2 = models.IntegerField(
         label="疲れやすい。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_3 = models.IntegerField(
         label="泣きだしたくなる。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_4 = models.IntegerField(
         label="ほかの人と同じくらい幸せであったならと思う。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_5 = models.IntegerField(
         label="すぐに決心がつかず迷いやすい。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_6 = models.IntegerField(
         label="ゆったりした気持ちである。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_7 = models.IntegerField(
         label="平静・沈着で落ち着いている。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_8 = models.IntegerField(
         label="困難なことが重なると圧倒されてしまう。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_9 = models.IntegerField(
         label="実際に大したこともないが気になって仕方がない。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_10 = models.IntegerField(
         label="幸せである。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_11 = models.IntegerField(
         label="物事を難しく考える傾向がある。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_12 = models.IntegerField(
         label="自信が欠如している。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_13 = models.IntegerField(
         label="安心している。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_14 = models.IntegerField(
         label="やっかいなことは避けて通ろうとする。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_15 = models.IntegerField(
         label="憂うつである。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_16 = models.IntegerField(
         label="満足している。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_17 = models.IntegerField(
         label="些細なことに思いわずらう。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_18 = models.IntegerField(
         label="ひどくがっかりしたときには気分転換ができない。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_19 = models.IntegerField(
         label="物に動じないほうである。",
         choices = [
-            [4, "全くそうでない"],
-            [3, "いくぶんそうである"],
-            [2, "ほぼそうである"],
-            [1, "全くそうである"]
+            [4, "1"],
+            [3, "2"],
+            [2, "3"],
+            [1, "4"]
         ],
         widget=widgets.RadioSelect
     )
     stai_t_20 = models.IntegerField(
         label="身近な問題を考えるとひどく緊張し混乱する。",
         choices = [
-            [1, "全くそうでない"],
-            [2, "いくぶんそうである"],
-            [3, "ほぼそうである"],
-            [4, "全くそうである"]
+            [1, "1"],
+            [2, "2"],
+            [3, "3"],
+            [4, "4"]
         ],
         widget=widgets.RadioSelect
     )
@@ -881,252 +883,502 @@ class Player(BasePlayer):
     #AQ
     aq_1 = models.IntegerField(
         label="何かをするときには、一人でするよりも他の人といっしょにする方が好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_2 = models.IntegerField(
         label="同じやりかたを何度もくりかえし用いることが好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_3 = models.IntegerField(
         label="何かを想像するとき、映像（イメージ）を簡単に思い浮かべることができる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_4 = models.IntegerField(
         label="ほかのことがぜんぜん気にならなくなる（目に入らなくなる）くらい、何かに没頭してしまうことがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_5 = models.IntegerField(
         label="他の人が気がつかないような小さい物音に気がつくことがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_6 = models.IntegerField(
         label="車のナンバーや時刻表の数字などの一連の数字や、特に意味のない情報に注目する（こだわる）ことがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_7 = models.IntegerField(
         label="自分ではていねいに話したつもりでも、話し方が失礼だと周囲の人から言われることがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_8 = models.IntegerField(
         label="小説などの物語を読んでいるとき、登場人物がどのような人か（外見など）について簡単にイメージすることができる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_9 = models.IntegerField(
         label="日付についてのこだわりがある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_10 = models.IntegerField(
         label="パーティや会合などで、いろいろな人の会話についていくことが簡単にできる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_11 = models.IntegerField(
         label="自分がおかれている社会的な状況（自分の立場）がすぐにわかる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_12 = models.IntegerField(
         label="ほかの人は気がつかないような細かいことに、すぐに気づくことが多い。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_13 = models.IntegerField(
         label="パーティなどよりも、図書館に行く方が好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_14 = models.IntegerField(
         label="作り話には、すぐに気がつく（すぐわかる）。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_15 = models.IntegerField(
         label="モノよりも人間の方に魅力を感じる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_16 = models.IntegerField(
         label="それをそうすることができないとひどく混乱して（パニックになって）しまうほど、何かに強い興味を持つことがある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_17 = models.IntegerField(
         label="他の人と、雑談などのような社交的な会話を楽しむことができる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_18 = models.IntegerField(
         label="自分が話をしているときには、なかなか他の人に横から口をはさませない。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_19 = models.IntegerField(
         label="数字に対するこだわりがある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_20 = models.IntegerField(
         label="小説などを読んだり、テレビでドラマなどを観ているとき、登場人物の意図をよく理解できないことがある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_21 = models.IntegerField(
         label="小説のようなフィクションを読むのは、あまり好きではない。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_22 = models.IntegerField(
         label="新しい友人を作ることは、むずかしい。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_23 = models.IntegerField(
         label="いつでも、ものごとの中に何らかのパターン（型や決まりなど）のようなものに気づく。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_24 = models.IntegerField(
         label="博物館に行くよりも、劇場に行く方が好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_25 = models.IntegerField(
         label="自分の目標が妨害されても、混乱することはない。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_26 = models.IntegerField(
         label="会話をどのように進めたらいいのか、わからなくなってしまうことがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_27 = models.IntegerField(
         label="誰かと話しをしているときに、相手の話の‘言外の意味’を理解することは容易である。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_28 = models.IntegerField(
         label="細部よりも全体像に注意が向くことが多い。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_29 = models.IntegerField(
         label="電話番号をおぼえるのは苦手だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_30 = models.IntegerField(
         label="状況（部屋の様子やものなど）や人間の外見（服装や髪型）などが、いつもとちょっと違っているくらいでは、すぐには気がつかないことが多い。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_31 = models.IntegerField(
         label="自分の話を聞いている相手が退屈しているときには、どのように話をすればいいかわかっている。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_32 = models.IntegerField(
         label="同時に２つ以上のことをするのは、かんたんである。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_33 = models.IntegerField(
         label="電話で話をしているとき、自分が話をするタイミングがわからないことがある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_34 = models.IntegerField(
         label="自分から進んで何かをすることは楽しい。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_35 = models.IntegerField(
         label="冗談がわからないことがよくある。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_36 = models.IntegerField(
         label="相手の顔を見れば、その人が考えていることや感じていることがわかる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_37 = models.IntegerField(
         label="じゃまが入って何かを中断されても、すぐにそれまでやっていたことに戻ることができる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_38 = models.IntegerField(
         label="人と雑談のような社交的な会話をすることが得意だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_39 = models.IntegerField(
         label="同じことを何度も繰り返していると、周囲の人からよく言われる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_40 = models.IntegerField(
         label="子どものころ、友達といっしょに、よく‘○○ごっこ’（ごっこ遊び）をして遊んでいた。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_41 = models.IntegerField(
         label="特定の種類のものについての（車について、鳥について、植物についてのような）情報を集めることが好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_42 = models.IntegerField(
         label="あること（もの）を、他の人がどのように感じるかを想像するのは苦手だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_43 = models.IntegerField(
         label="自分がすることはどんなことでも慎重に計画するのが好きだ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_44 = models.IntegerField(
         label="社交的な場面（機会）は楽しい。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_45 = models.IntegerField(
         label="他の人の考え（意図）を理解することは苦手だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_46 = models.IntegerField(
         label="新しい場面（状況）に不安を感じる。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [1, "1"],
+            [1, "2"],
+            [0, "3"],
+            [0, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_47 = models.IntegerField(
         label="初対面の人と会うことは楽しい。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_48 = models.IntegerField(
         label="社交的である。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_49 = models.IntegerField(
         label="人の誕生日をおぼえるのは苦手だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     aq_50 = models.IntegerField(
         label="子どもと‘○○ごっこ’をして遊ぶのがとても得意だ。",
-        choices = [1, 2, 3, 4],
+        choices = [
+            [0, "1"],
+            [0, "2"],
+            [1, "3"],
+            [1, "4"]
+            ],
         widget=widgets.RadioSelectHorizontal
     )
     
@@ -1849,22 +2101,146 @@ class Player(BasePlayer):
             [4, "発達障害(自閉スペクトラム症、ADHD、広汎性発達障害を含む)"],
             [5, "その他/分からない"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelect,
+        initial=99
     )
 
 
 
 # PAGES
-class MyPage(Page):
+class Introduction(Page):
+    pass
+
+class Background(Page):
+    form_model = 'player'
+    form_fields = [
+        "age", "sex", "education", "profession", "height", "weight", "pmh", "what_pmh"
+    ]
+
+class SPQ_B(Page):
+    form_model = 'player'
+    form_fields = [
+        "spq_b_1", "spq_b_2", "spq_b_3", "spq_b_4", "spq_b_5",
+        "spq_b_6", "spq_b_7", "spq_b_8", "spq_b_9", "spq_b_10",
+        "spq_b_11", "spq_b_12", "spq_b_13", "spq_b_14", "spq_b_15",
+        "spq_b_16", "spq_b_17", "spq_b_18", "spq_b_19", "spq_b_20",
+        "spq_b_21", "spq_b_22"
+    ]
+                
+class OCI(Page):
+    form_model = 'player'
+    form_fields = [
+        "oci_1", "oci_2", "oci_3", "oci_4", "oci_5",
+        "oci_6", "oci_7", "oci_8", "oci_9", "oci_10",
+        "oci_11", "oci_12", "oci_13", "oci_14", "oci_15",
+        "oci_16", "oci_17", "oci_18", "oci_19", "oci_20",
+        "oci_21", "oci_22", "oci_23", "oci_24", "oci_25",
+        "oci_26", "oci_27", "oci_28", "oci_29", "oci_30",
+        "oci_31", "oci_32", "oci_33", "oci_34", "oci_35",
+        "oci_36", "oci_37", "oci_38", "oci_39", "oci_40"
+        ]
+
+class PHQ_9(Page):
+    form_model = 'player'
+    form_fields = [
+        "phq_9_1", "phq_9_2", "phq_9_3", "phq_9_4", "phq_9_5",
+        "phq_9_6", "phq_9_7", "phq_9_8", "phq_9_9"
+    ]
+
+class STAI_S(Page):
+    form_model = 'player'
+    form_fields = [
+        "stai_s_1", "stai_s_2", "stai_s_3", "stai_s_4", "stai_s_5",
+        "stai_s_6", "stai_s_7", "stai_s_8", "stai_s_9", "stai_s_10",
+        "stai_s_11", "stai_s_12", "stai_s_13", "stai_s_14", "stai_s_15",
+        "stai_s_16", "stai_s_17", "stai_s_18", "stai_s_19", "stai_s_20"
+        ]
+
+class STAI_T(Page):
+    form_model = 'player'
+    form_fields = [
+        "stai_t_1", "stai_t_2", "stai_t_3", "stai_t_4", "stai_t_5",
+        "stai_t_6", "stai_t_7", "stai_t_8", "stai_t_9", "stai_t_10",
+        "stai_t_11", "stai_t_12", "stai_t_13", "stai_t_14", "stai_t_15",
+        "stai_t_16", "stai_t_17", "stai_t_18", "stai_t_19", "stai_t_20"
+        ]
+
+class AQ(Page):
+    form_model = 'player'
+    form_fields = [
+        "aq_1", "aq_2", "aq_3", "aq_4", "aq_5",
+        "aq_6", "aq_7", "aq_8", "aq_9", "aq_10",
+        "aq_11", "aq_12", "aq_13", "aq_14", "aq_15",
+        "aq_16", "aq_17", "aq_18", "aq_19", "aq_20",
+        "aq_21", "aq_22", "aq_23", "aq_24", "aq_25",
+        "aq_26", "aq_27", "aq_28", "aq_29", "aq_30",
+        "aq_31", "aq_32", "aq_33", "aq_34", "aq_35",
+        "aq_36", "aq_37", "aq_38", "aq_39", "aq_40",
+        "aq_41", "aq_42", "aq_43", "aq_44", "aq_45",
+        "aq_46", "aq_47", "aq_48", "aq_49", "aq_50"
+        ]
+
+class ASRS(Page):
+    form_model = 'player'
+    form_fields = [
+        "asrs_1", "asrs_2", "asrs_3", "asrs_4", "asrs_5",
+        "asrs_6", "asrs_7", "asrs_8", "asrs_9", "asrs_10",
+        "asrs_11", "asrs_12", "asrs_13", "asrs_14", "asrs_15",
+        "asrs_16", "asrs_17", "asrs_18"
+        ]
+
+class AUDIT(Page):
+    form_model = 'player'
+    form_fields = [
+        "audit_1", "audit_2", "audit_3", "audit_4", "audit_5",
+        "audit_6", "audit_7", "audit_8", "audit_9", "audit_10"
+        ]
+
+class EAT(Page):
+    form_model = 'player'
+    form_fields = [
+        "eat_1", "eat_2", "eat_3", "eat_4", "eat_5",
+        "eat_6", "eat_7", "eat_8", "eat_9", "eat_10",
+        "eat_11", "eat_12", "eat_13", "eat_14", "eat_15",
+        "eat_16", "eat_17", "eat_18", "eat_19", "eat_20",
+        "eat_21", "eat_22", "eat_23", "eat_24", "eat_25",
+        "eat_26"
+        ]
+
+class DSM5(Page):
+    form_model = 'player'
+    form_fields = [
+        "dsm5_1", "dsm5_2", "dsm5_3", "dsm5_4", "dsm5_5",
+        "dsm5_6", "dsm5_7", "dsm5_8", "dsm5_9", "dsm5_10",
+        "dsm5_11", "dsm5_12", "dsm5_13", "dsm5_14", "dsm5_15",
+        "dsm5_16", "dsm5_17", "dsm5_18", "dsm5_19", "dsm5_20",
+        "dsm5_21", "dsm5_22", "dsm5_23"
+        ]
+
+class SES(Page):
+    form_model = 'player'
+    form_fields = [
+        "ses_1", "ses_2", "ses_3", "ses_4", "ses_5",
+        "ses_6"
+        ]
+
+class Finish(Page):
     pass
 
 
-class ResultsWaitPage(WaitPage):
-    pass
-
-
-class Results(Page):
-    pass
-
-
-page_sequence = [MyPage, ResultsWaitPage, Results]
+page_sequence = [
+    Introduction,
+    Background,
+    SPQ_B,
+    OCI,
+    PHQ_9,
+    STAI_S,
+    STAI_T,
+    AQ,
+    ASRS,
+    AUDIT,
+    EAT,
+    DSM5,
+    SES,
+    Finish
+    ]

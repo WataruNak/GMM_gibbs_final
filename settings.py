@@ -15,13 +15,12 @@ SESSION_CONFIGS = [
     dict(
         name='Questionnaire_only',
         display_name="Questionnaire_only",
-        app_sequence=[
-            'questionnnaires'],
+        app_sequence=['questionnaires'],
         num_demo_participants=1,
     ),
     dict(
-        name='categorize_and_questionnaire',
-        display_name="Game and questionnaire",
+        name='categorize_and_full_questionnaire',
+        display_name="Game and full questionnaire",
         app_sequence=[
             'introduction_only',
             'categorization_easy',
@@ -31,6 +30,19 @@ SESSION_CONFIGS = [
             'questionnaires'
             ],
         num_demo_participants=1,
+    ),
+    dict(
+        name='categorize_and_brief_questionnaire',
+        display_name="Game and brief questionnaire",
+        app_sequence=[
+            'introduction_only',
+            'categorization_easy',
+            'categorization_mid',
+            'categorization_difficult',
+            'cat_final_result',
+            'brief_questionnaires'
+            ],
+        num_demo_participants=50,
     ),
     # dict(
     #     name='public_goods',

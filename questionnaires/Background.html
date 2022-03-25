@@ -1,8 +1,7 @@
 {{ block title }}
-    Page title
+    アンケート　1/12
 {{ endblock }}
 {{ block content }}
-<p>アンケート　1/12</p>
 <div style="width: 900px; text-align: left;"><span>
     <p>以下の質問に回答してください。</p>
     <p>全ての質問に答えたら、「次へ」ボタンを押してください。</p>
@@ -13,16 +12,27 @@
     {{ formfield 'profession' }}
     {{ formfield 'height' }}
     {{ formfield 'weight' }}
-    {{ formfield 'pmh' }}
+    <label>
+    7. これまで医師による精神疾患の診断を受けたことがありますか？
+    <br>
+    <input type="radio" name="pmh" value="1" style="transform:scale(1.2)" onClick="Check(1)"> はい
+    <br>
+    <input type="radio" name="pmh" value="0" style="transform:scale(1.2)" onClick="Check(2)"> いいえ
+    </label>
     <div id="what_pmh" style="visibility: hidden">
+    <br>
+    <p>※質問8は、質問7の答えが「はい」の場合のみお答えください。</p>
     {{ formfield 'what_pmh' }}
     </div>
 </span></div>
 
 <script>
-    if (
-      document.getElementById("pmh").value == 1) {
-      document.getElementById("what_pmh").style.visibility = "visible"
+    function Check(btn) {
+        if (btn == 1) {
+            document.getElementById("what_pmh").style.visibility = "visible"
+        } else if (btn == 2) {
+            document.getElementById("what_pmh").style.visibility = "hidden"
+        }
     }
 </script>
 

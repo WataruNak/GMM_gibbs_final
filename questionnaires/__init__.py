@@ -1,11 +1,12 @@
-from random import choices
-from ssl import OP_NO_COMPRESSION
-from matplotlib import widgets
-from GMM_gibbs_final.categorization_mid import Introduction
 from otree.api import *
 
 
 doc = """
+from random import choices
+from ssl import OP_NO_COMPRESSION
+from matplotlib import widgets
+from GMM_gibbs_final.categorization_mid import Introduction
+
 SPQ-B
 OCI
 PHQ-9
@@ -485,7 +486,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_2 = models.IntegerField(
         label="安心している。",
@@ -495,7 +496,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_3 = models.IntegerField(
         label="固くなっている。",
@@ -505,7 +506,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_4 = models.IntegerField(
         label="後悔している。",
@@ -515,7 +516,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_5 = models.IntegerField(
         label="ホッとしている。",
@@ -525,7 +526,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_6 = models.IntegerField(
         label="動転している。",
@@ -535,7 +536,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_7 = models.IntegerField(
         label="まずいことが起こりそうで心配である。",
@@ -545,7 +546,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_8 = models.IntegerField(
         label="ゆったりとした気持ちである。",
@@ -555,7 +556,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_9 = models.IntegerField(
         label="不安である。",
@@ -565,7 +566,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_10 = models.IntegerField(
         label="気分がよい。",
@@ -575,7 +576,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_11 = models.IntegerField(
         label="自信がある。",
@@ -585,7 +586,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_12 = models.IntegerField(
         label="ピリピリしている。",
@@ -595,7 +596,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_13 = models.IntegerField(
         label="イライラしている。",
@@ -605,7 +606,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_14 = models.IntegerField(
         label="緊張している。",
@@ -615,7 +616,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_15 = models.IntegerField(
         label="リラックスしている。",
@@ -625,7 +626,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_16 = models.IntegerField(
         label="満足している。",
@@ -635,7 +636,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_17 = models.IntegerField(
         label="心配している。",
@@ -645,7 +646,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_18 = models.IntegerField(
         label="ひどく興奮し，ろうばいしている。",
@@ -655,7 +656,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_19 = models.IntegerField(
         label="ウキウキしている。 ",
@@ -665,7 +666,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_s_20 = models.IntegerField(
         label="楽しい。",
@@ -675,7 +676,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     
     #STAI X-II(trait)
@@ -687,7 +688,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_2 = models.IntegerField(
         label="疲れやすい。",
@@ -697,7 +698,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_3 = models.IntegerField(
         label="泣きだしたくなる。",
@@ -707,7 +708,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_4 = models.IntegerField(
         label="ほかの人と同じくらい幸せであったならと思う。",
@@ -717,7 +718,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_5 = models.IntegerField(
         label="すぐに決心がつかず迷いやすい。",
@@ -727,7 +728,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_6 = models.IntegerField(
         label="ゆったりした気持ちである。",
@@ -737,7 +738,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_7 = models.IntegerField(
         label="平静・沈着で落ち着いている。",
@@ -747,7 +748,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_8 = models.IntegerField(
         label="困難なことが重なると圧倒されてしまう。",
@@ -757,7 +758,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_9 = models.IntegerField(
         label="実際に大したこともないが気になって仕方がない。",
@@ -767,7 +768,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_10 = models.IntegerField(
         label="幸せである。",
@@ -777,7 +778,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_11 = models.IntegerField(
         label="物事を難しく考える傾向がある。",
@@ -787,7 +788,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_12 = models.IntegerField(
         label="自信が欠如している。",
@@ -797,7 +798,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_13 = models.IntegerField(
         label="安心している。",
@@ -807,7 +808,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_14 = models.IntegerField(
         label="やっかいなことは避けて通ろうとする。",
@@ -817,7 +818,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_15 = models.IntegerField(
         label="憂うつである。",
@@ -827,7 +828,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_16 = models.IntegerField(
         label="満足している。",
@@ -837,7 +838,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_17 = models.IntegerField(
         label="些細なことに思いわずらう。",
@@ -847,7 +848,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_18 = models.IntegerField(
         label="ひどくがっかりしたときには気分転換ができない。",
@@ -857,7 +858,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_19 = models.IntegerField(
         label="物に動じないほうである。",
@@ -867,7 +868,7 @@ class Player(BasePlayer):
             [2, "3"],
             [1, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     stai_t_20 = models.IntegerField(
         label="身近な問題を考えるとひどく緊張し混乱する。",
@@ -877,7 +878,7 @@ class Player(BasePlayer):
             [3, "3"],
             [4, "4"]
         ],
-        widget=widgets.RadioSelect
+        widget=widgets.RadioSelectHorizontal
     )
     
     #AQ
@@ -2016,39 +2017,39 @@ class Player(BasePlayer):
     #SES
     ses_1 = models.IntegerField(
         label="私の家族は生活するのに十分なお金を持っていた",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     ses_2 = models.IntegerField(
         label="私は比較的裕福な地域で育った",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     ses_3 = models.IntegerField(
         label="私は学校の他の子供たちと比べて裕福であると感じていた",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     ses_4 = models.IntegerField(
         label="私は欲しい物を買えるお金を持っている",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     ses_5 = models.IntegerField(
         label="私はお金を支払う事に対してあまり躊躇することがない",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     ses_6 = models.IntegerField(
         label="私は将来的にお金の心配をする必要があるとは思わない",
-        choices = [0, 1, 2, 3, 4, 5, 6, 7],
+        choices = [1, 2, 3, 4, 5, 6, 7],
         widget=widgets.RadioSelectHorizontal
     )
     
     #othres
-    age = models.IntegerField(label="年齢：")
+    age = models.IntegerField(label="1. 年齢：")
     sex = models.IntegerField(
-        label="性別：",
+        label="2. 性別：",
         choices = [
             [0, "男性"],
             [1, "女性"],
@@ -2056,7 +2057,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
         )
     education = models.IntegerField(
-        label="最終学歴：",
+        label="3. 最終学歴：",
         choices = [
             [0, "中学校卒業"],
             [1, "高校卒業"],
@@ -2066,7 +2067,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
         )
     profession = models.IntegerField(
-        label="職業：",
+        label="4. 職業：",
         choices = [
             [0, "会社員"],
             [1, "公務員"],
@@ -2081,10 +2082,10 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
-    height = models.IntegerField(label="身長(整数で)：")
-    weight = models.IntegerField(label="体重(整数で)：")
+    height = models.IntegerField(label="5. 身長(半角、1の位まで)：")
+    weight = models.IntegerField(label="6. 体重(半角、1の位まで)：")
     pmh = models.IntegerField(
-        label = "これまで医師による精神疾患の診断を受けたことがありますか？",
+        label = "7. これまで医師による精神疾患の診断を受けたことがありますか？",
         choices = [
             [1, "はい"],
             [0, "いいえ"]
@@ -2092,7 +2093,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     what_pmh = models.IntegerField(
-        label="その診断名はどれですか？",
+        label="8. その診断名はどれですか？",
         choices = [
             [0, "統合失調症"],
             [1, "躁うつ病/うつ病"],
@@ -2102,9 +2103,128 @@ class Player(BasePlayer):
             [5, "その他/分からない"]
         ],
         widget=widgets.RadioSelect,
-        initial=99
+        initial=99,
+        blank=True
     )
 
+def custom_export(players):
+    yield [
+        "session",
+        "participant_code", "started_time",
+        "age", "sex", "education", "profession", "height", "weight", "pmh", "what_pmh",
+        "spq_b_1", "spq_b_2", "spq_b_3", "spq_b_4", "spq_b_5",
+        "spq_b_6", "spq_b_7", "spq_b_8", "spq_b_9", "spq_b_10",
+        "spq_b_11", "spq_b_12", "spq_b_13", "spq_b_14", "spq_b_15",
+        "spq_b_16", "spq_b_17", "spq_b_18", "spq_b_19", "spq_b_20",
+        "spq_b_21", "spq_b_22",
+        "oci_1", "oci_2", "oci_3", "oci_4", "oci_5",
+        "oci_6", "oci_7", "oci_8", "oci_9", "oci_10",
+        "oci_11", "oci_12", "oci_13", "oci_14", "oci_15",
+        "oci_16", "oci_17", "oci_18", "oci_19", "oci_20",
+        "oci_21", "oci_22", "oci_23", "oci_24", "oci_25",
+        "oci_26", "oci_27", "oci_28", "oci_29", "oci_30",
+        "oci_31", "oci_32", "oci_33", "oci_34", "oci_35",
+        "oci_36", "oci_37", "oci_38", "oci_39", "oci_40",
+        "phq_9_1", "phq_9_2", "phq_9_3", "phq_9_4", "phq_9_5",
+        "phq_9_6", "phq_9_7", "phq_9_8", "phq_9_9",
+        "stai_s_1", "stai_s_2", "stai_s_3", "stai_s_4", "stai_s_5",
+        "stai_s_6", "stai_s_7", "stai_s_8", "stai_s_9", "stai_s_10",
+        "stai_s_11", "stai_s_12", "stai_s_13", "stai_s_14", "stai_s_15",
+        "stai_s_16", "stai_s_17", "stai_s_18", "stai_s_19", "stai_s_20",
+        "stai_t_1", "stai_t_2", "stai_t_3", "stai_t_4", "stai_t_5",
+        "stai_t_6", "stai_t_7", "stai_t_8", "stai_t_9", "stai_t_10",
+        "stai_t_11", "stai_t_12", "stai_t_13", "stai_t_14", "stai_t_15",
+        "stai_t_16", "stai_t_17", "stai_t_18", "stai_t_19", "stai_t_20",
+        "aq_1", "aq_2", "aq_3", "aq_4", "aq_5",
+        "aq_6", "aq_7", "aq_8", "aq_9", "aq_10",
+        "aq_11", "aq_12", "aq_13", "aq_14", "aq_15",
+        "aq_16", "aq_17", "aq_18", "aq_19", "aq_20",
+        "aq_21", "aq_22", "aq_23", "aq_24", "aq_25",
+        "aq_26", "aq_27", "aq_28", "aq_29", "aq_30",
+        "aq_31", "aq_32", "aq_33", "aq_34", "aq_35",
+        "aq_36", "aq_37", "aq_38", "aq_39", "aq_40",
+        "aq_41", "aq_42", "aq_43", "aq_44", "aq_45",
+        "aq_46", "aq_47", "aq_48", "aq_49", "aq_50",
+        "asrs_1", "asrs_2", "asrs_3", "asrs_4", "asrs_5",
+        "asrs_6", "asrs_7", "asrs_8", "asrs_9", "asrs_10",
+        "asrs_11", "asrs_12", "asrs_13", "asrs_14", "asrs_15",
+        "asrs_16", "asrs_17", "asrs_18",
+        "audit_1", "audit_2", "audit_3", "audit_4", "audit_5",
+        "audit_6", "audit_7", "audit_8", "audit_9", "audit_10",
+        "eat_1", "eat_2", "eat_3", "eat_4", "eat_5",
+        "eat_6", "eat_7", "eat_8", "eat_9", "eat_10",
+        "eat_11", "eat_12", "eat_13", "eat_14", "eat_15",
+        "eat_16", "eat_17", "eat_18", "eat_19", "eat_20",
+        "eat_21", "eat_22", "eat_23", "eat_24", "eat_25",
+        "eat_26",
+        "dsm5_1", "dsm5_2", "dsm5_3", "dsm5_4", "dsm5_5",
+        "dsm5_6", "dsm5_7", "dsm5_8", "dsm5_9", "dsm5_10",
+        "dsm5_11", "dsm5_12", "dsm5_13", "dsm5_14", "dsm5_15",
+        "dsm5_16", "dsm5_17", "dsm5_18", "dsm5_19", "dsm5_20",
+        "dsm5_21", "dsm5_22", "dsm5_23",
+        "ses_1", "ses_2", "ses_3", "ses_4", "ses_5",
+        "ses_6"
+        ]
+    for p in players:
+        participant = p.participant
+        session = p.session
+        yield [
+            session.code,
+            participant.code, participant.time_started_utc,
+            p.age, p.sex, p.education, p.profession, p.height, p.weight, p.pmh, p.what_pmh,
+            p.spq_b_1, p.spq_b_2, p.spq_b_3, p.spq_b_4, p.spq_b_5,
+            p.spq_b_6, p.spq_b_7, p.spq_b_8, p.spq_b_9, p.spq_b_10,
+            p.spq_b_11, p.spq_b_12, p.spq_b_13, p.spq_b_14, p.spq_b_15,
+            p.spq_b_16, p.spq_b_17, p.spq_b_18, p.spq_b_19, p.spq_b_20,
+            p.spq_b_21, p.spq_b_22,
+            p.oci_1, p.oci_2, p.oci_3, p.oci_4, p.oci_5,
+            p.oci_6, p.oci_7, p.oci_8, p.oci_9, p.oci_10,
+            p.oci_11, p.oci_12, p.oci_13, p.oci_14, p.oci_15,
+            p.oci_16, p.oci_17, p.oci_18, p.oci_19, p.oci_20,
+            p.oci_21, p.oci_22, p.oci_23, p.oci_24, p.oci_25,
+            p.oci_26, p.oci_27, p.oci_28, p.oci_29, p.oci_30,
+            p.oci_31, p.oci_32, p.oci_33, p.oci_34, p.oci_35,
+            p.oci_36, p.oci_37, p.oci_38, p.oci_39, p.oci_40,
+            p.phq_9_1, p.phq_9_2, p.phq_9_3, p.phq_9_4, p.phq_9_5,
+            p.phq_9_6, p.phq_9_7, p.phq_9_8, p.phq_9_9,
+            p.stai_s_1, p.stai_s_2, p.stai_s_3, p.stai_s_4, p.stai_s_5,
+            p.stai_s_6, p.stai_s_7, p.stai_s_8, p.stai_s_9, p.stai_s_10,
+            p.stai_s_11, p.stai_s_12, p.stai_s_13, p.stai_s_14, p.stai_s_15,
+            p.stai_s_16, p.stai_s_17, p.stai_s_18, p.stai_s_19, p.stai_s_20,
+            p.stai_t_1, p.stai_t_2, p.stai_t_3, p.stai_t_4, p.stai_t_5,
+            p.stai_t_6, p.stai_t_7, p.stai_t_8, p.stai_t_9, p.stai_t_10,
+            p.stai_t_11, p.stai_t_12, p.stai_t_13, p.stai_t_14, p.stai_t_15,
+            p.stai_t_16, p.stai_t_17, p.stai_t_18, p.stai_t_19, p.stai_t_20,
+            p.aq_1, p.aq_2, p.aq_3, p.aq_4, p.aq_5,
+            p.aq_6, p.aq_7, p.aq_8, p.aq_9, p.aq_10,
+            p.aq_11, p.aq_12, p.aq_13, p.aq_14, p.aq_15,
+            p.aq_16, p.aq_17, p.aq_18, p.aq_19, p.aq_20,
+            p.aq_21, p.aq_22, p.aq_23, p.aq_24, p.aq_25,
+            p.aq_26, p.aq_27, p.aq_28, p.aq_29, p.aq_30,
+            p.aq_31, p.aq_32, p.aq_33, p.aq_34, p.aq_35,
+            p.aq_36, p.aq_37, p.aq_38, p.aq_39, p.aq_40,
+            p.aq_41, p.aq_42, p.aq_43, p.aq_44, p.aq_45,
+            p.aq_46, p.aq_47, p.aq_48, p.aq_49, p.aq_50,
+            p.asrs_1, p.asrs_2, p.asrs_3, p.asrs_4, p.asrs_5,
+            p.asrs_6, p.asrs_7, p.asrs_8, p.asrs_9, p.asrs_10,
+            p.asrs_11, p.asrs_12, p.asrs_13, p.asrs_14, p.asrs_15,
+            p.asrs_16, p.asrs_17, p.asrs_18,
+            p.audit_1, p.audit_2, p.audit_3, p.audit_4, p.audit_5,
+            p.audit_6, p.audit_7, p.audit_8, p.audit_9, p.audit_10,
+            p.eat_1, p.eat_2, p.eat_3, p.eat_4, p.eat_5,
+            p.eat_6, p.eat_7, p.eat_8, p.eat_9, p.eat_10,
+            p.eat_11, p.eat_12, p.eat_13, p.eat_14, p.eat_15,
+            p.eat_16, p.eat_17, p.eat_18, p.eat_19, p.eat_20,
+            p.eat_21, p.eat_22, p.eat_23, p.eat_24, p.eat_25,
+            p.eat_26,
+            p.dsm5_1, p.dsm5_2, p.dsm5_3, p.dsm5_4, p.dsm5_5,
+            p.dsm5_6, p.dsm5_7, p.dsm5_8, p.dsm5_9, p.dsm5_10,
+            p.dsm5_11, p.dsm5_12, p.dsm5_13, p.dsm5_14, p.dsm5_15,
+            p.dsm5_16, p.dsm5_17, p.dsm5_18, p.dsm5_19, p.dsm5_20,
+            p.dsm5_21, p.dsm5_22, p.dsm5_23,
+            p.ses_1, p.ses_2, p.ses_3, p.ses_4, p.ses_5,
+            p.ses_6
+            ]
 
 
 # PAGES

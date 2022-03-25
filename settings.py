@@ -70,10 +70,7 @@ PARTICIPANT_FIELDS = [
     "img_choice", "showed_imgs", "showed_imgs4log", "stimuli_img_order", "loghtml_list",
     "final_round_num", "final_ip_kappa", "final_c_kappa", "final_ari",
     ]
-SESSION_FIELDS = [
-    "img_choice1","img_choice2","img_choice3","img_choice4","img_choice5",
-    "img_choice6","img_choice7","img_choice0"
-    ]
+SESSION_FIELDS = []
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

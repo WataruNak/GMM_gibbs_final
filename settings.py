@@ -42,7 +42,7 @@ SESSION_CONFIGS = [
             'cat_final_result',
             'brief_questionnaires'
             ],
-        num_demo_participants=50,
+        num_demo_participants=1,
     ),
     # dict(
     #     name='public_goods',

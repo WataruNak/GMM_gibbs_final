@@ -62,11 +62,11 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = [
     "e_img_category_list", "e_stimuli_id_list", "e_default_nameorder", "e_imghtml_order",
-    "e_box0_items", "e_box1_items", "e_box2_items", "e_ari",
+    "e_box0_items", "e_box1_items", "e_box2_items", "e_ari", "e_count",
     "m_img_category_list", "m_stimuli_id_list", "m_default_nameorder", "m_imghtml_order",
-    "m_box0_items", "m_box1_items", "m_box2_items", "m_ari",
+    "m_box0_items", "m_box1_items", "m_box2_items", "m_ari", "m_count",
     "d_img_category_list", "d_stimuli_id_list", "d_default_nameorder", "d_imghtml_order",
-    "d_box0_items", "d_box1_items", "d_box2_items", "d_ari",
+    "d_box0_items", "d_box1_items", "d_box2_items", "d_ari", "d_count",
     "img_choice", "showed_imgs", "showed_imgs4log", "stimuli_img_order", "loghtml_list",
     "final_round_num", "final_ip_kappa", "final_c_kappa", "final_ari",
     ]

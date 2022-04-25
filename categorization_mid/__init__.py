@@ -123,11 +123,12 @@ class Player(BasePlayer):
     box2_children = models.StringField(default="999")
 
     c_ari = models.FloatField()
+    count = models.IntegerField(initial=0)
 
 
 def custom_export(players):
     yield [
-        "session", "participant_code", "started_time", "c_ari",
+        "session", "participant_code", "started_time", "c_ari", "m_count",
         "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
         "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
         "img10_cat", "img11_cat", "img12_cat", "img13_cat", "img14_cat",
@@ -139,7 +140,7 @@ def custom_export(players):
         participant = p.participant
         session = p.session
         yield [
-            session.code, participant.code, participant.time_started_utc, p.c_ari,
+            session.code, participant.code, participant.time_started_utc, p.c_ari, participant.m_count,
             p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
             p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
             p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
@@ -160,7 +161,7 @@ class ddtest(Page):
 class Categorize(Page):
     form_model = 'player'
     form_fields = [
-        "name_order", 
+        "name_order", "count",
         "box0_children", "box1_children", "box2_children",
         "img0_cat", "img1_cat", "img2_cat", "img3_cat", "img4_cat",
         "img5_cat", "img6_cat", "img7_cat", "img8_cat", "img9_cat",
@@ -184,6 +185,7 @@ class Categorize(Page):
             player.participant.m_img_category_list = []
             for _ in range(Constants.num_rounds):
                 player.participant.m_img_category_list.append(99)
+            player.participant.m_count = 0
         
         showed_img = player.participant.m_imghtml_order[player.round_number-1]
 
@@ -271,6 +273,8 @@ class Categorize(Page):
             player.participant.m_box2_items = [999,]
         else:
             player.participant.m_box2_items = [int(b2i) for b2i in player.box2_children.split(",")]
+        
+        player.participant.m_count += player.count
 
 
 class Results(Page):

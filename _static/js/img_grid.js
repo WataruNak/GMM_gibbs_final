@@ -82,6 +82,7 @@ $(".box").droppable({
         boxchildren_list[k].value = "999"
       };
     }
+    document.getElementById("count").value++;
     if (
       document.getElementById(imgcatpath_list[showed_img_id]).value != "99") {
       document.getElementById("button_to_se").style.visibility = "visible"

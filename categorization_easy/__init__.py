@@ -202,14 +202,6 @@ class Introduction(Page):
     def is_displayed(player: Player):
         return player.round_number == 1
 
-class ddtest(Page):
-    def vars_for_template(player: Player):
-        return {"imghtml_list" : Constants.imghtml_list}
-
-class jquerytest(Page):
-    def vars_for_template(player: Player):
-        return {"imghtml_list" : Constants.imghtml_list}
-
 class Categorize(Page):
     form_model = 'player'
     form_fields = [

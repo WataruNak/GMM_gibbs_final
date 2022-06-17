@@ -22,6 +22,7 @@ SESSION_CONFIGS = [
         name='categorize_and_full_questionnaire',
         display_name="Game and full questionnaire",
         app_sequence=[
+            'informed_consent',
             'introduction_only',
             'categorization_easy',
             'categorization_mid',
@@ -35,6 +36,7 @@ SESSION_CONFIGS = [
         name='categorize_and_brief_questionnaire',
         display_name="Game and brief questionnaire",
         app_sequence=[
+            'informed_consent',
             'introduction_only',
             'categorization_easy',
             'categorization_mid',

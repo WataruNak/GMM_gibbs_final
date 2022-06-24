@@ -2004,7 +2004,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     dsm5_22 = models.IntegerField(
-        label="紙巻タバコ、葉巻、パイプ、噛みタバコ、嗅ぎタバコなどを喫煙しますか？",
+        label="紙巻タバコ、葉巻、パイプ、噛みタバコ、嗅ぎタバコ、電子タバコなどを喫煙しますか？",
         choices = [0, 1, 2, 3, 4],
         widget=widgets.RadioSelectHorizontal
     )
@@ -2053,6 +2053,7 @@ class Player(BasePlayer):
         choices = [
             [0, "男性"],
             [1, "女性"],
+            [2, "答えたくない"]
         ],
         widget=widgets.RadioSelectHorizontal
         )

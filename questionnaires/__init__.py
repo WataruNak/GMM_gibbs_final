@@ -2348,6 +2348,9 @@ class SES(Page):
 class Finish(Page):
     pass
 
+class KeyCode(Page):
+    pass
+
 
 page_sequence = [
     Introduction,
@@ -2363,5 +2366,6 @@ page_sequence = [
     EAT,
     DSM5,
     SES,
-    Finish
+    Finish,
+    KeyCode
     ]

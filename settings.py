@@ -71,6 +71,7 @@ PARTICIPANT_FIELDS = [
     "d_box0_items", "d_box1_items", "d_box2_items", "d_ari", "d_count",
     "img_choice", "showed_imgs", "showed_imgs4log", "stimuli_img_order", "loghtml_list",
     "final_round_num", "final_ip_kappa", "final_c_kappa", "final_ari",
+    "L_score"
     ]
 SESSION_FIELDS = []
 

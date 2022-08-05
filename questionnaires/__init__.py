@@ -1,5 +1,5 @@
 from otree.api import *
-
+import random
 
 doc = """
 from random import choices
@@ -30,6 +30,12 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
+    keycode_list = [
+        "ab074827",
+        "cd586926",
+        "ef275501",
+        "gh754320"]
+
 
 class Subsession(BaseSubsession):
     pass
@@ -41,6 +47,14 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     #SPQ-B
+    L_1 = models.IntegerField(
+        label="この項目では「はい」と回答してください",
+        choices = [
+            [0, "はい"],
+            [1, "いいえ"]
+        ],
+        widget=widgets.RadioSelectHorizontal
+    )
     spq_b_1 = models.IntegerField(
         label="他人は私のことを、少し変わった突飛な人だと思っている",
         choices = [
@@ -129,14 +143,6 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelectHorizontal
     )
-    spq_b_L1 = models.IntegerField(
-        label="寝ているときに夢を見たことがある",
-        choices = [
-            [0, "はい"],
-            [1, "いいえ"]
-        ],
-        widget=widgets.RadioSelectHorizontal
-    )
     spq_b_12 = models.IntegerField(
         label="占星術・未来予知・UFO・ESP(超感覚的知覚)・第六感などを体験したことがある",
         choices = [
@@ -190,14 +196,6 @@ class Player(BasePlayer):
         choices = [
             [1, "はい"],
             [0, "いいえ"]
-        ],
-        widget=widgets.RadioSelectHorizontal
-    )
-    spq_b_L2 = models.IntegerField(
-        label="1日は24時間である",
-        choices = [
-            [0, "はい"],
-            [1, "いいえ"]
         ],
         widget=widgets.RadioSelectHorizontal
     )
@@ -375,17 +373,6 @@ class Player(BasePlayer):
         choices = [0, 1, 2, 3, 4],
         widget=widgets.RadioSelectHorizontal
     )
-    oci_L1 = models.IntegerField(
-        label="1日1回は食事をしている",
-        choices = [
-            [1, "0"],
-            [0, "1"],
-            [0, "2"],
-            [0, "3"],
-            [0, "4"]
-        ],
-        widget=widgets.RadioSelectHorizontal
-    )
     oci_29 = models.IntegerField(
         label="何度も何度もしっくりくるまで、私は物事を繰り返さなければならない",
         choices = [0, 1, 2, 3, 4],
@@ -454,17 +441,6 @@ class Player(BasePlayer):
     oci_42 = models.IntegerField(
         label="私は必要以上なほど頻繁に、もしくは長く手を洗う",
         choices = [0, 1, 2, 3, 4],
-        widget=widgets.RadioSelectHorizontal
-    )
-    oci_L2 = models.IntegerField(
-        label="携帯電話またはスマートフォンを操作することがある",
-        choices = [
-            [1, "0"],
-            [0, "1"],
-            [0, "2"],
-            [0, "3"],
-            [0, "4"]
-        ],
         widget=widgets.RadioSelectHorizontal
     )
     
@@ -622,16 +598,6 @@ class Player(BasePlayer):
             [4, "1"],
             [3, "2"],
             [2, "3"],
-            [1, "4"]
-        ],
-        widget=widgets.RadioSelectHorizontal
-    )
-    stai_s_L = models.IntegerField(
-        label="人生で一度も寝たことがない。",
-        choices = [
-            [0, "1"],
-            [1, "2"],
-            [1, "3"],
             [1, "4"]
         ],
         widget=widgets.RadioSelectHorizontal
@@ -1191,7 +1157,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     aq_27 = models.IntegerField(
-        label="誰かと話しをしているときに、相手の話の‘言外の意味’を理解することは容易である。",
+        label="誰かと話をしているときに、相手の話の‘言外の意味’を理解することは容易である。",
         choices = [
             [0, "1"],
             [0, "2"],
@@ -1470,6 +1436,17 @@ class Player(BasePlayer):
     asrs_8 = models.IntegerField(
         label="時間に余裕があっても、一息ついたり、ゆったりとくつろぐことが困難なことが、どれくらいの頻度でありますか。",
         choices = [0, 1, 2, 3, 4],
+        widget=widgets.RadioSelectHorizontal
+    )
+    L_2 = models.IntegerField(
+        label="この項目では「4」と回答してください。",
+        choices = [
+            [1, "0"],
+            [1, "1"],
+            [1, "2"],
+            [1, "3"],
+            [0, "4"]
+        ],
         widget=widgets.RadioSelectHorizontal
     )
     asrs_9 = models.IntegerField(
@@ -2174,6 +2151,7 @@ def custom_export(players):
         "oci_26", "oci_27", "oci_28", "oci_29", "oci_30",
         "oci_31", "oci_32", "oci_33", "oci_34", "oci_35",
         "oci_36", "oci_37", "oci_38", "oci_39", "oci_40",
+        "oci_41", "oci_42",
         "phq_9_1", "phq_9_2", "phq_9_3", "phq_9_4", "phq_9_5",
         "phq_9_6", "phq_9_7", "phq_9_8", "phq_9_9",
         "stai_s_1", "stai_s_2", "stai_s_3", "stai_s_4", "stai_s_5",
@@ -2212,7 +2190,8 @@ def custom_export(players):
         "dsm5_16", "dsm5_17", "dsm5_18", "dsm5_19", "dsm5_20",
         "dsm5_21", "dsm5_22", "dsm5_23",
         "ses_1", "ses_2", "ses_3", "ses_4", "ses_5",
-        "ses_6"
+        "ses_6",
+        "L_1","L_2"
         ]
     for p in players:
         participant = p.participant
@@ -2273,7 +2252,8 @@ def custom_export(players):
             p.dsm5_16, p.dsm5_17, p.dsm5_18, p.dsm5_19, p.dsm5_20,
             p.dsm5_21, p.dsm5_22, p.dsm5_23,
             p.ses_1, p.ses_2, p.ses_3, p.ses_4, p.ses_5,
-            p.ses_6
+            p.ses_6,
+            p.L_1, p.L_2
             ]
 
 
@@ -2290,19 +2270,13 @@ class Background(Page):
 class SPQ_B(Page):
     form_model = 'player'
     form_fields = [
-        "spq_b_1", "spq_b_2", "spq_b_3", "spq_b_4", "spq_b_5",
+        "L_1", "spq_b_1", "spq_b_2", "spq_b_3", "spq_b_4", "spq_b_5",
         "spq_b_6", "spq_b_7", "spq_b_8", "spq_b_9", "spq_b_10",
-        "spq_b_11", "spq_b_L1", "spq_b_12", "spq_b_13", "spq_b_14", "spq_b_15",
-        "spq_b_16", "spq_b_17", "spq_b_18", "spq_b_L2", "spq_b_19", "spq_b_20",
+        "spq_b_11", "spq_b_12", "spq_b_13", "spq_b_14", "spq_b_15",
+        "spq_b_16", "spq_b_17", "spq_b_18", "spq_b_19", "spq_b_20",
         "spq_b_21", "spq_b_22"
     ]
 
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        player.participant.L_score = 0
-        player.participant.L_score += player.spq_b_L1
-        player.participant.L_score += player.spq_b_L2
-                
 class OCI(Page):
     form_model = 'player'
     form_fields = [
@@ -2311,17 +2285,12 @@ class OCI(Page):
         "oci_11", "oci_12", "oci_13", "oci_14", "oci_15",
         "oci_16", "oci_17", "oci_18", "oci_19", "oci_20",
         "oci_21", "oci_22", "oci_23", "oci_24", "oci_25",
-        "oci_26", "oci_27", "oci_28", "oci_L1", "oci_29", "oci_30",
+        "oci_26", "oci_27", "oci_28", "oci_29", "oci_30",
         "oci_31", "oci_32", "oci_33", "oci_34", "oci_35",
         "oci_36", "oci_37", "oci_38", "oci_39", "oci_40",
-        "oci_41", "oci_42", "oci_L2"
+        "oci_41", "oci_42"
         ]
     
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        player.participant.L_score += player.oci_L1
-        player.participant.L_score += player.oci_L2
-
 class PHQ_9(Page):
     form_model = 'player'
     form_fields = [
@@ -2334,14 +2303,10 @@ class STAI_S(Page):
     form_fields = [
         "stai_s_1", "stai_s_2", "stai_s_3", "stai_s_4", "stai_s_5",
         "stai_s_6", "stai_s_7", "stai_s_8", "stai_s_9", "stai_s_10",
-        "stai_s_11", "stai_s_L", "stai_s_12", "stai_s_13", "stai_s_14", "stai_s_15",
+        "stai_s_11", "stai_s_12", "stai_s_13", "stai_s_14", "stai_s_15",
         "stai_s_16", "stai_s_17", "stai_s_18", "stai_s_19", "stai_s_20"
         ]
     
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        player.participant.L_score += player.stai_s_L
-
 class STAI_T(Page):
     form_model = 'player'
     form_fields = [
@@ -2370,7 +2335,7 @@ class ASRS(Page):
     form_model = 'player'
     form_fields = [
         "asrs_1", "asrs_2", "asrs_3", "asrs_4", "asrs_5",
-        "asrs_6", "asrs_7", "asrs_8", "asrs_9", "asrs_10",
+        "asrs_6", "asrs_7", "asrs_8", "L_2", "asrs_9", "asrs_10",
         "asrs_11", "asrs_12", "asrs_13", "asrs_14", "asrs_15",
         "asrs_16", "asrs_17", "asrs_18"
         ]
@@ -2411,10 +2376,15 @@ class SES(Page):
         ]
 
 class Finish(Page):
-    pass
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        key_num = random.randint(0, 3)
+        player.participant.keycode = Constants.keycode_list[key_num]
 
 class KeyCode(Page):
-    pass
+    @staticmethod
+    def vars_for_template(player: Player):
+        return {"keycode" : player.participant.keycode}
 
 
 page_sequence = [

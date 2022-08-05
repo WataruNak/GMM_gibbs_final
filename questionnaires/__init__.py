@@ -1535,7 +1535,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     audit_4 = models.IntegerField(
-        label="飲み始めると止まらなくなったことがどのぐらいの頻度でありましたか?",
+        label="飲み始めると止まらなくなったことがどのくらいの頻度でありましたか?",
         choices = [
             [0, "ない"],
             [1, "1ヶ月に1度未満"],
@@ -1670,7 +1670,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     eat_6 = models.IntegerField(
-        label="自分が食ぺる食物のカロリー量を知っている",
+        label="自分が食べる食物のカロリー量を知っている",
         choices = [
             [0, "1"],
             [0, "2"],
@@ -1898,7 +1898,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     eat_25 = models.IntegerField(
-        label="食ぺたことのないカロリーが高い食物を食べてみることは楽しみだ",
+        label="食べたことのないカロリーが高い食物を食べてみることは楽しみだ",
         choices = [
             [0, "1"],
             [0, "2"],

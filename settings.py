@@ -30,7 +30,7 @@ SESSION_CONFIGS = [
             'cat_final_result',
             'questionnaires'
             ],
-        num_demo_participants=120,
+        num_demo_participants=110,
     ),
     dict(
         name='categorize_and_brief_questionnaire',

@@ -139,15 +139,26 @@ def custom_export(players):
     for p in players:
         participant = p.participant
         session = p.session
-        yield [
-            session.code, participant.code, participant.time_started_utc, p.c_ari, participant.m_count,
-            p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
-            p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
-            p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
-            p.img15_cat, p.img16_cat, p.img17_cat, p.img18_cat, p.img19_cat,
-            p.img20_cat, p.img21_cat, p.img22_cat, p.img23_cat, p.img24_cat,
-            p.img25_cat, p.img26_cat, p.img27_cat, p.img28_cat, p.img29_cat,
-            ]
+        if "m_count" in p.participant.vars:
+            yield [
+                session.code, participant.code, participant.time_started_utc, p.c_ari, participant.m_count,
+                p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
+                p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
+                p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
+                p.img15_cat, p.img16_cat, p.img17_cat, p.img18_cat, p.img19_cat,
+                p.img20_cat, p.img21_cat, p.img22_cat, p.img23_cat, p.img24_cat,
+                p.img25_cat, p.img26_cat, p.img27_cat, p.img28_cat, p.img29_cat,
+                ]
+        else:
+            yield [
+                session.code, participant.code, participant.time_started_utc, p.c_ari, 0,
+                p.img0_cat, p.img1_cat, p.img2_cat, p.img3_cat, p.img4_cat,
+                p.img5_cat, p.img6_cat, p.img7_cat, p.img8_cat, p.img9_cat,
+                p.img10_cat, p.img11_cat, p.img12_cat, p.img13_cat, p.img14_cat,
+                p.img15_cat, p.img16_cat, p.img17_cat, p.img18_cat, p.img19_cat,
+                p.img20_cat, p.img21_cat, p.img22_cat, p.img23_cat, p.img24_cat,
+                p.img25_cat, p.img26_cat, p.img27_cat, p.img28_cat, p.img29_cat,
+                ]
 
 # PAGES
 class Introduction(Page):

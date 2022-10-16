@@ -22,6 +22,12 @@ EAT-26
 DSM-5 level1
 SES
 background
+
+keycode 1st:
+"ab074827",
+"cd586926",
+"ef275501",
+"gh754320"
 """
 
 
@@ -31,10 +37,10 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     keycode_list = [
-        "ab074827",
-        "cd586926",
-        "ef275501",
-        "gh754320"]
+        "dgq7650fg",
+        "dmx6922je",
+        "wwl3107dq",
+        "pso5025cc"]
 
 
 class Subsession(BaseSubsession):
